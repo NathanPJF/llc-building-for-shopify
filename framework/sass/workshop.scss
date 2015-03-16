@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+
+/* Styles specific to this workshop
+------------------------------------*/
+
+.intro {
+  .instructor-img{
+    height: auto;
+  }
+}
