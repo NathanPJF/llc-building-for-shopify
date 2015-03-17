@@ -532,6 +532,8 @@ What could go wrong?/*
                     <div class="delayed">
                         <p>Product title</p>
                         <p>Description</p>
+                        <p>Pricing information</p>
+                        <p>Variant options</p>
                         <p>Add to Cart button</p>
                         <p>Related products</p>
                     </div>
@@ -614,185 +616,118 @@ Sir Bob PJF
             </p>
         </section>
 
-        <section class="slide title">
-            <h1>Title Slide Example</h1>
-        </section>
-
-        <section class="slide title">
-            <h1>Title Slide Example</h1>
-            <h2>Sub-heading example</h2>
-        </section>
-
-        <section class="slide" data-markdown>
-            ##Title slides
-
-            For the previous two examples of Title slides, add a `title` class to `&lt;section&gt;` and use an `h1` tag for the main heading and `h2` for a subheading.
-
-            ```xml
-            &lt;section class=&quot;slide title&quot;&gt;
-                &lt;h1&gt;Title Slide Example&lt;/h1&gt;
-                &lt;h2&gt;Sub-heading example&lt;/h2&gt;
-            &lt;/section&gt;
-            ```
-        </section>
-
         <section class="slide">
-            <h2>Syntax Highlighting</h2>
-            <p>Code highlighting is provided by <a href="http://highlightjs.org">highlight.js</a> and will be applied to any code wrapped in <code>&lt;pre>&lt;code>&lt;/code>&lt;/pre></code>. The syntax highlighting theme files can be found in <strong>framework > css > highlightjs-themes</strong>. If you wish to change it, update the css link in the <code>&lt;head&gt;</code>. Visit <a href="http://highlightjs.org">highlight.js</a> to see the full list of supported languages, themes and other usage information.</p>
+            <h2>Exercise #4: Intro to liquid filters</h2>
 
-            <p>The default theme for this slide presentation uses a light background because some workshop settings don't allow for the dimming of classroom lights or the projector does not show syntax highlighting on dark backgrounds very well.</p>
+            <p>You now want the product's type to also be a link to a page with <b>all</b> products of that type.</p>
 
-            <p>For HTML, the left angled bracket, <code>&lt;</code>, needs to be escaped to show. Sometimes, for HTML snippets, the plugin may not register it properly as HTML.  If that is the case, add an <code>xml</code> class to the <code>&lt;pre&gt;</code> tag.</p>
-            <p>Here's a tool to help with the conversion: <a href="http://www.htmlescape.net/htmlescape_tool.html">http://www.htmlescape.net/htmlescape_tool.html</a></p>
+            <p class="delayed">This is totally possible.  You just need the right type of filter on the string.</p>
 
-            <h3>HTML</h3>
-            <pre><code>&lt;!DOCTYPE html>
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-    &lt;/body&gt;
-&lt;/html></code></pre>
-
-            <h3>JavaScript</h3>
-<pre><code>var greeting = "Hello!";
-
-function sayHello() {
-    console.log(greeting);
-}
-
-sayHello();
-</code></pre>
-
-            <h3>CSS</h3>
-<pre><code>body {
-    margin: 0;
-    padding: 0;
-}</code></pre>
-        </section>
-
-            <section class="slide" data-markdown>
-##Markdown example
-
-Write in Markdown! Include the `data-markdown` attribute in the section tag. See the [documentation for markdown syntax](http://daringfireball.net/projects/markdown/).
-
-**If you need to use any HTML tags in the slide or add a class/id to an element, the entire slide has to be written in HTML and the markdown syntax will no longer work.**
-
-Code blocks can be denoted either by three backticks (```) or by tabbing the content in one tab indent/4 spaces. However, using backticks is better for this slide presentation so you can specify a language for syntax highlighting.
-
-You can specify the language of the code block by following the three backticks immediately by the language name.  View the source to see this in action.
-
-#### Javascript Example
-
-```javascript
-var myJSVariable = "Syntax Highlighting for JavaScript";
-```
-
-#### CSS Example
-
-```css
-.css-selector {
-    property: value;
-}
-```
-
-#### HTML Example
-For HTML, set `xml` as the language to get nicer syntax highlighting.  Also, just like the `&lt;code&gt;` in the previous example, the left angled bracket of the HTML tag needs to be escaped. View source to see example.
-
-```xml
-&lt;header>
-    &lt;h1>I'm an H1!&lt;/h1>
-    &lt;p>This is a paragraph&lt;/p>
-&lt;/header>
-
-```
-#### indented example
-
-    code block that has to guess at the language and likely gets it wrong.
-        </section>
-
-        <section class="slide" data-markdown>
-            ##Some useful tools
-
-            Here are some tools that may come in handy for creating content and adding code snippets.
-
-            Replace special characters with HTML Entities
-            http://www.htmlescape.net/htmlescape_tool.html
-
-            Converts markdown to HTML
-            https://stackedit.io/editor
-
-            Converts HTML to markdown
-            http://domchristie.github.io/to-markdown/
-
-            LICEcap - simple animated screen captures
-            http://www.cockos.com/licecap/
-        </section>
-        <section class="slide">
-            <h2>Incremental display of content</h2>
-            <p>Use the arrow keys to reveal each line.  To use, just add a <code>class="delayed"</code>.</p>
-
-            <ul>
-                <li class="delayed">Make sure your computer is setup</li>
-                <li class="delayed">Web development breakdown</li>
-                <li class="delayed">Dive into HTML</li>
-                <li class="delayed">CSS fundamentals</li>
-            </ul>
-        </section>
-
-        <section class="slide centered" data-markdown>
-          ##Centered content
-
-          Add a class of `centered` to `&lt;section>`.
-
-          ![](http://cl.ly/image/14193Y1x1f2c/mic-drop.gif)
-        </section>
-
-        <section class="slide side-by-side" data-markdown>
-			##Two images
-
-Add a class of `side-by-side` to `&lt;section>` to align two images.
-
-![](http://cl.ly/image/3c2y1v2A2o1q/Image%202015-01-29%20at%2011.55.36%20PM.png)
-![](http://cl.ly/image/3Z3U023P361J/Image%202015-01-30%20at%2012.37.27%20AM.png)
-        </section>
-
-        <section class="slide">
-            <h2>CSS demos</h2>
-            <p>You can include in-slide CSS demos. In this example, The whole slide will get the CSS applied to it. Go ahead, add/change/remove some CSS!</p>
-
-            <textarea class="snippet">background-color: lightblue;
-font-family: "Times New Roman", serif;</textarea>
-
-            <p>Just add the CSS to a <code>textarea</code> with a class of <code>.snippet</code>. (View the source for this slide.)</p>
-        </section>
-
-        <section class="slide">
-            <h2>More CSS demos</h2>
-            <p>You can also target specific elements rather than the whole slide.</p>
-            <textarea class="snippet" data-subject="#test">color: slateblue;
-font-family: "Times New Roman", serif;
-padding: 20px;</textarea>
-            <div id="test" class="example">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam nesciunt sint beatae dolor dolorum aliquid quis explicabo vitae numquam, quas illo dolore molestiae ratione, perferendis, deleniti nemo ea voluptatibus! Quibusdam.</p>
+            <div class="delayed">
+            <h3>Liquid</h3>
+                <pre><code class="hljs xml">
+{{ product.type | upcase | link_to_type }}
+                </code></pre>
             </div>
 
-            <p>Just like the previous example, the CSS is added in a <code>textarea</code> element but also include a <code>data-subject</code> attribute.</p>
+            <div class="delayed">
+            <h3>HTML</h3>
+                <pre><code class="hljs xml">
+&lt;a href=&quot;/collections/types?q=JEWELRY&quot; title=&quot;JEWELRY&quot;&gt;JEWELRY&lt;/a&gt;
+                </code></pre>
+            </div>
 
-            <p>In the element to be targeted, add an <code>id</code> with a value that matches the <code>data-subject</code> of the  <code>textarea</code> and add a class of <code>.example</code> to add the border style. (View the source for this slide.)</p>
+            <p class="presenter-notes">
+                Take a look at your store's other products; you'll see that they all have the same
+                links.
+            </p>
+
+        </section>
+
+        <section class="slide centered">
+            <img src="framework/img/workshop/magic.gif">
         </section>
 
         <section class="slide">
-            <h2>Presentation mode</h2>
+            <div class="col col--one-half">
+              <img class="contain--img" src="framework/img/workshop/collection-page.png">
+            </div>
 
-            <p>This slide has presenter notes. They are only visible in presenter view (Ctrl+P or Shift+P).  Just add the <code>.presenter-notes</code> class to the element container the notes.
+            <div class="col col--one-half">
+                <h2>Collections</h2>
+                <div class="delayed">
+                    <p><b>collection.liquid</b></p>
+                    <p>Base template for all your collection pages.</p>
+                    <p class="delayed"><b>What could be in it?</b></p>
+                    <div class="delayed">
+                        <p>Collection title</p>
+                        <p>Collection description</p>
+                        <p>Product photos</p>
+                        <p>Product prices and other information</p>
+                        <p>Related collections</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <p>Check out the notes in this slide!</p>
+        <section class="slide">
+            <div class="col col--one-half">
+                <h2>Exercise #5: Collection page hero images</h2>
+                <p>By looking up what liquid objects are <a href="https://docs.shopify.com/themes/liquid-documentation/objects/collection">available to us for collections</a>, show a hero image at the top of our collection pages.</p>
+            </div>
+            <div class="col col--one-half delayed">
+                <img src="framework/img/workshop/hero-collection.png" class="contain--img">
+            </div>
+        </section>
 
-            <p class="presenter-notes">
-                Notes! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt soluta sit maiores nihil doloribus tempore dolor debitis a repudiandae recusandae natus officia, ad asperiores quaerat facilis nobis illo alias? Quaerat.
-            </p>
+        <section class="slide">
+            <p>After <code>&lt;div id=&quot;collection&quot;&gt;</code> in the <b>collection.liquid</b>:</p>
+            <div class="delayed">
+                <h3>collection.liquid</h3>
+                <pre><code class="hljs xml">
+&lt;div class=&quot;row&quot;&gt;<br/>  &lt;div class=&quot;span12 collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot; &gt;<br/>    &lt;h1 class=&quot;collection-title&quot;&gt;{{ collection.title }}&lt;/h1&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
+                </code></pre>
+            </div>
+            <div class="delayed">
+                <p>What is <code>img_url: '1024x1024'</code>?  Check out <a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters#product_img_url">Shopify's preset image size parameters.</a></p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <p>At the bottom of <b>styles.scss.liquid</b> write:</p>
+            <div class="delayed">
+                <h3>styles.scss.liquid</h3>
+                <pre><code class="hljs css">
+.collection-hero{
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+
+  h1{
+    padding: 2em 0;
+    float: none !important;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 56px;
+    font-weight: 600;
+  }
+}
+                </code></pre>
+            </div>
+        </section>
+
+        <section class="slide centered">
+            <img class="w100" src="framework/img/workshop/great-success.gif">
+        </section>
+
+        <section class="slide title">
+            <h1>Break time</h1>
+            <h2 class="delayed">p.s. Something's wrong with our collection template</h2>
+        </section>
+
+        <section class="slide title">
+            <h1>Control Flow Tags</h1>
+            <h2>a.k.a. if-statements</h2>
         </section>
 
         <!-- Last slide -->

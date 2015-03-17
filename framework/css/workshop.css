@@ -1,9 +1,9 @@
 /* Styles specific to this workshop
 ------------------------------------*/
-.intro .instructor-img {
+.intro .instructor-img, .last .instructor-img {
   height: auto;
 }
-.intro li {
+.intro li, .last li {
   margin-bottom: 0;
 }
 
