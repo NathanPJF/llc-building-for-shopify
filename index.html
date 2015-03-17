@@ -730,6 +730,108 @@ Sir Bob PJF
             <h2>a.k.a. if-statements</h2>
         </section>
 
+        <section class="slide" data-markdown>
+            ##To do: exercise showing how to make an if-statement for the hero image on collections
+
+            * if-statement to check the prsensence of <code>{{ collection.image.src }}</code> in hero image space
+            * Explain [operators](https://docs.shopify.com/themes/liquid-documentation/basics/operators)) available in Shopify
+            * unless-statement to show the title in the "regular" spot, don't even need an operator someimes
+
+            ```
+            {% if collection.image.src != blank %}
+                Show hero image
+            {% endif %}
+            ```
+
+            ```
+            {% unless collection.image.src %}
+                Show hero image
+            {% endunless %}
+            ```
+
+        </section>
+
+        <section class="slide" data-markdown>
+            ##To do: exercise to show a discount code on Product page if the collection is "house-wares"
+
+            * Need to first make teh discount code and have it apply only to house-wares product
+            * Use the [contains operator](https://docs.shopify.com/themes/liquid-documentation/basics/operators) to see if the product is part of the house-wares collection, since products can be part of multiple collections.
+            * Provide class the CSS.
+            * Segue to alternate product templates
+
+            ```
+            {% if product.collections contains 'house-wares' %}
+                Show disount code.
+            {% endif %}
+            ```
+
+        </section>
+
+        <section class="slide title">
+            <h1>Alternate Templates</h1>
+        </section>
+
+        <section class="slide">
+            <div class="col col--one-half">
+                <img src="framework/img/workshop/product-page.png">
+            </div>
+            <div class="col col--one-half delayed">
+                <img src="framework/img/workshop/alternate-product-page.png">
+            </div>
+
+            <p class="presenter-notes">
+                Both of these are products templates, but alternate versions available to the
+                store owner. In theory, any product can be switched to any template you make.
+            </p>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##To do: exercise to make a product template with no cart in it
+
+            * Duplicate the template and rename it
+            * Just delete the cart form from the code
+            * Switch the template a product is using
+
+        </section>
+
+        <section class="slide" data-markdown>
+            ##To do: exercise to make a product template with product tabs
+
+            * There's [a cool tutorial online](https://docs.shopify.com/support/your-store/products/how-do-i-add-tabs-to-product-descriptions) on how to add product tabs to a page.
+            * BUT, no where does it say to make an alternate template, so merchants get in
+            scenarios where they don't want tabs on every product.
+            * Do exercise with only mentors help at first - being able to follow online tutorials is a skill.
+
+        </section>
+
+        <section class="slide title">
+            <h1>Snippets</h1>
+            <h2 class="delayed">Make your code smarter<span class="delayed">, cleaner</span><span class="delayed">, more efficient </span><span class="delayed">and lazy</span></h2>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##To do: exercise to add a call to action on the collection page
+
+            * In the `product-loop` Snippet, and an if-statement
+            * A call to action will display if the product's tags include 'rare'
+            * Give class CSS
+            * Now delete it.  Make it it's own Snippet so we can call it in THAT
+            Snippet and on a product page.
+
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Shopify Resources
+
+            * [Shopify Liquid documentation](https://docs.shopify.com/themes/liquid-documentation/basics)
+            * [Shopify forums](https://ecommerce.shopify.com/forums)
+            * [Mark Dunkley's Cheat Sheet](http://cheat.markdunkley.com/)
+
+            ##Other helpful resources
+
+            * [Sassmeister](http://sassmeister.com/)
+        </section>
+
         <!-- Last slide -->
         <section class="slide last">
             <h2>Thank you!</h2>
