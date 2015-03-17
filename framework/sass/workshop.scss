@@ -4,8 +4,63 @@
 /* Styles specific to this workshop
 ------------------------------------*/
 
+//Fix
 .intro {
   .instructor-img{
     height: auto;
   }
+  li{
+    margin-bottom: 0;
+  }
+}
+
+li{
+  margin-bottom: 1em;
+}
+/* Grid system */
+
+.col{
+  float: left;
+  padding: 0 30px;
+  height: 100%;
+}
+.col--one-half{
+  width: 50%;
+}
+
+// Helper classes
+.contain--img{
+  max-height: 100%;
+  width: auto !important;
+}
+
+.center{
+  margin: 0 auto;
+  display: block;
+}
+
+.w100{
+  width: 100% !important;
+}
+
+.bg--white{
+  background: white;
+}
+
+%bg-img{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+}
+
+
+// Slides
+.local-shops{
+  background-image: url('../img/workshop/local-shops.png');
+  @extend %bg-img;
+}
+
+.big-brands{
+  background-image: url('../img/workshop/big-brands.png');
+  @extend %bg-img;
 }

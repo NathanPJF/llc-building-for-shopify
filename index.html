@@ -67,21 +67,551 @@
             </div>
         </section>
 
-        <section class="slide" data-markdown>
-            ##Customizing slides
-            For slide #1, if you do not know the wi-fi info in advance, just delete/comment out the `&lt;header&gt;` slide.
+        <section class="slide centered">
+            <img src="framework/img/workshop/shopify-logo.png">
+            <br>
+            <h2 class="delayed">Ecommerce solution</h2>
+            <br>
+            <h2 class="delayed">Used by over 150,000 merchants worldwide</h2>
+            <br>
+            <h2 class="delayed">Canadian :)</h2>
 
-            Put all workshop specific images in **framework/img/workshop**.
+            <p class="presenter-notes">
+                There are a lot of parts to a website, but you only need to work in small chunks
+                at a time.  Knowing how templates work makes it more manageable, and saves you
+                a lot of work.
+            </p>
+        </section>
 
-            All CSS for this template is written in Sass.  Avoid editing the core files (theme-llc.scss, _mixins.scss, _variable.scss).  Put all personal customizations in **framework/sass/workshop.scss**.  If you'd like to add an improvement or enhancement, please submit a pull request, open an issue or email [christina@ladieslearningcode.com](mailto:christina@ladieslearningcode.com).
+        <section class="slide local-shops">
+            <p class="presenter-notes">Who uses Shopify? Some think of it as a platform for
+                small businesses selling hand crafted goods.  Like these two Ottawa stores.</p>
+        </section>
 
-            To change the background image in slide #1 and slide #2, there are several images to choose from in **framework/img**. See **theme-llc.scss**, line 269 for more info.
+        <section class="slide big-brands">
+            <p class="presenter-notes">It's also used by incredibly well-known and popular brands,
+                some of which generate millions of dollars in revenue just from their store.</p>
+        </section>
 
-            The progress bar at the top of the page can be defined by adding the presentation duration, in minutes, in the `data-duration` attribute on the `body` tag.  If you do not want to use it at all, leave the value empty.
+        <section class="slide title">
+            <h1>Today's Goal:</h1>
+            <h2>Use Liquid to modify and create Shopify templates</h2>
 
-            Since most of the links included in the workshops are to external resources, all links open in a new window by default to allow learners to always have access to the slides.  Note that this feature is included using `&lt;base target="_blank"&gt;` added just after the opening `body` tag. (See more about the [`base`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base) tag.)
+             <p class="presenter-notes">
+                Liquid is a Ruby-based coding language that was created by Shopify.
+                It is predominately a "templating language" - it's going to make
+                developing themes a lot easier.
+            </p>
+        </section>
 
-            View the rest of the presentation for examples of styles included in the theme.  Many styles can be accomplished by adding a specific classes.
+        <section class="slide">
+            <div class="col col--one-half">
+                <h2>Agenda</h2>
+                <ul>
+                    <li>Personalize a theme using the Storefront Editor</li>
+                    <li>Overview of templating</li>
+                    <li>...</li>
+                    <li>Finalized</li>
+                    <li>Agenda</li>
+                    <li>Items</li>
+                </ul>
+            </div>
+
+            <div class="col col--one-half delayed">
+                <img src="framework/img/workshop/sample-page-4.png" class="contain--img">
+            </div>
+
+             <p class="presenter-notes">
+
+            </p>
+        </section>
+
+        <section class="slide centered">
+            <img src="framework/img/workshop/im-ready.gif" class="w100">
+        </section>
+
+         <section class="slide title">
+            <h1>Upload products</h1>
+            <h2>CSV file - not an excel file</h2>
+
+            <p class="presenter-notes">
+                Comma Separated Values file. First gotcha: it needs to be a CSV file,
+                even though and Excel file looks similar.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2><i>To do: slide about uploading CSV file</i></h2>
+
+            <p class="presenter-notes">
+                Don't want to talk about abstract stuff, so let's get a theme to work on.
+            </p>
+        </section>
+
+        <section class="slide title">
+            <h1>Grab your theme</h1>
+            <h2>Minimal</h2>
+
+            <p class="presenter-notes">
+                Starting with Minimal because it has little setup.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2><i>To do: slide about downloading themes</i></h2>
+
+            <p class="presenter-notes">
+                Don't want to talk about abstract stuff, so let's get a theme to work on.
+                Give class time to take a look around the Minimal theme.
+            </p>
+        </section>
+
+        <section class="slide title centered">
+            <img src="framework/img/workshop/how-to-edit-theme.png" class="contain--img">
+
+            <p class="presenter-notes">
+                Customize Theme: out of the box settings, Edit HTML CSS: your own customizations.
+            </p>
+        </section>
+
+        <section class="slide title">
+            <h2>Always check if there's a setting first</h2>
+            <br>
+            <h2 class="delayed">Pro tip</h2>
+
+            <p class="presenter-notes">
+                Don't want to stress yourself trying to code something that's already been solved.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #1: Personalize your theme</h2>
+
+            <ul>
+                <li>Choose a brand color</li>
+                <li>Change some typography elements</li>
+                <li>Switch the position of the product thumbnails</li>
+                <li>Set up your social media links</li>
+                <li>Decrease the number of products per collection page</li>
+                <li><b>Must do:</b> On the Homepage, turn off the slideshow and the 3 images below the slideshow</li>
+                <li><i>Next:</i> Choose a new frontpage collection.</li>
+                <li><i>Then:</i> Change some text on the screen using the language editor.</li>
+            </ul>
+
+            <p class="presenter-notes">
+                Give class time to experiment with edits.  Be sure that they are using the Storefront Editor and not the old school theme settings page.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2><i>To do: slide about creating new collections</i></h2>
+
+            <p class="presenter-notes">
+                Different ways to automatically create a collection.
+                Once you have a couple collections set up, go and change the Frontpage collection.
+            </p>
+        </section>
+
+        <section class="slide">
+            <img src="framework/img/workshop/edit-language-1.png" class="center">
+            <hr>
+            <hr>
+            <img src="framework/img/workshop/edit-language-2.png" class="center">
+
+            <p class="presenter-notes">
+                Most of the time, text you see on pages that aren't part of a page or product description
+                you wrote yourself will be translateable/changeable from the language edit screen.
+                Unless it's "hard coded" which is not what we want.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>What is "hard coding"?</h2>
+            <p>When text is explictly written in the HTML, we say that it is <b>hard coded</b>.  This means
+                it can only be changed if someone has access to the site's files.</p>
+
+            <div class="delayed">
+                <h3>HTML</h3>
+                <pre><code class="hljs xml">
+&lt;h1&gt;Fuzzy boots&lt;/h1&gt;
+&lt;h3&gt;$139.99&lt;/h3&gt;
+&lt;p&gt;These boots will keep you warm all winter. Their truly amazing!&lt;/p&gt;
+                </code></pre>
+            </div>
+            <div class="delayed">
+                <img src="framework/img/workshop/face-palm.gif" class="center" height="275" width="500">
+            </div>
+            <p class="presenter-notes">
+                Consequences of hard coding: Difficuly to change if you don't know where it is;
+                not everyone will know how to change it; sometimes you can't access it.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>How does Liquid help?</h2>
+            <p>Instead of writing out explicity what we want, we just reference an <b>object</b>.</p>
+
+            <div class="delayed">
+                <h3>Liquid</h3>
+                <pre><code class="hljs xml">
+&lt;h1&gt;{{ product.title }}&lt;/h1&gt;<br/>
+&lt;p&gt;{{ product.description }}&lt;/p&gt;
+                </code></pre>
+            </div>
+
+            <div class="delayed">
+                <h3>HTML returned</h3>
+                <pre><code class="hljs xml">
+&lt;h1&gt;Rooster Decor Wood Cheese Board&lt;/h1&gt;<br/>
+&lt;p&gt;This is such a lovely wood grain rooster cheese board.
+Great country / rustic decor for the rooster collector.&lt;/p&gt;
+                </code></pre>
+            </div>
+
+            <p class="presenter-notes">
+                If you want to change something, you just have to login into Shopify and
+                change the page.  No need to go into the theme files.
+            </p>
+
+        </section>
+
+        <section class="slide title">
+            <h2>Code for when you aren't around</h2>
+            <br>
+            <h2 class="delayed">Or for future you.</h2>
+
+            <p class="presenter-notes">
+                Write code for people who aren't comfortable with making edits.
+                Or for the future version of you that can't recall what you were thinking.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #2: Break something on purpose</h2>
+
+            <ul>
+                <li>Go into your theme files - "Edit HMTL/CSS".</li>
+                <li>Find <b>theme.liquid</b> in the Layout directory and open it.</li>
+                <li>Delete everything above {{ content_for_header }}.</li>
+                <li>Save your work and preview it.</li>
+            </ul>
+
+            <img src="framework/img/workshop/break-1.png" class="center delayed">
+
+            <p class="presenter-notes">
+                Explain directories briefly.
+                Undo this break by clicking on 'Older versions' and choose the last save.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #2: Break it again</h2>
+
+            <ul>
+                <li>Go into your Assets directory and open <b>styles.scss.liquid</b>.</li>
+                <li>Type "What could go wrong?" anywhere.</li>
+                <li>Save and preview your work :D</li>
+            </ul>
+
+             <div class="delayed">
+                <h3>SCSS</h3>
+                <pre><code class="hljs css">
+What could go wrong?/*
+/*    SECTION 1
+/*    1.1 - Base Styles
+/*    1.2 - HTML5 Elements
+                </code></pre>
+            </div>
+
+            <p class="delayed">Heads up! No 'Older Versions' in the Assets directory.</p>
+
+
+            <p class="presenter-notes">
+                No 'Older Versions', so either undo or delete what you wrote.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #2: Okay, enough breaking things</h2>
+
+            <ul>
+                <li>Make a <b>Duplicate</b> of your theme from the Themes Dashboard</li>
+                <li>Check out the settings.</li>
+            </ul>
+
+            <img src="framework/img/workshop/how-to-duplicate.png" class="center delayed">
+
+            <p class="delayed">Duplicates are an exact copy, so when in doubt try it on a copy first.</p>
+
+            <span class="delayed">Stop worrying if something will break</span><span class="delayed">... it comes with the terriorty.</span>
+
+            <p class="presenter-notes">
+                The ability to make duplicates and easily switch between them is a huge advantage with Shopify.  Mistakes are less costly than with some other content management systems.
+            </p>
+        </section>
+
+        <section class="slide title">
+            <h1>Break Time</h1>
+            <h2>Why not write your About Page?</h2>
+
+            <p class="presenter-notes">
+                Show group how to open their About Us page.  Suggest they fill something out about
+                their store.
+            </p>
+        </section>
+
+        <section class="slide title">
+            <h1>Templating</h1>
+            <h2 class="delayed">Building websites in small steps</h2>
+
+            <p class="presenter-notes">
+                There are a lot of parts to a website, but you only need to work in small chunks
+                at a time.  Knowing how templates work makes it more manageable, and saves you
+                a lot of work.
+            </p>
+        </section>
+
+        <section class="slide centered">
+            <img class="contain--img" src="framework/img/workshop/sample-page.png">
+        </section>
+
+        <section class="slide">
+            <div class="col col--one-half">
+              <img class="contain--img" src="framework/img/workshop/sample-page.png">
+            </div>
+
+            <div class="col col--one-half">
+                <h2 class="delayed">What's in a page?</h2>
+                    <p class="delayed">Header</p>
+                    <p class="delayed">Page title</p>
+                    <p class="delayed">Description</p>
+                    <p class="delayed">Product photo</p>
+                    <p class="delayed">Product description</p>
+                    <p class="delayed">Buttons!</p>
+                    <p class="delayed">Related products</p>
+                    <p class="delayed">Footer</p>
+            </div>
+        </section>
+
+        <section class="slide title">
+            <h1>Template files</h1>
+        </section>
+
+        <section class="slide">
+            <div class="col col--one-half">
+                <img src="framework/img/workshop/theme-templates.png" class="center">
+            </div>
+
+            <div class="col col--one-half delayed">
+                <h3>What we'll start looking at:</h3>
+                <ul>
+                    <li>theme.liquid</li>
+                    <li>page.liquid</li>
+                    <li>product.liquid</li>
+                    <li>collection.liquid</li>
+                    <li>cart.liquid</li>
+                    <li>customers/*.liquid</li>
+                </ul>
+            </div>
+
+            <p class="presenter-notes">
+                Shopify websites only need a handful of templates.
+            </p>
+        </section>
+
+        <section class="slide">
+            <div class="col col--one-half">
+              <img class="contain--img" src="framework/img/workshop/sample-page-1.png">
+            </div>
+
+            <div class="col col--one-half">
+                <h2>Theme</h2>
+                <div class="delayed">
+                    <p><b>theme.liquid</b></p>
+                    <p>This template is going to "wrap" every other template we use.</p>
+                    <p>Your header and footer appear on every page.</p>
+                    <p class="delayed"><b>What's in it?</b></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="col col--one-half">
+              <img class="contain--img" src="framework/img/workshop/template-page--header.png">
+            </div>
+
+            <div class="col col--one-half">
+                <h2>The header</h2>
+                <div class="delayed">
+                    <p>Your logo</p>
+                    <p>Site navigation links</p>
+                    <p>Cart button</p>
+                    <p>Account buttons</p>
+                    <p>Promotional banners</p>
+                    <p>Search field</p>
+                </div>
+            </div>
+
+            <p class="presenter-notes">
+                This may be a review for some, but it's worth revisiting.
+            </p>
+        </section>
+
+         <section class="slide">
+            <div class="col col--one-half">
+              <img class="contain--img" src="framework/img/workshop/template-page--footer.png">
+            </div>
+
+            <div class="col col--one-half">
+                <h2>The footer</h2>
+                <div class="delayed">
+                    <p>Lists of quick links</p>
+                    <p>Social media icons/links</p>
+                    <p>Newsletter sign-up</p>
+                    <p>Search field</p>
+                    <p>Copyright information</p>
+                </div>
+            </div>
+
+            <p class="presenter-notes">
+                This may be a review for some, but it's worth revisiting.
+            </p>
+        </section>
+
+        <section class="slide">
+            <div class="col col--one-half">
+              <img class="contain--img" src="framework/img/workshop/page-page.png">
+            </div>
+
+            <div class="col col--one-half">
+                <h2>Pages</h2>
+                <div class="delayed">
+                    <p><b>page.liquid</b></p>
+                    <p>Base template for all your store's Pages.</p>
+                    <p class="delayed"><b>What could be in it?</b></p>
+                    <div class="delayed">
+                        <p>Page title</p>
+                        <p>Page content - write-up, pictures</p>
+                        <p>Sidebar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #3: Intro to liquid objects</h2>
+            <h3>page.liquid</h3>
+            <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/page">liquid objects are available for pages</a> to do this.</p>
+            <ul>
+                <li class="delayed">Change the heading for the page <b>title</b> from an &lt;h1&gt; to an &lt;h2&gt;.</li>
+                <li class="delayed">Add the page's <b>author</b> to after the page content.</li>
+            </ul>
+
+            <div class="delayed">
+                <pre><code class="hljs xml">
+&lt;div id=&quot;page&quot; class=&quot;row&quot;&gt;<br/>  &lt;div class=&quot;span12 details&quot;&gt;<br/>    &lt;h2 class=&quot;p25&quot;&gt;{{ page.title }}&lt;/h2&gt;<br/>    {{ page.content }}<br/>    &lt;p&gt;{{ page.author }}&lt;/p&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
+                </code></pre>
+            </div>
+
+            <p class="presenter-notes">
+                Remind class it's about incremental steps - don't try to do them all at once.
+            </p>
+        </section>
+
+        <section class="slide">
+            <div class="col col--one-half">
+              <img class="contain--img" src="framework/img/workshop/product-page.png">
+            </div>
+
+            <div class="col col--one-half">
+                <h2>Products</h2>
+                <div class="delayed">
+                    <p><b>product.liquid</b></p>
+                    <p>Base template for all your individual products.</p>
+                    <p class="delayed"><b>What's in it?</b></p>
+                    <div class="delayed">
+                        <p>Product title</p>
+                        <p>Description</p>
+                        <p>Add to Cart button</p>
+                        <p>Related products</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #3: Intro to liquid objects</h2>
+            <h3>product.liquid</h3>
+            <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">liquid objects are available for products</a> to do this.</p>
+            <ul>
+                <li class="delayed">After the title, list what the product's vendor in an &lt;h2&gt; is so it looks like it does below.</li>
+            </ul>
+
+            <img src="framework/img/workshop/product-with-vendor.png" class="center delayed">
+
+            <p class="presenter-notes">
+                There are two instances of product.title - need to choose the right one.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #4: Intro to liquid filters</h2>
+
+            <ul>
+                <li class="delayed">You've decided you need to see the product's type listed <i>after</i> the product's description.</li>
+                <li class="delayed">And you want to see the product type in ALL CAPS.</li>
+            </ul>
+
+            <p class="delayed">To accomplish the second task, we'll need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/filters">liquid filters</a> are available to us.
+            <br>
+            Filters modify whatever they are attached to, whether numbers, strings, variables or objects</p>
+
+            <div class="delayed">
+                <h3>Example</h3>
+                <pre><code class="hljs xml">
+{{ product.object | filter }}
+                </code></pre>
+            </div>
+
+            <p class="presenter-notes">
+                There are two instances of product.title - need to choose the right one.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>Types of filters</h2>
+
+            <p><b>String Filters</b>: for when the variable type is a string.</p>
+
+            <div class="delayed">
+            <h3>Liquid</h3>
+                <pre><code class="hljs xml">
+{{ page.title | upcase }}
+{{ 'HOW ARE YOU?' | downcase }}
+{{ product.handle | append: '.png' }}
+{{ article.author | replace: 'Nathan', 'Bob' | prepend: 'Sir ' }}
+                </code></pre>
+            </div>
+
+            <div class="delayed">
+            <h3>Result</h3>
+                <pre><code class="hljs xml">
+ABOUT US
+how are you?
+fuzzy-boots.png
+Sir Bob PJF
+                </code></pre>
+            </div>
+
+        </section>
+
+        <section class="slide">
+            <h2><i>To do: slides about Math and URL filters as those are the most common</i></h2>
+
+            <p class="presenter-notes">
+                Different ways to automatically create a collection.
+                Once you have a couple collections set up, go and change the Frontpage collection.
+            </p>
         </section>
 
         <section class="slide title">
