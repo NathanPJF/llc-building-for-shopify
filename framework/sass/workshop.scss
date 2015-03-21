@@ -6,9 +6,6 @@
 
 //Fix
 .intro, .last {
-  .instructor-img{
-    height: auto;
-  }
   li{
     margin-bottom: 0;
   }
@@ -26,6 +23,14 @@ li{
 }
 .col--one-half{
   width: 50%;
+}
+
+.col--one-quarter{
+  width: 25%;
+}
+
+.col--three-quarters{
+  width: 75%;
 }
 
 // Helper classes
