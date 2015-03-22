@@ -45,7 +45,7 @@ li {
   background: white;
 }
 
-.local-shops, .big-brands {
+.local-shops, .big-brands, .beaker-panic {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50%;
@@ -57,4 +57,8 @@ li {
 
 .big-brands {
   background-image: url("../img/workshop/big-brands.png");
+}
+
+.beaker-panic {
+  background-image: url("../img/workshop/beaker-panic.jpg");
 }
