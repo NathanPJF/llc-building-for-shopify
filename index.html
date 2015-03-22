@@ -696,6 +696,7 @@ What could go wrong?/*
                     <li>page.liquid</li>
                     <li>product.liquid</li>
                     <li>collection.liquid</li>
+                    <li>index.liquid</li>
                 </ul>
             </div>
 
@@ -714,8 +715,14 @@ What could go wrong?/*
                 <div class="delayed">
                     <p><b>theme.liquid</b></p>
                     <p>This template is going to "wrap" every other template we use.</p>
-                    <p>Your header and footer appear on every page.</p>
-                    <p class="delayed"><b>What's in it?</b></p>
+                    <p>Your header and footer appear on <i>every page</i>.</p>
+                    <div class="delayed">
+                        <b>What's in it?</b>
+                        <ul>
+                            <li>Header</li>
+                            <li>Footer</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -788,8 +795,8 @@ What could go wrong?/*
             <h3>page.liquid</h3>
             <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/page">liquid objects are available for pages</a> to do this.</p>
             <ul>
-                <li class="delayed">Change the heading for the page <b>title</b> from an &lt;h1&gt; to an &lt;h2&gt;.</li>
-                <li class="delayed">Add the page's <b>author</b> to after the page content.</li>
+                <li class="">Change the heading for the page <b>title</b> from an &lt;h1&gt; to an &lt;h2&gt;.</li>
+                <li class="">Add the page's <b>author</b> to after the page content.</li>
             </ul>
 
             <div class="delayed">
@@ -800,6 +807,9 @@ What could go wrong?/*
 
             <p class="presenter-notes">
                 Remind class it's about incremental steps - don't try to do them all at once.
+
+                Check out your About Us page.  The author is going to be Shopify, since that page was pre-written.
+                But make a NEW page and preview it - your name should be at the bottom.
             </p>
         </section>
 
@@ -831,13 +841,33 @@ What could go wrong?/*
             <h3>product.liquid</h3>
             <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">liquid objects are available for products</a> to do this.</p>
             <ul>
-                <li class="delayed">After the title, list what the product's vendor in an &lt;h2&gt; is so it looks like it does below.</li>
+                <li class="">After the title, display what the product's vendor in an <code>&lt;h3&gt;</code> is so it looks like it does below.</li>
             </ul>
 
-            <img src="framework/img/workshop/product-with-vendor.png" class="center delayed">
+            <img src="framework/img/workshop/product-with-vendor.png" class="center">
 
             <p class="presenter-notes">
+                If you look at the homepage, you'll see there is the product's vendor listed after the title everytime.  We want to have something similar for the product page.
+
                 There are two instances of product.title - need to choose the right one.
+            </p>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #3: Intro to liquid objects</h2>
+            <h3>product.liquid</h3>
+            
+            <div class="delayed">
+                <pre><code class="hljs xml">
+&lt;!-- Begin description --&gt;
+&lt;div class=&quot;span6&quot;&gt;
+&lt;h1 class=&quot;title&quot; itemprop=&quot;name&quot;&gt;{{ product.title }}&lt;/h1&gt; 
+&lt;h3&gt;{{product.vendor }}&lt;/h3&gt;
+                </code></pre>
+            </div>
+
+            <p class="presenter-notes">
+
             </p>
         </section>
 
@@ -845,19 +875,21 @@ What could go wrong?/*
             <h2>Exercise #4: Intro to liquid filters</h2>
 
             <ul>
-                <li class="delayed">You've decided you need to see the product's type listed <i>after</i> the product's description.</li>
-                <li class="delayed">And you want to see the product type in ALL CAPS.</li>
+                <li class="">You've decided you need to see the product's <b>type</b> listed <i>after</i> the product's description.</li>
+                <li class="">And you want to see the product type in ALL CAPS.</li>
             </ul>
 
-            <p class="delayed">To accomplish the second task, we'll need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/filters">liquid filters</a> are available to us.
-            <br>
-            Filters modify whatever they are attached to, whether numbers, strings, variables or objects</p>
-
             <div class="delayed">
+                <p class="">To accomplish the second task, we'll need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/filters">liquid filters</a> are available to us.</p>
+            </div>
+            <div class="delayed">
+                <p>Filters <b>modify</b> whatever they are attached to.</p>
                 <h3>Example</h3>
                 <pre><code class="hljs xml">
 {{ product.object | filter }}
                 </code></pre>
+
+                <p class="">PRO TIP: That line is called a "pipe".</p>
             </div>
 
             <p class="presenter-notes">
@@ -871,12 +903,11 @@ What could go wrong?/*
         <section class="slide">
             <h2>Types of filters</h2>
 
-            <p><b>String Filters</b>: for when the variable type is a string.</p>
+            <p><b><a href="https://docs.shopify.com/themes/liquid-documentation/filters/string-filters">String Filters</a></b>: for when the variable type is a string. Words, sentences, titles, anything with characters.</p>
 
             <div class="delayed">
             <h3>Liquid</h3>
                 <pre><code class="hljs xml">
-{{ page.title | upcase }}
 {{ 'HOW ARE YOU?' | downcase }}
 {{ product.handle | append: '.png' }}
 {{ article.author | replace: 'Nathan', 'Bob' | prepend: 'Sir ' }}
@@ -886,34 +917,88 @@ What could go wrong?/*
             <div class="delayed">
             <h3>Result</h3>
                 <pre><code class="hljs xml">
-ABOUT US
 how are you?
 fuzzy-boots.png
 Sir Bob PJF
                 </code></pre>
             </div>
 
-<p class="presenter-notes">
+            <p class="presenter-notes">
                 Explain what a string is.
             </p>
 
         </section>
 
         <section class="slide">
-            <h2><i>To do: slides about Math and URL filters as those are the most common</i></h2>
+            <h2>Exercise #4: Intro to liquid filters</h2>
+
+            <p>You want the end result to look like this:</p>
+
+            <img src="framework/img/workshop/product-with-type.png" class="center">
+
+            <div class="delayed">
+                <pre><code class="hljs xml">
+&lt;div class=&quot;description&quot;&gt; 
+  {{ product.description }} 
+&lt;/div&gt;
+&lt;p&gt;{{ product.type | upcase }}&lt;/p&gt;
+                </code></pre>
+            </div>
 
             <p class="presenter-notes">
-                Different ways to automatically create a collection.
-                Once you have a couple collections set up, go and change the Frontpage collection.
+                Remind class what the goal of the exercise is.
+                The filter 'Capitalize' is a red herring. That will only capitalize the first letter.
             </p>
         </section>
 
         <section class="slide">
             <h2>Exercise #4: Intro to liquid filters</h2>
 
-            <p>You now want the product's type to also be a link to a page with <b>all</b> products of that type.</p>
+            <p>You now want the product's type to also be <b>a link to a page</b> with all products of that type.</p>
 
-            <p class="delayed">This is totally possible.  You just need the right type of filter on the string.</p>
+            <p>To do this, we need <a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters" alt="Shopify URL filters">the right type of URL filter</a>.</p>
+            <br>
+            <img src="framework/img/workshop/product-type-link.png" class="center">
+
+        </section>
+
+        <section class="slide">
+            <h2>Types of filters</h2>
+
+            <p><b><a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters">URL Filters</a></b>: for when you want to output the link to either a <b>file</b> on Shopify, or a link to a <b>filtered</b> page.</p>
+
+            <div class="delayed">
+            <h3>Liquid</h3>
+                <pre><code class="hljs xml">
+{{ 'logo.png' | asset_url }}
+{{ product.vendor | url_for_vendor }}
+{{ "Shop jackets" | link_to_tag: 'Jackets' }}
+                </code></pre>
+            </div>
+
+            <div class="delayed">
+            <h3>Result</h3>
+                <pre><code class="hljs xml">
+//cdn.shopify.com/s/files/1/0087/0462/t/394/assets/logo.png?34423
+/collections/vendors?q=Blue%20Diamond
+&lt;a title=&quot;Show products matching tag Jackets&quot; href=&quot;/collections/frontpage/jackets&quot;&gt;Shop jackets&lt;/a&gt;
+                </code></pre>
+            </div>
+
+            <p class="presenter-notes">
+                If you want to specify a file or a word, you'll use quotes.  But variables and liquid objects don't go in quotes.
+
+                The vendor url filters the collections for only results with that vendor.
+
+                You could have it just give you the URL, but there are also a number of URL filters that will wrap the
+                output in an a-link for you.  The last example requires that you are already on the Frontpage collection.
+            </p>
+
+        </section>
+
+
+        <section class="slide">
+            <h2>Exercise #4: Intro to liquid filters</h2>
 
             <div class="delayed">
             <h3>Liquid</h3>
@@ -927,6 +1012,8 @@ Sir Bob PJF
                 <pre><code class="hljs xml">
 &lt;a href=&quot;/collections/types?q=JEWELRY&quot; title=&quot;JEWELRY&quot;&gt;JEWELRY&lt;/a&gt;
                 </code></pre>
+
+            <p>Go check it out on a couple products!</p>
             </div>
 
             <p class="presenter-notes">
@@ -973,6 +1060,23 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
+            <h2>Upload collection images</h2>
+            <p>Navigate back the your "Collections" and upload the following files:</p>
+
+            <ul>
+                <li>The Blue Diamond Collection: <b>blue-diamond-collection.jpg</b></li>
+                <li>Accessories: <b>accessories-collection.jpg</b></li>
+            </ul>
+            
+            <img src="framework/img/workshop/featured-collection-image.png" class="center">
+            
+            <p class="presenter-notes">
+                The images are in your workshop folder in the 'images' folder. Same location as 
+                the csv file we uploaded.
+            </p>
+        </section>
+
+        <section class="slide">
             <p>After <code>&lt;div id=&quot;collection&quot;&gt;</code> in the <b>collection.liquid</b>:</p>
             <div class="delayed">
                 <h3>collection.liquid</h3>
@@ -982,7 +1086,50 @@ Sir Bob PJF
             </div>
             <div class="delayed">
                 <p>What is <code>img_url: '1024x1024'</code>?  Check out <a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters#product_img_url">Shopify's preset image size parameters.</a></p>
+
+                <p>What does <code>style="..."</code> mean? This is called "inline</p>
             </div>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##Referencing CSS - Inline & Internal 
+
+            There are three ways to include (otherwise known as *referencing*) CSS in an HTML page. 
+
+
+            ###**INLINE** 
+
+            Can be added to any HTML element using the `style` *attribute*. 
+
+            ``` &lt;p style=&quot;color: blue;&quot;&gt;I'm writing CSS!&lt;/p&gt; ``` 
+
+            This technique is not as common because it's harder to maintain but it's good to know how it works, just in case. 
+
+            ###INTERNAL 
+
+            Uses &lt;code&gt;`&amp;lt;style&amp;gt;`&lt;/code&gt; and is included in the &lt;code&gt;`&amp;lt;head&amp;gt;`&lt;/code&gt; element.
+
+            ``` 
+            &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Page Title&amp;lt;/title&amp;gt; &amp;lt;style&amp;gt; h1 { font-size: 16px; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &lt;p&gt;I'm still writing CSS!&lt;/p&gt; &amp;lt;/body&amp;gt;
+            ``` 
+            This method is preferred over *inline* css, however it is still inefficient because if you had multiple web pages, the style block and any revisions would have to be replicated on every single page. 
+
+            ###EXTERNAL 
+
+            CSS is written in a separate stylesheet file. The **external** method is most widely used. 
+
+            A separate file with a `.css` extension is linked to the HTML file. This method is recommended in most cases because it separates the CSS from the HTML document. The link to the stylesheet is referenced in the `&amp;lt;head&amp;gt;` on any page where these styles need to be included. Only the CSS file needs to be updated rather than the CSS block on every single page. Referenced in the head element with a `&amp;lt;link&amp;gt;` tag and two **attributes**, `rel` and `href`. Just like creating links, the value of the `href` points to the location of the stylesheet. Though it is not required, css files are often saved in a css folder for organization, so make sure the file path points to the appropriate directory. The `rel` attribute describes the relationship. 
+
+            ```&amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Page Title&amp;lt;/title&amp;gt; &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt; &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&amp;gt; &amp;lt;/head&amp;gt;
+            ``` 
+
+            **Pro tip!** Sublime Text shortcut: type &quot;link&quot; + tab key.
+
+        </section>
+
+        <section class="slide">
+            <h2>Write some sassy CSS</h2>
+            <p>Many Shopify themes will allow you to write SCSS instead of CSS.</p>
         </section>
 
         <section class="slide">
