@@ -3,7 +3,9 @@
 
 /* Styles specific to this workshop
 ------------------------------------*/
-
+body{
+  background: #F3F4F4;
+}
 //Fix
 .intro, .last {
   li{
@@ -44,8 +46,16 @@ li{
   display: block;
 }
 
+.text-center{
+  text-align: center;
+}
+
 .w100{
   width: 100% !important;
+}
+
+.w50{
+  width: 50%;
 }
 
 .bg--white{
@@ -71,6 +81,11 @@ li{
 }
 .beaker-panic{
   background-image: url('../img/workshop/beaker-panic.jpg');
+  @extend %bg-img;
+}
+
+.no-idea{
+    background-image: url('../img/workshop/no-idea.gif');
   @extend %bg-img;
 }
 

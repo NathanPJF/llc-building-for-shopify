@@ -215,7 +215,7 @@
         </section>
 
          <section class="slide title">
-            <h1>Upload products</h1>
+            <h1>Products</h1>
             <h2>CSV file for bulk uploads</h2>
 
             <p class="presenter-notes">
@@ -290,7 +290,7 @@
 
             <p>1 store can have many themes.</p>
             <p>A theme is just the the clothes your store wears - you can change whenever you want.</p>
-            <p>Different themes have different functionality, settings, and features.</p> 
+            <p>Different themes have different functionality, settings, and features.</p>
 
 
             <p class="presenter-notes">
@@ -300,7 +300,7 @@
                 You aren't limited to one theme, but keep in mind that switching themes will often require
                 you spend some time learning the new theme and doing a bit of setup.
 
-                Functionality: How it uses tags; Settings: talk about that soon; Features: Slideshows or sidebars 
+                Functionality: How it uses tags; Settings: talk about that soon; Features: Slideshows or sidebars
             </p>
 
         </section>
@@ -356,6 +356,7 @@
             <h2>Exercise #1: Get to know your theme</h2>
 
             <ul>
+                <li>For the header, choose to use the custom logo.</li>
                 <li>Change the Newsletter button color to a blue you like.</li>
                 <li>Change the base typeface to Verdana.</li>
                 <li>Enable the product zoom feature for Products.</li>
@@ -382,9 +383,14 @@
             </p>
         </section>
 
+        <section class="slide title">
+            <h1>Collections</h1>
+            <h2>Grouping products</h2>
+        </section>
+
         <section class="slide">
             <h2>Managing your store's collections</h2>
-            
+
             <p>Let's add some more products to the homepage collection.</p>
 
             <div class="delayed">
@@ -456,6 +462,24 @@
             </p>
         </section>
 
+        <section class="slide title">
+            <h1>Navigation</h1>
+            <h2>Using Link lists</h2>
+        </section>
+
+        <section class="slide">
+            <h2>Make a dropdown menu</h2>
+            <p>On your Navigation page, and a new linklist titled <b>Catalog</b> with a handle of <b>catalog</b>.</p>
+            <img src="framework/img/workshop/catalog-linklist.png" class="center">
+        </section>
+
+        <section class="slide">
+            <h2>Make a dropdown menu</h2>
+            <p>Because the <b>Main Menu</b> link list has a link with <i>the same name</i> as our new <b>Catalog</b> link list, a dropdown menu will appear.</p>
+            <br>
+            <img src="framework/img/workshop/catalog-dropdown.png" class="center ">
+        </section>
+
          <section class="slide">
             <h2>Exercise #2: More theme customizations</h2>
 
@@ -463,7 +487,7 @@
                 <li>Feature the <b>Home collection</b> on the homepage.</li>
                 <li>Change the the footer newsletter sign-up heading to say "Subscribe for updates".</li>
             </ul>
-
+            <br>
             <div class="delayed">
                 <p>To change the heading, we're going to need to <a href="https://docs.shopify.com/manual/your-website/themes/translate-theme" alt="Edit Theme language page">edit this theme's Languages page</a>.</p>
 
@@ -549,7 +573,7 @@ Great country / rustic decor for the rooster collector.&lt;/p&gt;
         <section class="slide title">
             <h2>Code for when you aren't around</h2>
             <br>
-            <h2 class="delayed">Or for future you.</h2>
+            <h2 class="delayed">Or for future-you.</h2>
 
             <p class="presenter-notes">
                 A lot of the time, you're writing code for people who aren't comfortable with making edits.
@@ -586,8 +610,8 @@ Great country / rustic decor for the rooster collector.&lt;/p&gt;
             <h2>Load an older version</h2>
             <p>If you cannot simply "undo" a change, you can load an <b>older version</b>.</p>
             <img src="framework/img/workshop/older-versions.png" class="center">
-
-            <p>Shortcut for undo: Cmd+Z (for Mac), Ctrl+Z (Windows)</p>
+            <br>
+            <p><b>Pro tip:</b> Shortcut for undo: Cmd+Z (for Mac), Ctrl+Z (Windows)</p>
 
         </section>
 
@@ -595,7 +619,7 @@ Great country / rustic decor for the rooster collector.&lt;/p&gt;
             <h2>Break it again!</h2>
 
             <ul>
-                <li>Go into your Assets directory and open <b>styles.scss.liquid</b>.</li>
+                <li>Go into the Minimal theme's Assets directory and open <b>styles.scss.liquid</b>.</li>
                 <li>Type "What could go wrong?" anywhere.</li>
                 <li>Save and <b>preview</b> your work :D</li>
             </ul>
@@ -622,13 +646,13 @@ What could go wrong?/*
 
             <ul>
                 <li>Make a <b>Duplicate</b> of your theme from the Themes Dashboard</li>
-                <li>Check out the settings of this new theme.</li>
+                <li>Check out the settings of this new theme - they're the same!</li>
             </ul>
 
             <img src="framework/img/workshop/how-to-duplicate.png" class="center">
 
             <div class="delayed">
-                <p>Duplicates are an exact copy, so when in doubt try it on a copy first.</p>
+                <p>Duplicates are an exact copy, so when in doubt about an edit try it on a copy first.</p>
 
                 <p>And remember: Hardly anything works on the first try.</p>
             </div>
@@ -682,6 +706,7 @@ What could go wrong?/*
 
         <section class="slide title">
             <h1>Template files</h1>
+            <h2>Edit HTML/CSS</h2>
         </section>
 
         <section class="slide">
@@ -793,7 +818,7 @@ What could go wrong?/*
         <section class="slide">
             <h2>Exercise #3: Intro to liquid objects</h2>
             <h3>page.liquid</h3>
-            <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/page">liquid objects are available for pages</a> to do this.</p>
+            <p>We need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/page">liquid objects are available for pages</a>.</p>
             <ul>
                 <li class="">Change the heading for the page <b>title</b> from an &lt;h1&gt; to an &lt;h2&gt;.</li>
                 <li class="">Add the page's <b>author</b> to after the page content.</li>
@@ -806,7 +831,8 @@ What could go wrong?/*
             </div>
 
             <p class="presenter-notes">
-                Remind class it's about incremental steps - don't try to do them all at once.
+                Remind class it's about incremental steps - don't try both of these in one change.
+                Find out where the page's title is coming from.  Find out where the page content ends.
 
                 Check out your About Us page.  The author is going to be Shopify, since that page was pre-written.
                 But make a NEW page and preview it - your name should be at the bottom.
@@ -839,9 +865,9 @@ What could go wrong?/*
         <section class="slide">
             <h2>Exercise #3: Intro to liquid objects</h2>
             <h3>product.liquid</h3>
-            <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">liquid objects are available for products</a> to do this.</p>
+            <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">liquid objects are available for products</a>.</p>
             <ul>
-                <li class="">After the title, display what the product's vendor in an <code>&lt;h3&gt;</code> is so it looks like it does below.</li>
+                <li class="">After the title, display what the product's vendor in an <code>&lt;h3&gt;</code> so it looks like it does below.</li>
             </ul>
 
             <img src="framework/img/workshop/product-with-vendor.png" class="center">
@@ -856,12 +882,12 @@ What could go wrong?/*
         <section class="slide">
             <h2>Exercise #3: Intro to liquid objects</h2>
             <h3>product.liquid</h3>
-            
+
             <div class="delayed">
                 <pre><code class="hljs xml">
 &lt;!-- Begin description --&gt;
 &lt;div class=&quot;span6&quot;&gt;
-&lt;h1 class=&quot;title&quot; itemprop=&quot;name&quot;&gt;{{ product.title }}&lt;/h1&gt; 
+&lt;h1 class=&quot;title&quot; itemprop=&quot;name&quot;&gt;{{ product.title }}&lt;/h1&gt;
 &lt;h3&gt;{{product.vendor }}&lt;/h3&gt;
                 </code></pre>
             </div>
@@ -889,7 +915,7 @@ What could go wrong?/*
 {{ product.object | filter }}
                 </code></pre>
 
-                <p class="">PRO TIP: That line is called a "pipe".</p>
+                <p><b>Pro tip</b>: That line is called a "pipe".</p>
             </div>
 
             <p class="presenter-notes">
@@ -903,7 +929,7 @@ What could go wrong?/*
         <section class="slide">
             <h2>Types of filters</h2>
 
-            <p><b><a href="https://docs.shopify.com/themes/liquid-documentation/filters/string-filters">String Filters</a></b>: for when the variable type is a string. Words, sentences, titles, anything with characters.</p>
+            <p><b><a href="https://docs.shopify.com/themes/liquid-documentation/filters/string-filters">String Filters</a></b>: for when we want to modify words, sentences, titles, anything with characters.</p>
 
             <div class="delayed">
             <h3>Liquid</h3>
@@ -938,8 +964,8 @@ Sir Bob PJF
 
             <div class="delayed">
                 <pre><code class="hljs xml">
-&lt;div class=&quot;description&quot;&gt; 
-  {{ product.description }} 
+&lt;div class=&quot;description&quot;&gt;
+  {{ product.description }}
 &lt;/div&gt;
 &lt;p&gt;{{ product.type | upcase }}&lt;/p&gt;
                 </code></pre>
@@ -999,7 +1025,7 @@ Sir Bob PJF
 
         <section class="slide">
             <h2>Exercise #4: Intro to liquid filters</h2>
-
+            <p>Turn the product type object into a link to a filtered page.</p>
             <div class="delayed">
             <h3>Liquid</h3>
                 <pre><code class="hljs xml">
@@ -1057,21 +1083,25 @@ Sir Bob PJF
             <div class="col col--one-half delayed">
                 <img src="framework/img/workshop/hero-collection.png" class="contain--img">
             </div>
+
+            <p class="presenter-notes">
+                Explain what a hero image is.
+            </p>
         </section>
 
         <section class="slide">
-            <h2>Upload collection images</h2>
-            <p>Navigate back the your "Collections" and upload the following files:</p>
+            <h2>Upload collection feature images</h2>
+            <p>Navigate back the your "Collections" and upload the following files as feature images:</p>
 
             <ul>
                 <li>The Blue Diamond Collection: <b>blue-diamond-collection.jpg</b></li>
                 <li>Accessories: <b>accessories-collection.jpg</b></li>
             </ul>
-            
+
             <img src="framework/img/workshop/featured-collection-image.png" class="center">
-            
+
             <p class="presenter-notes">
-                The images are in your workshop folder in the 'images' folder. Same location as 
+                The images are in your workshop folder in the 'images' folder. Same location as
                 the csv file we uploaded.
             </p>
         </section>
@@ -1087,41 +1117,55 @@ Sir Bob PJF
             <div class="delayed">
                 <p>What is <code>img_url: '1024x1024'</code>?  Check out <a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters#product_img_url">Shopify's preset image size parameters.</a></p>
 
-                <p>What does <code>style="..."</code> mean? This is called "inline</p>
+                <p>What does <code>style="..."</code> mean? This is called "inline CSS".</p>
             </div>
+
+            <p class="presenter-notes">
+                We aren't using CSS from an external stylesheet because the background image styling
+                needs to be different for every page this template is used on.
+            </p>
         </section>
 
         <section class="slide" data-markdown>
-            ##Referencing CSS - Inline & Internal 
+            ##Referencing CSS - Inline & Internal
 
-            There are three ways to include (otherwise known as *referencing*) CSS in an HTML page. 
+            There are three ways to include (otherwise known as *referencing*) CSS in an HTML page.
 
 
-            ###**INLINE** 
+            ###**INLINE**
 
-            Can be added to any HTML element using the `style` *attribute*. 
+            Can be added to any HTML element using the `style` *attribute*.
 
-            ``` &lt;p style=&quot;color: blue;&quot;&gt;I'm writing CSS!&lt;/p&gt; ``` 
+            ``` &lt;p style=&quot;color: blue;&quot;&gt;I'm writing CSS!&lt;/p&gt; ```
 
-            This technique is not as common because it's harder to maintain but it's good to know how it works, just in case. 
+            This technique is not as common because it's harder to maintain but it's good to know how it works, just in case.
 
-            ###INTERNAL 
+            ###INTERNAL
 
-            Uses &lt;code&gt;`&amp;lt;style&amp;gt;`&lt;/code&gt; and is included in the &lt;code&gt;`&amp;lt;head&amp;gt;`&lt;/code&gt; element.
+            Uses `&lt;style&gt;` and is included in the `&lt;head&gt;` element.
 
-            ``` 
-            &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Page Title&amp;lt;/title&amp;gt; &amp;lt;style&amp;gt; h1 { font-size: 16px; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &lt;p&gt;I'm still writing CSS!&lt;/p&gt; &amp;lt;/body&amp;gt;
-            ``` 
-            This method is preferred over *inline* css, however it is still inefficient because if you had multiple web pages, the style block and any revisions would have to be replicated on every single page. 
+            ```
+            &lt;head&gt;
+                &lt;title&gt;Page Title&lt;/title&gt;
+                &lt;style&gt; h1 { font-size: 16px; } &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt; &lt;p&gt;I'm still writing CSS!&lt;/p&gt; &lt;/body&gt;
+            ```
+            This method is preferred over *inline* css, however it is still inefficient because if you had multiple web pages, the style block and any revisions would have to be replicated on every single page.
 
-            ###EXTERNAL 
+            ###EXTERNAL
 
-            CSS is written in a separate stylesheet file. The **external** method is most widely used. 
+            CSS is written in a separate stylesheet file. The **external** method is most widely used.
 
-            A separate file with a `.css` extension is linked to the HTML file. This method is recommended in most cases because it separates the CSS from the HTML document. The link to the stylesheet is referenced in the `&amp;lt;head&amp;gt;` on any page where these styles need to be included. Only the CSS file needs to be updated rather than the CSS block on every single page. Referenced in the head element with a `&amp;lt;link&amp;gt;` tag and two **attributes**, `rel` and `href`. Just like creating links, the value of the `href` points to the location of the stylesheet. Though it is not required, css files are often saved in a css folder for organization, so make sure the file path points to the appropriate directory. The `rel` attribute describes the relationship. 
+            A separate file with a `.css` extension is linked to the HTML file. This method is recommended in most cases because it separates the CSS from the HTML document. The link to the stylesheet is referenced in the `&lt;head&gt;` on any page where these styles need to be included. Only the CSS file needs to be updated rather than the CSS block on every single page. Referenced in the head element with a `&lt;link&gt;` tag and two **attributes**, `rel` and `href`. Just like creating links, the value of the `href` points to the location of the stylesheet. Though it is not required, css files are often saved in a css folder for organization, so make sure the file path points to the appropriate directory. The `rel` attribute describes the relationship.
 
-            ```&amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Page Title&amp;lt;/title&amp;gt; &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt; &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&amp;gt; &amp;lt;/head&amp;gt;
-            ``` 
+            ```
+            &lt;head&gt;
+                &lt;title&gt;Page Title&lt;/title&gt;
+                &lt;meta charset=&quot;utf-8&quot;&gt;
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+            &lt;/head&gt;
+            ```
 
             **Pro tip!** Sublime Text shortcut: type &quot;link&quot; + tab key.
 
@@ -1130,6 +1174,16 @@ Sir Bob PJF
         <section class="slide">
             <h2>Write some sassy CSS</h2>
             <p>Many Shopify themes will allow you to write SCSS instead of CSS.</p>
+
+            <div class="delayed">
+                <p class="text-center"><a href="http://sass-lang.com/" alt="Learn about SASS">Learn about SASS</a></p>
+                <img src="framework/img/workshop/sassy-lama.gif" class="center w50">
+            </div>
+
+            <p class="presenter-notes">
+                SASS stands for Syntactically Awesome Style Sheets.  SCSS stands for Sassy CSS.
+                You can learn about SASS either at this link, or from this Llama.
+            </p>
         </section>
 
         <section class="slide">
@@ -1138,9 +1192,10 @@ Sir Bob PJF
                 <h3>styles.scss.liquid</h3>
                 <pre><code class="hljs css">
 .collection-hero{
+  text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
-  text-align: center;
+  background-position: 50%;
 
   h1{
     padding: 2em 0;
@@ -1149,6 +1204,7 @@ Sir Bob PJF
     text-shadow: 2px 2px 2px black;
     font-size: 56px;
     font-weight: 600;
+    line-height: 1.4em;
   }
 }
                 </code></pre>
@@ -1171,45 +1227,204 @@ Sir Bob PJF
         </section>
 
         <section class="slide title">
-            <h1>Control Flow Tags</h1>
-            <h2>a.k.a. if-statements</h2>
+            <h1>Liquid Tags</h1>
+            <h2>Using logic to do cool stuff</h2>
         </section>
 
-        <section class="slide" data-markdown>
-            ##To do: exercise showing how to make an if-statement for the hero image on collections
+        <section class="slide">
+            <div class="col col--one-half">
+                <img src="framework/img/workshop/accessories-fullscreen.png" alt="Accessories full screen">
+            </div>
+            <div class="col col--one-half delayed">
+                <img src="framework/img/workshop/necklaces-fullscreen.png" alt="Necklaces full screen">
+            </div>
+        </section>
 
-            * if-statement to check the prsensence of <code>{{ collection.image.src }}</code> in hero image space
-            * Explain [operators](https://docs.shopify.com/themes/liquid-documentation/basics/operators)) available in Shopify
-            * unless-statement to show the title in the "regular" spot, don't even need an operator someimes
+        <section class="slide">
+            <h2>Exercise #6: Show hero images only if they exist</h2>
 
-            ```
-            {% if collection.image.src != blank %}
-                Show hero image
-            {% endif %}
-            ```
+            <p>We can use <a href="https://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags" alt="Control Flow Tags">Control Flow Tags</a> to check <b>if</b> a hero image exists.</p>
 
-            ```
-            {% unless collection.image.src %}
-                Show hero image
-            {% endunless %}
-            ```
+            <div class="delayed">
+                <p>Liquid <b>tags</b> are used for programming logic.
+                    Tags are wrapped with: <code>{%</code> ... <code>%}</code> </p>
+            </div>
+
+            <div class="delayed">
+                <p>Write an <a href="https://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags#if">if-statement</a> with some "pseudo code":</p>
+                <pre><code class="hljs xml">
+{% if collection image exists %}
+    Show hero image
+{% endif %}
+                </pre></code>
+
+                <p><b>Pro tip</b>: Pseudo code is a great way to work things out on paper first.</p>
+            </div>
 
         </section>
 
-        <section class="slide" data-markdown>
-            ##To do: exercise to show a discount code on Product page if the collection is "house-wares"
+        <section class="slide">
+            <h2>Exercise #6: Show hero images only if they exist</h2>
 
-            * Need to first make teh discount code and have it apply only to house-wares product
-            * Use the [contains operator](https://docs.shopify.com/themes/liquid-documentation/basics/operators) to see if the product is part of the house-wares collection, since products can be part of multiple collections.
-            * Provide class the CSS.
-            * Segue to alternate product templates
+            <p>We'll need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators#basic-operators" alt="basic operators">type of operators</a> are available.</p>
+                <pre><code class="hljs xml">
+{% if collection.image.src != blank %}
+    Show hero image
+{% endif %}
+                </pre></code>
 
-            ```
-            {% if product.collections contains 'house-wares' %}
-                Show disount code.
-            {% endif %}
-            ```
+            <div class="delayed">
+                <p>Go back to <b>collection.liquid</b> and update our customization.</p>
+                <pre><code class="hljs xml">
+{% if collection.image.src != blank %}
+  &lt;div class=&quot;row&quot;&gt;<br/>  &lt;div class=&quot;span12 collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot; &gt;<br/>    &lt;h1 class=&quot;collection-title&quot;&gt;{{ collection.title }}&lt;/h1&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
+{% endif %}
+                </code></pre>
+            </div>
 
+            <p class="presenter-notes">
+                Open up operators link and briefly go over it.
+                Does not equal blank is actually valid.  This is the same as saying null in Liquid.
+                After the edit, check out your collections now.
+            </p>
+
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #7: Show a discount code</h2>
+
+            <p>You decide you want to show a discount code on Product pages <b>if</b> the product is part of the <b>Home collection</b>.</p>
+
+            <ul class="delayed">
+                <li>Make a <a href="https://docs.shopify.com/manual/your-store/discounts" alt="Discount codes">discount code</a> that will only work for products in the Home collection.</li>
+                <li>Modify <b>product.liquid</b> to display the code in an if-statement.</li>
+                <li>Style our new call to action with some sassy CSS.</li>
+            </ul>
+
+            <img src="framework/img/workshop/discount-example.png" class="center delayed">
+
+        </section>
+
+        <section class="slide">
+            <h2>Make a discount code</h2>
+
+            <p>Code: <code>home4holidays</code></p>
+            <p>Type: <code>%Discount</code> for products in the the <code>Home</code> collection.</p>
+
+            <img src="framework/img/workshop/new-discount-code.png" class="center">
+
+        </section>
+
+        <section class="slide">
+            <h2>Iteration Tags</h2>
+            <p>A product can be part of multiple collections; we need a way to check each one.</p>
+            <p>We can use an <a href="https://docs.shopify.com/themes/liquid-documentation/tags/iteration-tags#for" alt="Interation tags">Iteration Tag</a> to loop through the collections.</p>
+            <pre><code class="hljs xml">
+{% for each of the product's collections %}
+    {% if the collection title is 'Home' %}
+      Show the discount code.
+    {% endif %}
+{% endfor %}
+            </code></pre>
+
+        </section>
+        <section class="slide">
+            <h2>Introducing the For-loop</h2>
+
+            <p>Let's build a <a href="https://docs.shopify.com/themes/liquid-documentation/tags/iteration-tags#for" alt="Liquid For Loops">for loop</a> based on our pseudo code.</p>
+            <p class="delayed">What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">product liquid object</a> can we use to get information on a product's collections?</p>
+            <p class="delayed">Answer: <code>{{ product.collections }}</code></p>
+
+            <p class="delayed">What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/collection">collection object</a> tells us the title?</p>
+            <p class="delayed">Answer: <code>{{ collection.title }}</code></p>
+
+            <p class="delayed">What <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators">operator</a> checks if two things are equal?</p>
+            <p class="delayed">Answer: <code>==</code></p>
+
+            <pre class="delayed"><code class="hljs xml">
+{% for collection in product.collections %}
+  {% if collection.title == 'Home' %}
+    Show the discount code.
+  {% endif %}
+{% endfor %}
+            </code></pre>
+
+        <p class="presenter-notes">
+            See if you can get the class to give you the answer to the three questions.
+            Let mentees work out the for-loop and the if-statement on their own/with their mentor.
+        </p>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #7: Show a discount code</h2>
+            <h3>product.liquid</h3>
+
+            <p>Place the for-loop after the <code>&lt;h2 class=&quot;price&quot;...&gt;</code> element.</p>
+            <pre><code class="hljs xml">
+&lt;h2 class=&quot;price&quot; id=&quot;price-preview&quot;&gt;
+  &lt;span itemprop=&quot;price&quot;&gt; ...
+&lt;/h2&gt;
+{% for collection in product.collections %}
+  {% if collection.title == 'Home' %}
+    &lt;span class=&quot;special-discount&quot;&gt;
+      Enter &lt;span class=&quot;discount-code&quot;&gt;home4holidays&lt;/span&gt; for 20% off
+    &lt;/span&gt;
+  {% endif %}
+{% endfor %}
+            </code></pre>
+
+            <p class="presenter-notes">
+                Writing out the actual words goes against the idea of not hard coding.
+                However, the way to get around this is more advanced than I'd like to go into.
+            </p>
+
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #7: Show a discount code</h2>
+            <h3>styles.scss.liquid</h3>
+            <pre><code class="hljs css">
+.special-discount{
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px #DAA953 solid;
+  padding: 8px 15px;
+  border-radius: 5px;
+  background: rgb(252, 247, 232);
+
+  .discount-code{
+    text-shadow: 1px 1px white;
+    letter-spacing: 2px;
+    color: {{ settings.price_color }};
+  }
+}
+            </code></pre>
+
+        </section>
+
+        <section class="slide">
+            <h2>Did it work?</h2>
+            <br>
+            <div class="col col--one-half">
+                <img src="framework/img/workshop/show-discount.png">
+            </div>
+            <div class="col col--one-half">
+                <img src="framework/img/workshop/hide-discount.png">
+            </div>
+
+            <p class="presenter-notes">
+                Both of these are products templates, but alternate versions available to the
+                store owner. In theory, any product can be switched to any template you make.
+            </p>
+        </section>
+
+        <section class="slide no-idea">
+            <p class="presenter-notes">
+                We've started including programming logic into our themes, so it's normal
+                if you weren't 100% clear how that last exercise worked.  We're doing another
+                example.
+            </p>
         </section>
 
         <section class="slide title">
@@ -1230,16 +1445,52 @@ Sir Bob PJF
             </p>
         </section>
 
-        <section class="slide" data-markdown>
-            ##To do: exercise to make a product template with no cart in it
+        <section class="slide">
+            <h2>Exercise #8: New product template</h2>
 
-            * Duplicate the template and rename it
-            * Just delete the cart form from the code
-            * Switch the template a product is using
+            <p>You need a way to <b>hide the price and Add to Cart button</b> for select products.</p>
+            <p>In your theme's Templates folder, click "Add a new template".</p>
+            <p>Create a new product template <b>info-only</b>.</p>
 
+            <img src="framework/img/workshop/create-alt-template.png" class="center">
         </section>
 
-        <section class="slide" data-markdown>
+        <section class="slide">
+            <h2>Exercise #8: New product template</h2>
+            <h3>product.info-only.liquid</h3>
+
+            <p>Delete the <code>&lt;h2&gt;</code> HTML element containing the product's price.</p>
+
+            <p>Delete the entire form element: <code>&lt;form id=&quot;add-item-form&quot; ... &lt;/form&gt;</code></p>
+
+            <p>Save the template.</p>
+
+            <div class="delayed">
+                <br>
+                <h3>Products</h3>
+                <p>Edit the product titled <b>Black Bead Hoop Earrings - Swaziland</b>.</p>
+                <p>Set its product template to <b>product.info-only</b> and visibility to "Show online".</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #8: New product template</h2>
+
+            <img src="framework/img/workshop/black-bead-earrings.png" class="center">
+
+            <p class="presenter-notes">
+                You now seem to have the choice between customizing one template if a bunch
+                of conditional statements, or to make a bunch of unique templates.
+
+                You wouldn't want to make a bunch of unique ones, because maybe you want some
+                of those conditional rules to apply to ALL product web pages.
+
+                Alternate templates are best served when there are drastic differences in
+                the page layout.
+            </p>
+        </section>
+
+<!--         <section class="slide" data-markdown>
             ##To do: exercise to make a product template with product tabs
 
             * There's [a cool tutorial online](https://docs.shopify.com/support/your-store/products/how-do-i-add-tabs-to-product-descriptions) on how to add product tabs to a page.
@@ -1247,11 +1498,24 @@ Sir Bob PJF
             scenarios where they don't want tabs on every product.
             * Do exercise with only mentors help at first - being able to follow online tutorials is a skill.
 
+        </section> -->
+
+        <section class="slide title">
+            <h1>BREAK TIME</h1>
+            <h2>Oh man, you've earned it.</h2>
         </section>
 
         <section class="slide title">
             <h1>Snippets</h1>
             <h2 class="delayed">Make your code smarter<span class="delayed">, cleaner</span><span class="delayed">, more efficient </span><span class="delayed">and lazy</span></h2>
+        </section>
+
+        <section class="slide" data-markdown>
+            ##To do: exercise to limit the number of collection items displayed on homepage
+
+            * Find `product-loop` and limit the number of for-loop iterations
+
+
         </section>
 
         <section class="slide" data-markdown>
@@ -1263,6 +1527,11 @@ Sir Bob PJF
             * Now delete it.  Make it it's own Snippet so we can call it in THAT
             Snippet and on a product page.
 
+        </section>
+
+        <section class="slide title">
+            <h1>Bogus Gateway</h1>
+            <h2>Buy things without paying</h2>
         </section>
 
         <section class="slide" data-markdown>

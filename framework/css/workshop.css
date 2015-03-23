@@ -1,5 +1,9 @@
 /* Styles specific to this workshop
 ------------------------------------*/
+body {
+  background: #F3F4F4;
+}
+
 .intro li, .last li {
   margin-bottom: 0;
 }
@@ -37,15 +41,23 @@ li {
   display: block;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .w100 {
   width: 100% !important;
+}
+
+.w50 {
+  width: 50%;
 }
 
 .bg--white {
   background: white;
 }
 
-.local-shops, .big-brands, .beaker-panic {
+.local-shops, .big-brands, .beaker-panic, .no-idea {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50%;
@@ -61,4 +73,8 @@ li {
 
 .beaker-panic {
   background-image: url("../img/workshop/beaker-panic.jpg");
+}
+
+.no-idea {
+  background-image: url("../img/workshop/no-idea.gif");
 }
