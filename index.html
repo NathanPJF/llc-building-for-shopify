@@ -108,17 +108,18 @@
             <div class="col col--one-half">
                 <h2>Agenda</h2>
                 <ul>
-                    <li>Personalize a theme using the Storefront Editor</li>
+                    <li>Shopify's platform and the Dashboard</li>
                     <li>Overview of templating</li>
-                    <li>...</li>
-                    <li>Finalized</li>
-                    <li>Agenda</li>
-                    <li>Items</li>
+                    <li>Theme Editor customizations</li>
+                    <li>Introduction to Liquid Text</li>
+                    <li>Modify template files</li>
+                    <li>Program smarter page designs</li>
+                    <li>Do some shopping</li>
                 </ul>
             </div>
 
-            <div class="col col--one-half delayed">
-                <img src="framework/img/workshop/sample-page-4.png" class="contain--img">
+            <div class="col col--one-half">
+                <img src="framework/img/workshop/customized-product-page.png" class="contain--img">
             </div>
 
              <p class="presenter-notes">
@@ -411,7 +412,7 @@
 
             <div class="delayed">
             <ul>
-                <li>Title: Earrings</li>
+                <li>Title: <b>Earrings</b></li>
                 <li>Conditions: Product type == Earrings</li>
             </ul>
 
@@ -469,7 +470,7 @@
 
         <section class="slide">
             <h2>Make a dropdown menu</h2>
-            <p>On your Navigation page, and a new linklist titled <b>Catalog</b> with a handle of <b>catalog</b>.</p>
+            <p>On your Navigation page, and a new link list titled <b>Catalog</b> with a handle of <b>catalog</b>.</p>
             <img src="framework/img/workshop/catalog-linklist.png" class="center">
         </section>
 
@@ -541,20 +542,22 @@
 
         <section class="slide">
             <h2>How does Liquid help?</h2>
-            <p>Instead of writing out explicity what we want, we just reference an <b>object</b>.</p>
+            <p>Instead of writing out explicity what we want, we just reference a <b><a href="https://docs.shopify.com/themes/liquid-documentation/objects">liquid object</a></b>.</p>
 
-            <div class="delayed">
+            <p>Liquid objects will dynamically display the value of an attribute, like a title, price, etc. within a set of <b>handles</b>:  <code>{{</code> ... <code>}}</code></p>
+
+            <div class="">
                 <h3>Liquid</h3>
                 <pre><code class="hljs xml">
-&lt;h1&gt;{{ product.title }}&lt;/h1&gt;<br/>
+&lt;h1&gt;{{ product.title }}&lt;/h1&gt;
 &lt;p&gt;{{ product.description }}&lt;/p&gt;
                 </code></pre>
             </div>
 
-            <div class="delayed">
+            <div class="">
                 <h3>HTML returned</h3>
                 <pre><code class="hljs xml">
-&lt;h1&gt;Rooster Decor Wood Cheese Board&lt;/h1&gt;<br/>
+&lt;h1&gt;Rooster Decor Wood Cheese Board&lt;/h1&gt;
 &lt;p&gt;This is such a lovely wood grain rooster cheese board.
 Great country / rustic decor for the rooster collector.&lt;/p&gt;
                 </code></pre>
@@ -646,16 +649,13 @@ What could go wrong?/*
 
             <ul>
                 <li>Make a <b>Duplicate</b> of your theme from the Themes Dashboard</li>
-                <li>Check out the settings of this new theme - they're the same!</li>
+                <li>Check out the Theme Editor settings of this new theme - they're the same!</li>
             </ul>
 
             <img src="framework/img/workshop/how-to-duplicate.png" class="center">
 
-            <div class="delayed">
-                <p>Duplicates are an exact copy, so when in doubt about an edit try it on a copy first.</p>
+            <p>Duplicates are an exact copy, so when in doubt about a code edit: try it on a copy first.</p>
 
-                <p>And remember: Hardly anything works on the first try.</p>
-            </div>
             <p class="presenter-notes">
                 The ability to make duplicates and easily switch between them is a huge advantage with Shopify.  Mistakes are less costly than with some other content management systems.
             </p>
@@ -820,8 +820,8 @@ What could go wrong?/*
             <h3>page.liquid</h3>
             <p>We need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/page">liquid objects are available for pages</a>.</p>
             <ul>
-                <li class="">Change the heading for the page <b>title</b> from an &lt;h1&gt; to an &lt;h2&gt;.</li>
-                <li class="">Add the page's <b>author</b> to after the page content.</li>
+                <li class="">Change the HTML element for the page <b>title</b> from an <code>&lt;h1&gt;</code> to an <code>&lt;h2&gt;</code>.</li>
+                <li class="">Add the page's <b>author</b> after the page content.</li>
             </ul>
 
             <div class="delayed">
@@ -1080,7 +1080,7 @@ Sir Bob PJF
                 <h2>Exercise #5: Collection page hero images</h2>
                 <p>By looking up what liquid objects are <a href="https://docs.shopify.com/themes/liquid-documentation/objects/collection">available to us for collections</a>, show a hero image at the top of our collection pages.</p>
             </div>
-            <div class="col col--one-half delayed">
+            <div class="col col--one-half">
                 <img src="framework/img/workshop/hero-collection.png" class="contain--img">
             </div>
 
@@ -1363,7 +1363,7 @@ Sir Bob PJF
             <p>Place the for-loop after the <code>&lt;h2 class=&quot;price&quot;...&gt;</code> element.</p>
             <pre><code class="hljs xml">
 &lt;h2 class=&quot;price&quot; id=&quot;price-preview&quot;&gt;
-  &lt;span itemprop=&quot;price&quot;&gt; ...
+  &lt;span itemprop=&quot;price&quot;&gt; ... &lt;span&gt;
 &lt;/h2&gt;
 {% for collection in product.collections %}
   {% if collection.title == 'Home' %}
@@ -1534,7 +1534,7 @@ Sir Bob PJF
             <p>There's a lot in here, and it's not clear what it all does.</p>
 
             <div class="delayed">
-                <p>Forget the template file, use the <b>Inspector</b> to look clues.</p>
+                <p>Forget the template file, use the <b>Inspector</b> to look for clues.</p>
                 <img src="framework/img/workshop/inspector-gadget.gif" class="center">
             </div>
 
@@ -1583,7 +1583,7 @@ Sir Bob PJF
 
 <p>The <b>product-loop.liquid</b> Snippet will include all the code to display a product's image, title, price, vendor, etc.</p>
 
-<p>What the <i>parameter</i> <code>with</code> does is more advance, but it's inclusion isn't necessary here.</p>
+<p>What the <i>parameter</i> <code>with</code> does is more advance, so we'll leave it be.</p>
 
             <p class="presenter-notes">
                 The entire frontpage collection is represented by these 5 lines.
@@ -1733,22 +1733,17 @@ Sir Bob PJF
         <section class="slide" data-markdown>
             ##Shopify Resources
 
-            * [Shopify Liquid documentation](https://docs.shopify.com/themes/liquid-documentation/basics)
-                * Examples and use-cases
+            * [Shopify Liquid documentation](https://docs.shopify.com/themes/liquid-documentation/basics): Examples and use-cases
 
-            * [Shopify forums](https://ecommerce.shopify.com/forums)
-                * Answers from Shopify employees, Experts, and other Partners
+            * [Shopify forums](https://ecommerce.shopify.com/forums): Answers from Shopify employees, Experts, and other Partners
 
-            * [Mark Dunkley's Cheat Sheet](http://cheat.markdunkley.com/)
-                * Most common Liquid items at a glance
+            * [Mark Dunkley's Cheat Sheet](http://cheat.markdunkley.com/): Most common Liquid items at a glance
 
-            * [Shopify Partners Blog](http://www.shopify.com/partners/blog)
-                * Designing, developing and selling with Shopify
+            * [Shopify Partners Blog](http://www.shopify.com/partners/blog): Designing, developing and selling with Shopify
 
             ##Other helpful resources
 
-            * [Sassmeister](http://sassmeister.com/)
-                * Test your Sassy CSS before hitting Save
+            * [Sassmeister](http://sassmeister.com/): Test your Sassy CSS before hitting Save
 
         </section>
 
