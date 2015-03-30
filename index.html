@@ -1284,11 +1284,6 @@ Sir Bob PJF
             <h2 class="delayed">p.s. Something's wrong with our collection template</h2>
         </section>
 
-        <section class="slide title">
-            <h1>Liquid Tags</h1>
-            <h2>Using logic to do cool stuff</h2>
-        </section>
-
         <section class="slide">
             <div class="col col--one-half text-center">
                 <img src="framework/img/workshop/accessories-fullscreen.png" alt="Accessories full screen">
@@ -1296,6 +1291,11 @@ Sir Bob PJF
             <div class="col col--one-half delayed text-center">
                 <img src="framework/img/workshop/necklaces-fullscreen.png" alt="Necklaces full screen">
             </div>
+        </section>
+
+        <section class="slide title">
+            <h1>Liquid Tags</h1>
+            <h2>Using logic to do cool stuff</h2>
         </section>
 
         <section class="slide">
@@ -1681,7 +1681,7 @@ Sir Bob PJF
             <p>You've decided you want to make some changes to products shown on collection pages:</p>
 
             <ul>
-                <li>Don't show the vendor.</li>
+                <li>Stop displaying the product's vendor... <em>without removing</em> any code.</li>
                 <li>Show the product's <b>unique ID number</b> before the price in a <code>&lt;strong&gt;</code>.</li>
                 <li>After the price, show the <b>first 12 words</b> of the product's description in a <code>&lt;p&gt;</code>.</li>
             </ul>
@@ -1752,8 +1752,10 @@ Sir Bob PJF
 
             <p>The <b>best way</b> to do that in a development shop is by activating the <a href="https://docs.shopify.com/manual/your-store/orders/test-orders#bogus-gateway">Bogus Gateway</a>.</p>
 
-            Your development shop will only allow you to make 10 "real" transactions, but you
-            can make <i>unlimited</i> transactions throught the Bogus Gateway.
+            <p>Your development shop will only allow you to make 10 "real" transactions, but you
+            can make <i>unlimited</i> transactions through the Bogus Gateway.</p>
+
+            <p><b>Note:</b> Only available to Partners.</p>
 
             <p class="presenter-notes">
               Buying something from yourself, and then canceling it or refunding counts as a "real" transaction.
@@ -1765,9 +1767,11 @@ Sir Bob PJF
             <h2>Bogus Gateway Setup</h2>
 
             <p>From your dashboard, fo to <b>Settings</b> > <b>Payments</b></p>
-            <p>Set "(for testing) Bogus Gateway" as your payment gateway.</p>
-            <p>Press <b>Activate</b>.</p>
-
+            <ul>
+                <li>Edit and deactivate your current payment gateway (if applicable).</li>
+                <li>Set "(for testing) Bogus Gateway" as your payment gateway.</li>
+                <li>Press <b>Activate</b>.</li>
+            </ul>
             <img alt="Bogus Gateway Setup" src="framework/img/workshop/bogus-gateway-setup.png" class="center" >
 
         </section>
@@ -1809,7 +1813,8 @@ Sir Bob PJF
             <h2>Cool! Now what do I do?</h2>
             <ul>
               <li><b>Practice</b>: customize some other <a href="https://themes.shopify.com/designers/shopify">free Shopify themes</a></li>
-              <li>Take a look at adding <a href="https://docs.shopify.com/themes/theme-development/storefront-editor/settings-schema">settings to a theme</a> (Advanced, but useful!)</li>
+              <li>Take a look at adding <a href="https://docs.shopify.com/themes/theme-development/storefront-editor/settings-schema">settings to the Theme editor</a> (Advanced, but useful!)</li>
+              <li>Learn how to <a href="https://docs.shopify.com/themes/theme-development/translations/locale-files">write new translation tags</a> for the Language editor</li>
             </ul>
             <br>
             <h3>If you're looking to dive further into the Partner program</h3>
