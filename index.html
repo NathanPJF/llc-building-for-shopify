@@ -400,12 +400,13 @@
 
             <p>Let's add some more products to the homepage collection.</p>
 
-            <div class="delayed">
-                <p>Navigate to "Collections" and edit the <b>Frontpage</b> collection.</p>
+            <ul>
+              <li>Navigate to "Collections" and edit the <b>Frontpage</b> collection.</li>
+              <li>Manually add 7 more products to the collection.</li>
+            </ul>
 
-                <img src="framework/img/workshop/manual-add.png" alt="Manually add products" class="center">
+            <img src="framework/img/workshop/manual-add.png" alt="Manually add products" class="center">
 
-            </div>
             <p class="presenter-notes">
                 Right now there's only one product in the Frontpage collections.  Let's add more.
                 After adding, check out your store again.
@@ -422,7 +423,7 @@
                 <li>Conditions: Product type == Earrings</li>
             </ul>
 
-                <img src="framework/img/workshop/earrings-conditions.png" alt="Earrings collection conditions" class="center">
+            <img src="framework/img/workshop/earrings-conditions.png" alt="Earrings collection conditions" class="center">
 
             </div>
             <p class="presenter-notes">
@@ -459,13 +460,15 @@
 
             <p>Title: <b>Home</b></p>
             <p>Conditions: Any conditions you feel make sense.</p>
+            <p>Products must match: "any condition".  Why would that be?</p>
 
             <img src="framework/img/workshop/multiple-conditions.png" class="center">
 
             <p class="presenter-notes">
                 Add as many conditions you'd like with the "Add condition" button.
-                Make sure you choose "Products must match any condition", otherwise you won't
-                see any collections.
+
+                Make sure you choose "Products must match any condition". Otherwise you won't
+                see any products becase each product can only have ONE type.
             </p>
         </section>
 
@@ -475,16 +478,25 @@
         </section>
 
         <section class="slide">
-            <h2>Make a dropdown menu</h2>
+            <h2>Make a drop down menu</h2>
+            <p>We have collections, but can't see them.  We need to add a <a href="https://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu">drop down menu</a> to our
+                site's <b>navigation</b></p>
+            <br>
+            <img src="framework/img/workshop/catalog-dropdown.png" class="center ">
+
+        </section>
+
+        <section class="slide">
+            <h2>New link list</h2>
             <p>On your Navigation page, and a new link list titled <b>Catalog</b> with a handle of <b>catalog</b>.</p>
             <img src="framework/img/workshop/catalog-linklist.png" class="center">
         </section>
 
         <section class="slide">
-            <h2>Make a dropdown menu</h2>
-            <p>Because the <b>Main Menu</b> link list has a link with <i>the same name</i> as our new <b>Catalog</b> link list, a dropdown menu will appear.</p>
-            <br>
-            <img src="framework/img/workshop/catalog-dropdown.png" class="center ">
+            <h2>Why does this work?</h2>
+            <p>Because the <b>Main Menu</b> link list has a link with <i>the same handle</i> as our new <b>Catalog</b> link list, a dropdown menu will appear.</p>
+
+            <img src="framework/img/workshop/linklist-relationship.png" class="center ">
         </section>
 
          <section class="slide">
@@ -634,7 +646,7 @@ Great country / rustic decor for the rooster collector.&lt;/p&gt;
             </ul>
 
              <div class="">
-                <h3>SCSS</h3>
+                <h3>styles.scss.liquid</h3>
                 <pre><code class="hljs css">
 What could go wrong?/*
 /*    SECTION 1
@@ -1117,7 +1129,7 @@ Sir Bob PJF
             <div class="delayed">
                 <h3>collection.liquid</h3>
                 <pre><code class="hljs xml">
-&lt;div class=&quot;row&quot;&gt;<br/>  &lt;div class=&quot;span12 collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot; &gt;<br/>    &lt;h1 class=&quot;collection-title&quot;&gt;{{ collection.title }}&lt;/h1&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
+&lt;div class=&quot;row hero-banner&quot;&gt;<br/>  &lt;div class=&quot;span12 collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot; &gt;<br/>    &lt;h1 class=&quot;collection-title&quot;&gt;{{ collection.title }}&lt;/h1&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
                 </code></pre>
             </div>
             <div class="delayed">
@@ -1197,34 +1209,74 @@ Sir Bob PJF
             <div class="delayed">
                 <h3>styles.scss.liquid</h3>
                 <pre><code class="hljs css">
-.collection-hero{
-  text-align: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50%;
+.hero-banner{
+  display: table;
+  width: 100%;
+  min-height: 300px;
 
-  h1{
-    padding: 2em 0;
-    float: none !important;
-    color: white;
-    text-shadow: 2px 2px 2px black;
-    font-size: 56px;
-    font-weight: 600;
-    line-height: 1.4em;
+  .collection-hero{
+    float: none;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-repeat: no-repeat; background-size: cover; background-position: 50%;
+
+    h1{
+      margin-bottom: 0;
+      float: none !important;
+      color: white;
+      text-shadow: 2px 2px 2px black;
+      font-size: 56px;
+      font-weight: 600;
+      line-height: 1.4em;
+    }
   }
 }
                 </code></pre>
             </div>
 
             <p class="presenter-notes">
-                Link to inline styles - Christina's link.
-
-                Explain SCSS - link
+                There is nesting going on, which is just the start of the cool things
+                SCSS can do.
             </p>
         </section>
 
         <section class="slide centered">
             <img class="w100" src="framework/img/workshop/great-success.gif">
+        </section>
+
+        <section class="slide title">
+            <h1>Responsive Web Design</h1>
+            <h2>One website : Many screens</h2>
+        </section>
+
+        <section class="slide">
+            <h2>Responsive Web Design</h2>
+            <p>What does our new collection template look like on smaller devices?</p>
+
+            <img src="framework/img/workshop/theme-editor-mobile.png" class="center">
+        </section>
+
+        <section class="slide">
+            <h2>Media Queries</h2>
+            <p>Control the style at different <b>viewport sizes</b> with the <a href="http://www.w3schools.com/cssref/css3_pr_mediaquery.asp" alt="CSS Media Queries">@media rule</a>.</p>
+
+            <h3>styles.scss.liquid</h3>
+            <pre><code class="hljs css">
+/* iPhone 6 landscape : 667px */
+@media screen and (max-width: 667px){
+  .hero-banner{
+    min-height: 115px;
+
+    .collection-hero{
+      h1{
+        font-size: 24px;
+        text-shadow: 1px 1px 1px black;
+      }
+    }
+  }
+}
+            </code></pre>
         </section>
 
         <section class="slide title">
@@ -1283,7 +1335,7 @@ Sir Bob PJF
                 <p>Go back to <b>collection.liquid</b> and update our customization.</p>
                 <pre><code class="hljs xml">
 {% if collection.image.src != blank %}
-  &lt;div class=&quot;row&quot;&gt;<br/>  &lt;div class=&quot;span12 collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot; &gt;<br/>    &lt;h1 class=&quot;collection-title&quot;&gt;{{ collection.title }}&lt;/h1&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
+  &lt;div class=&quot;row hero-banner&quot;&gt;<br/>  &lt;div class=&quot;span12 collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot; &gt;<br/>    &lt;h1 class=&quot;collection-title&quot;&gt;{{ collection.title }}&lt;/h1&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
 {% endif %}
                 </code></pre>
             </div>
