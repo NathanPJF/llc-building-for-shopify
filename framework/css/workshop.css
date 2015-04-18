@@ -4,12 +4,33 @@ body {
   background: #F3F4F4;
 }
 
+h2 {
+  margin-bottom: 0.5em;
+}
+
 .intro li, .last li {
   margin-bottom: 0;
 }
 
+p {
+  font-size: 27px;
+  line-height: 1.6em;
+  margin-top: 0;
+}
+footer p {
+  font-size: 20px;
+}
+
 li {
+  font-size: 27px;
   margin-bottom: 1em;
+}
+footer li {
+  font-size: 20px;
+}
+
+code {
+  font-size: 24px;
 }
 
 /* Grid system */

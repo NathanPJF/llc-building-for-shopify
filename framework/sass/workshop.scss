@@ -1,11 +1,19 @@
 @import "variables";
 @import "mixins";
 
+$base-font-size: 27px;
+$footer-font-size: 20px;
+
 /* Styles specific to this workshop
 ------------------------------------*/
 body{
   background: #F3F4F4;
 }
+
+h2{
+  margin-bottom: 0.5em;
+}
+
 //Fix
 .intro, .last {
   li{
@@ -13,9 +21,29 @@ body{
   }
 }
 
-li{
-  margin-bottom: 1em;
+p{
+  font-size: $base-font-size;
+  line-height: 1.6em;
+  margin-top: 0;
+
+  footer & {
+    font-size: $footer-font-size;
+  }
 }
+
+li{
+  font-size: $base-font-size;
+  margin-bottom: 1em;
+
+  footer & {
+    font-size: $footer-font-size;
+  }
+}
+
+code{
+  font-size: ($base-font-size - 3);
+}
+
 /* Grid system */
 
 .col{
