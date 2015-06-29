@@ -33,6 +33,14 @@ code {
   font-size: 24px;
 }
 
+/* Code example */
+.hljs {
+  padding: 0px 25px;
+}
+.hljs span.keyword {
+  color: #00f;
+}
+
 /* Grid system */
 .col {
   float: left;

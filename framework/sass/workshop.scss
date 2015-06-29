@@ -44,6 +44,15 @@ code{
   font-size: ($base-font-size - 3);
 }
 
+/* Code example */
+.hljs{
+  padding: 0px 25px;
+
+  span.keyword{
+    color: #00f;
+  }
+}
+
 /* Grid system */
 
 .col{
@@ -116,4 +125,3 @@ code{
     background-image: url('../img/workshop/no-idea.gif');
   @extend %bg-img;
 }
-

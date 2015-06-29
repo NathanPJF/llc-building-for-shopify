@@ -113,7 +113,7 @@
                 <ul>
                     <li>Shopify's platform and the Dashboard</li>
                     <li>Overview of templating</li>
-                    <li>Theme Editor customizations</li>
+                    <li>Storefront Editor customizations</li>
                     <li>Introduction to Liquid Text</li>
                     <li>Modify template files</li>
                     <li>Program smarter page designs</li>
@@ -467,7 +467,7 @@
         <section class="slide">
             <h2>Muliple conditions collections</h2>
 
-            <p>Title: <b>Home</b></p>
+            <p>Title: <b>Household</b></p>
             <p>Conditions: Any conditions you feel make sense.</p>
             <p>Products must match: "any condition".  Why would that be?</p>
 
@@ -497,6 +497,7 @@
 
         <section class="slide">
             <h2>New link list</h2>
+            <p>Online Store > Navigation</p>
             <p>On your Navigation page, and a new link list titled <b>Catalog</b> with a handle of <b>catalog</b>.</p>
             <img src="framework/img/workshop/catalog-linklist.png" class="center">
         </section>
@@ -512,7 +513,7 @@
             <h2>Exercise #2: More theme customizations</h2>
 
             <ul>
-                <li>Feature the <b>Home collection</b> on the homepage.</li>
+                <li>Feature the <b>Household collection</b> on the homepage.</li>
                 <li>Change the the footer newsletter sign-up heading to say "Subscribe for updates".</li>
             </ul>
             <br>
@@ -690,11 +691,12 @@ What could go wrong?/*
 
         <section class="slide title">
             <h1>Break Time</h1>
-            <h2>Try adding products from scratch. <br> Re-write your Frontpage content.</h2>
+            <h2>Feel free to customize your store<br>
+            using the Storefront Editor.</h2>
 
             <p class="presenter-notes">
-                Show group how to open their About Us page.  Suggest they fill something out about
-                their store.
+                Make any changes you'd like to your store using the Storefront
+                Editor.  Just don't change any code yet.
             </p>
         </section>
 
@@ -845,7 +847,7 @@ What could go wrong?/*
         </section>
 
         <section class="slide">
-            <h2>Exercise #3: Intro to liquid objects</h2>
+            <h2>Exercise #4: Intro to liquid objects</h2>
             <h3>page.liquid</h3>
             <p>We need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/page">liquid objects are available for pages</a>.</p>
             <ul>
@@ -892,7 +894,7 @@ What could go wrong?/*
         </section>
 
         <section class="slide">
-            <h2>Exercise #3: Intro to liquid objects</h2>
+            <h2>Exercise #4: Intro to liquid objects</h2>
             <h3>product.liquid</h3>
             <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">liquid objects are available for products</a>.</p>
             <ul>
@@ -909,7 +911,7 @@ What could go wrong?/*
         </section>
 
         <section class="slide">
-            <h2>Exercise #3: Intro to liquid objects</h2>
+            <h2>Exercise #4: Intro to liquid objects</h2>
             <h3>product.liquid</h3>
 
             <div class="delayed">
@@ -927,7 +929,7 @@ What could go wrong?/*
         </section>
 
         <section class="slide">
-            <h2>Exercise #4: Intro to liquid filters</h2>
+            <h2>Exercise #5: Intro to liquid filters</h2>
 
             <ul>
                 <li class="">You've decided you need to see the product's <b>type</b> listed <i>after</i> the product's description.</li>
@@ -985,7 +987,7 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
-            <h2>Exercise #4: Intro to liquid filters</h2>
+            <h2>Exercise #5: Intro to liquid filters</h2>
 
             <p>You want the end result to look like this:</p>
 
@@ -1007,10 +1009,11 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
-            <h2>Exercise #4: Intro to liquid filters</h2>
-
-            <p>You now want the product's type to also be <b>a link to a page</b> with all products of that type.</p>
-
+            <h2>Exercise #5: Intro to liquid filters</h2>
+            <ol>
+              <li>You now want the product's type to also be <b>a link to a page</b> with all products of that type.</li>
+              <li>You also want to write a "call to action" for this link.</li>
+            </ol>
             <p>To do this, we need <a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters" alt="Shopify URL filters">the right type of URL filter</a>.</p>
             <br>
             <img src="framework/img/workshop/product-type-link.png" class="center">
@@ -1019,7 +1022,6 @@ Sir Bob PJF
 
         <section class="slide">
             <h2>Types of filters</h2>
-
             <p><b><a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters">URL Filters</a></b>: for when you want to output the link to either a <b>file</b> on Shopify, or a link to a <b>filtered</b> page.</p>
 
             <div class="delayed">
@@ -1053,8 +1055,8 @@ Sir Bob PJF
 
 
         <section class="slide">
-            <h2>Exercise #4: Intro to liquid filters</h2>
-            <p>Turn the product type object into a link to a filtered page.</p>
+            <h2>Exercise #5: Intro to liquid filters</h2>
+            <p><b>Step #1</b>  Turn the product type object into a link to a filtered page.</p>
             <div class="delayed">
             <h3>Liquid</h3>
                 <pre><code class="hljs xml">
@@ -1083,6 +1085,27 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
+            <h2>Exercise #5: Intro to liquid filters</h2>
+            <p><b>Step #2</b>  Write a call to action.</p>
+            <p>We'll be hard coding the message at first, but we'll set it
+              up as a <b>translation</b> later.</p>
+            <div>
+            <h3>Liquid</h3>
+                <pre><code class="hljs xml">
+&lt;p&gt;CHECKOUT OUT MORE {{ product.type | upcase | link_to_type }}!&lt;/p&gt;
+                </code></pre>
+            </div>
+
+            </div>
+
+            <p class="presenter-notes">
+                Take a look at your store's other products; you'll see that they all have the same
+                links.
+            </p>
+
+        </section>
+
+        <section class="slide">
             <div class="col col--one-half">
               <img class="contain--img" src="framework/img/workshop/collection-page.png">
             </div>
@@ -1106,7 +1129,7 @@ Sir Bob PJF
 
         <section class="slide">
             <div class="col col--one-half">
-                <h2>Exercise #5: Collection page hero images</h2>
+                <h2>Exercise #6: Collection page hero images</h2>
                 <p>By looking up what liquid objects are <a href="https://docs.shopify.com/themes/liquid-documentation/objects/collection">available to us for collections</a>, show a hero image at the top of our collection pages.</p>
             </div>
             <div class="col col--one-half">
@@ -1323,7 +1346,9 @@ Sir Bob PJF
                 <p>Write an <a href="https://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags#if">if-statement</a> with some "pseudo code":</p>
                 <pre><code class="hljs xml">
 {% if collection image exists %}
-    Show hero image
+
+    our code that shows the hero image
+
 {% endif %}
                 </pre></code>
 
@@ -1333,9 +1358,66 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
+          <h2>if-statements</h2>
+          <p>Only does something if a <b>condition</b> is true</p>
+          <pre><code class="hljs xml">
+{% if <span class="keyword">true</span> %}
+    do this...
+{% endif %}
+                </pre></code>
+
+        <div class="delayed">
+          <p>Have different results when different <b>conditions</b> are met</p>
+          <pre><code class="hljs xml">
+{% if <span class="keyword">primary condition</span> %}
+    do this.
+{% elsif <span class="keyword">secondary condition</span> %}
+    do this.
+{% else %}
+    when all else fails...
+{% endif %}
+                </pre></code>
+        </div>
+        </section>
+
+        <section class="slide">
             <h2>Exercise #6: Show hero images only if they exist</h2>
 
-            <p>We'll need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators#basic-operators" alt="basic operators">type of operators</a> are available.</p>
+            <p>Let's piece together an if-statement to check if a hero image exists</p>
+
+            <p>Is there <a href="https://docs.shopify.com/themes/liquid-documentation/objects">a liquid object</a> that will tell us about a collection's
+            featured image?</p>
+
+            <div class="delayed">
+              <p>Answer: <code>collection.image</code> or <code>collection.image.src</code></p>
+            </div>
+
+            <div class="delayed">
+              <p>What will we write as the condition of our if-statement?</p>
+            </div>
+            <div class="delayed">
+              <p>Answer: <code>{% if collection.image %}</code></p>
+            </div>
+
+            <p class="presenter-notes">
+                We don't need an operator for this to work, just checking
+                the presence of the object is enough.
+            </p>
+
+            <div class="delayed">
+                <pre><code class="hljs xml">
+{% if collection.image %}
+    our code to show the hero image
+{% endif %}
+                </pre></code>
+            </div>
+
+        </section>
+
+        <section class="slide">
+            <h2>Logic operators</h2>
+
+            <p>We could have also have used <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators#basic-operators" alt="basic operators">a logic operator</a> in our condition.</p>
                 <pre><code class="hljs xml">
 {% if collection.image.src != blank %}
     Show hero image
@@ -1343,10 +1425,10 @@ Sir Bob PJF
                 </pre></code>
 
             <div class="delayed">
-                <p>Go back to <b>collection.liquid</b> and update our customization.</p>
+              <h3>Advertising sales</h3>
                 <pre><code class="hljs xml">
-{% if collection.image.src != blank %}
-  &lt;div class=&quot;row hero-banner&quot;&gt;<br/>  &lt;div class=&quot;span12 collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot; &gt;<br/>    &lt;h1 class=&quot;collection-title&quot;&gt;{{ collection.title }}&lt;/h1&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
+{% if product.price < product.compare_at_price_max %}
+  This item is on sale!
 {% endif %}
                 </code></pre>
             </div>
@@ -1354,7 +1436,7 @@ Sir Bob PJF
             <p class="presenter-notes">
                 Open up operators link and briefly go over it.
                 Does not equal blank is actually valid.  This is the same as saying null in Liquid.
-                After the edit, check out your collections now.
+                Encourage people to update their code and check out your collections now.
             </p>
 
         </section>
@@ -1362,10 +1444,25 @@ Sir Bob PJF
         <section class="slide">
             <h2>Exercise #7: Show a discount code</h2>
 
-            <p>You decide you want to show a discount code on Product pages <b>if</b> the product is part of the <b>Home collection</b>.</p>
+            <p>You decide you want to show a discount code on Product pages <b>if</b> the product is part of the <b>Household collection</b>.</p>
 
             <ul class="delayed">
-                <li>Make a <a href="https://docs.shopify.com/manual/your-store/discounts" alt="Discount codes">discount code</a> that will only work for products in the Home collection.</li>
+                <li>Make a <a href="https://docs.shopify.com/manual/your-store/discounts" alt="Discount codes">discount code</a> that will only work for products in the Household collection.</li>
+                <li>Modify <b>product.liquid</b> to display the code in an if-statement.</li>
+                <li>Style our new call to action with some sassy CSS.</li>
+            </ul>
+
+            <img src="framework/img/workshop/discount-example.png" class="center delayed">
+
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #7: Show a discount code</h2>
+
+            <p>You decide you want to show a discount code on Product pages <b>if</b> the product is part of the <b>Household collection</b>.</p>
+
+            <ul class="delayed">
+                <li>Make a <a href="https://docs.shopify.com/manual/your-store/discounts" alt="Discount codes">discount code</a> that will only work for products in the Household collection.</li>
                 <li>Modify <b>product.liquid</b> to display the code in an if-statement.</li>
                 <li>Style our new call to action with some sassy CSS.</li>
             </ul>
@@ -1378,7 +1475,7 @@ Sir Bob PJF
             <h2>Make a discount code</h2>
 
             <p>Code: <code>home4holidays</code></p>
-            <p>Type: <code>% Discount</code> for products in the the <code>Home</code> collection.</p>
+            <p>Type: <code>% Discount</code> for products in the the <code>Household</code> collection.</p>
 
             <img src="framework/img/workshop/new-discount-code.png" class="center">
 
@@ -1386,12 +1483,12 @@ Sir Bob PJF
 
         <section class="slide">
             <h2>Iteration Tags</h2>
-            <p>A product can be part of multiple collections; we need a way to check each one.</p>
+            <p>A product can be part of multiple collections; we need a way to check each collection title individually.</p>
             <p>We can use an <a href="https://docs.shopify.com/themes/liquid-documentation/tags/iteration-tags#for" alt="Interation tags">Iteration Tag</a> to loop through the collections.</p>
             <p><b>Pseudo code</b></p>
             <pre><code class="hljs xml">
 {% for each of the product's collections %}
-    {% if the collection title is 'Home' %}
+    {% if the collection title is 'Household' %}
       Show the discount code.
     {% endif %}
 {% endfor %}
@@ -1413,7 +1510,7 @@ Sir Bob PJF
 
             <pre class="delayed"><code class="hljs xml">
 {% for collection in product.collections %}
-  {% if collection.title == 'Home' %}
+  {% if collection.title == 'Household' %}
     Show the discount code.
   {% endif %}
 {% endfor %}
@@ -1435,7 +1532,7 @@ Sir Bob PJF
   &lt;span itemprop=&quot;price&quot;&gt; ... &lt;span&gt;
 &lt;/h2&gt;
 {% for collection in product.collections %}
-  {% if collection.title == 'Home' %}
+  {% if collection.title == 'Household' %}
     &lt;span class=&quot;special-discount&quot;&gt;
       Enter &lt;span class=&quot;discount-code&quot;&gt;home4holidays&lt;/span&gt; for 20% off
     &lt;/span&gt;
@@ -1495,6 +1592,11 @@ Sir Bob PJF
                 if you weren't 100% clear how that last exercise worked.  We're doing another
                 example.
             </p>
+        </section>
+
+        <section class="slide title">
+            <h1>BREAK TIME</h1>
+            <h2>Oh man, you've earned it.</h2>
         </section>
 
         <section class="slide title">
@@ -1558,11 +1660,6 @@ Sir Bob PJF
                 Alternate templates are best served when there are drastic differences in
                 the page layout.
             </p>
-        </section>
-
-        <section class="slide title">
-            <h1>BREAK TIME</h1>
-            <h2>Oh man, you've earned it.</h2>
         </section>
 
         <section class="slide title">
@@ -1684,7 +1781,8 @@ Sir Bob PJF
             <ul>
                 <li>Stop displaying the product's vendor... <em>without removing</em> any code.</li>
                 <li>Show the product's <b>unique ID number</b> before the price in a <code>&lt;strong&gt;</code>.</li>
-                <li>After the price, show the <b>first 12 words</b> of the product's description in a <code>&lt;p&gt;</code>.</li>
+                <li>If the product has the tag 'sustainable', display
+                  a short message after the price. <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators#contains">Hint</a></li>
             </ul>
 
             <img src="framework/img/workshop/modified-snippet.png" class="center">
@@ -1704,7 +1802,7 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
-            <h2>Exercise #10: Modify a Snippet</h2>
+            <h2>Exercise #11: Modify a Snippet</h2>
             <pre><code>
 &lt;div class=&quot;details&quot;&gt;
   &lt;a href=&quot;{{ url }}&quot; class=&quot;clearfix&quot;&gt;
@@ -1714,16 +1812,12 @@ Sir Bob PJF
     &lt;strong&gt;{{ product.id }}&lt;/strong&gt;
 
     &lt;span class=&quot;price&quot;&gt;
-      {% if product.available %}
-          {% if product.compare_at_price_max &gt; product.price %} &lt;del&gt;{{ product.compare_at_price | money }}&lt;/del&gt; {% endif %}
-          {% if product.price_varies %} &lt;small&gt;&lt;em&gt;{{ 'collections.general.from' | t }}&lt;/em&gt;&lt;/small&gt; {% endif %} {{ product.price | money }}
-      {% else %}
-          {{ product.price | money }} {% unless settings.show_sold_out_circle %} {{ 'products.general.sold_out_html' | t }} {% endunless %}
-      {% endif %}
+      ... bunch of code for displaying the price
     &lt;/span&gt;
   &lt;/a&gt;
-
-  &lt;p&gt;{{ product.content | strip_html | truncatewords: 12 }}&lt;/p&gt;
+    {% if product.tags contains 'sustainable' %}
+      &lt;p&gt;This is a sustainable product.&lt;/p&gt;
+    {% endif %}
 
 &lt;/div&gt;
             </code></pre>
@@ -1789,7 +1883,7 @@ Sir Bob PJF
                 <li>Expiry Date: Any time in the future.</li>
             </ul>
             <br>
-            <p>Why not try out the <b>discount</b> we made for the Home collection?</p>
+            <p>Why not try out the <b>discount</b> we made for the Household collection?</p>
 
         </section>
 
