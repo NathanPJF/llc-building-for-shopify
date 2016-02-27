@@ -1159,11 +1159,15 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
-            <p>After <code>&lt;div id=&quot;collection&quot;&gt;</code> in the <b>collection.liquid</b>:</p>
+            <p>After the HTML for breadcrumbs in the <b>collection.liquid</b>:</p>
             <div class="delayed">
                 <h3>collection.liquid</h3>
                 <pre><code class="hljs xml">
-&lt;div class=&quot;row hero-banner&quot;&gt;<br/>  &lt;div class=&quot;span12 collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot; &gt;<br/>    &lt;h1 class=&quot;collection-title&quot;&gt;{{ collection.title }}&lt;/h1&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
+&lt;div class=&quot;hero-banner&quot;&gt;
+  &lt;div class=&quot;grid__item one-whole collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot;&gt;
+    &lt;h1 class=&quot;collection-title&quot;>{{ collection.title }}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/div&gt;   
                 </code></pre>
             </div>
             <div class="delayed">
@@ -1239,14 +1243,17 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
-            <p>At the bottom of <b>styles.scss.liquid</b> write:</p>
+            <p>At the bottom of <b>theme.scss.liquid</b> write:</p>
             <div class="delayed">
                 <h3>styles.scss.liquid</h3>
                 <pre><code class="hljs css">
+/* === Hero banner === */
+
 .hero-banner{
   display: table;
   width: 100%;
   min-height: 300px;
+  margin-bottom: 1em;
 
   .collection-hero{
     float: none;
