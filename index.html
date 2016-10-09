@@ -883,12 +883,19 @@ Copyright 2014 Shopify Inc.
             <p>We need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/page">liquid objects are available for pages</a>.</p>
             <ul>
                 <li class="">Change the HTML element for the page <b>title</b> from an <code>&lt;h1&gt;</code> to an <code>&lt;h2&gt;</code>.</li>
-                <li class="">Add the page's <b>author</b> after the page content.</li>
+                <li class="">Add the page's <b>author</b> after the page content in a <code>&lt;p&gt;</code> tag.</li>
             </ul>
 
             <div class="delayed">
                 <pre><code class="hljs xml">
-&lt;div id=&quot;page&quot; class=&quot;row&quot;&gt;<br/>  &lt;div class=&quot;span12 details&quot;&gt;<br/>    &lt;h2 class=&quot;p25&quot;&gt;{{ page.title }}&lt;/h2&gt;<br/>    {{ page.content }}<br/>    &lt;p&gt;{{ page.author }}&lt;/p&gt;<br/>  &lt;/div&gt;<br/>&lt;/div&gt;
+&lt;div class="section-header"&gt;
+  &lt;h2 class="section-header--title"&gt;{{ page.title }}&lt;/h2&gt;
+&lt;/div&gt;
+              
+&lt;div class="rte"&gt;
+  {{ page.content }}
+&lt;/div&gt;
+&lt;p>{{ page.author }}&lt;/p&gt;                  
                 </code></pre>
             </div>
 
@@ -902,6 +909,7 @@ Copyright 2014 Shopify Inc.
         </section>
 
         <section class="slide">
+          <div class="row">
             <div class="col col--one-half">
               <img class="contain--img" src="framework/img/workshop/product-page.png">
             </div>
@@ -922,6 +930,7 @@ Copyright 2014 Shopify Inc.
                     </div>
                 </div>
             </div>
+          </div>
         </section>
 
         <section class="slide">
@@ -929,7 +938,7 @@ Copyright 2014 Shopify Inc.
             <h3>product.liquid</h3>
             <p>Need to know what <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">liquid objects are available for products</a>.</p>
             <ul>
-                <li class="">After the title, display what the product's vendor in an <code>&lt;h3&gt;</code> so it looks like it does below.</li>
+                <li class="">After the title, display what the product's vendor in an <code>&lt;h4&gt;</code> so it looks like it does below.</li>
             </ul>
 
             <img src="framework/img/workshop/product-with-vendor.png" class="center">
@@ -947,10 +956,11 @@ Copyright 2014 Shopify Inc.
 
             <div class="delayed">
                 <pre><code class="hljs xml">
-&lt;!-- Begin description --&gt;
-&lt;div class=&quot;span6&quot;&gt;
-&lt;h1 class=&quot;title&quot; itemprop=&quot;name&quot;&gt;{{ product.title }}&lt;/h1&gt;
-&lt;h3&gt;{{product.vendor }}&lt;/h3&gt;
+&lt;div class="grid__item post-large--one-half"&gt;
+  &lt;h1 itemprop="name">{{ product.title }}&lt;/h1&gt;
+  &lt;h4>{{ product.vendor }}&lt;/h4&gt;
+  
+  &lt;div itemprop="offers" itemscope itemtype="http://schema.org/Offer"&gt;
                 </code></pre>
             </div>
 
@@ -1026,10 +1036,10 @@ Sir Bob PJF
 
             <div class="delayed">
                 <pre><code class="hljs xml">
-&lt;div class=&quot;description&quot;&gt;
+&lt;div class="product-description rte" itemprop="description"&gt;
   {{ product.description }}
 &lt;/div&gt;
-&lt;p&gt;{{ product.type | upcase }}&lt;/p&gt;
+&lt;p&gt;{{ product.type | upcase }}&lt;/p&gt;                  
                 </code></pre>
             </div>
 

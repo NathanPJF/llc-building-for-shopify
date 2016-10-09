@@ -55,73 +55,88 @@ code{
 
 /* Grid system */
 
-.col{
+.row {
+  display: block;
+  
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+.col {
   float: left;
   padding: 0 30px;
   height: 100%;
 }
-.col--one-half{
+
+.col--one-third {
+  width: 33%;  
+}
+
+.col--two-thirds {
+  width: 66%;  
+}
+
+.col--one-half {
   width: 50%;
 }
 
-.col--one-quarter{
+.col--one-quarter {
   width: 25%;
 }
 
-.col--three-quarters{
+.col--three-quarters {
   width: 75%;
 }
 
-// Helper classes
-.contain--img{
+.contain--img {
   max-height: 100%;
   width: auto !important;
 }
 
-.center{
+.center {
   margin: 0 auto;
   display: block;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
-.w100{
+.w100 {
   width: 100% !important;
 }
 
-.w50{
+.w50 {
   width: 50%;
 }
 
-.bg--white{
+.bg--white {
   background: white;
 }
 
-%bg-img{
+.bg--image {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50%;
 }
 
+/* === Background images === */
 
-// Slides
-.local-shops{
-  background-image: url('../img/workshop/local-shops.png');
-  @extend %bg-img;
+.local-shops {
+  background-image: url("../img/workshop/local-shops.png");
 }
 
-.big-brands{
-  background-image: url('../img/workshop/big-brands-2.png');
-  @extend %bg-img;
-}
-.beaker-panic{
-  background-image: url('../img/workshop/beaker-panic.jpg');
-  @extend %bg-img;
+.big-brands {
+  background-image: url("../img/workshop/big-brands-2.png");
 }
 
-.no-idea{
-    background-image: url('../img/workshop/no-idea.gif');
-  @extend %bg-img;
+.beaker-panic {
+  background-image: url("../img/workshop/beaker-panic.jpg");
+}
+
+.no-idea {
+  background-image: url("../img/workshop/no-idea.gif");
 }

@@ -1,5 +1,6 @@
 // System files
 .DS_Store
+.sass-cache/
 
 // Shopify development stores
 config.yml
