@@ -1,0 +1,5 @@
+// System files
+.DS_Store
+
+// Shopify development stores
+config.yml

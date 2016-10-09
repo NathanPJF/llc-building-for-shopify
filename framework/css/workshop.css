@@ -48,6 +48,14 @@ code {
   height: 100%;
 }
 
+.col--one-third {
+  width: 33%;  
+}
+
+.col--two-thirds {
+  width: 66%;  
+}
+
 .col--one-half {
   width: 50%;
 }
@@ -86,11 +94,13 @@ code {
   background: white;
 }
 
-.local-shops, .big-brands, .beaker-panic, .no-idea {
+.bg--image {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50%;
 }
+
+/* === Background images === */
 
 .local-shops {
   background-image: url("../img/workshop/local-shops.png");
