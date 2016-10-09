@@ -320,23 +320,19 @@
         </section>
 
         <section class="slide">
-            <h2>Visit the theme store</h2>
+            <h2>Upload a theme</h2>
 
-            <img src="framework/img/workshop/visit-theme-store.png" alt="Visit the Theme Store" class="center">
+            <img src="framework/img/workshop/upload-a-theme.png" alt="Highlighting where to find the upload button" class="center">
 
             <ul>
-                <li>Search for <b>Minimal</b></li>
-                <li>Click "Install theme"</li>
-                <li>Press "install as an unpublished theme"</li>
-                <li>Click "Go to your Theme Manager"</li>
+                <li>Click "Upload theme"</li>
+                <li>Choose <code>Minimal - Ladies Learning Code.zip</code> from the workshop files.</li>
+                <li>FYI: This is a version of Minimal, a free theme available in the Theme store.</li>
             </ul>
 
-
             <p class="presenter-notes">
-                The Theme Store has a selection of Free and Premium themes.
-                Minimal comes in 4 different styles - which are just 4 different presets of colors, font-sizes, image locations.  These presets are available regardless of which style you choose.
-
-                Installing as an unpublished theme is good practice because maybe there's some extra setup you need to do.
+              Minimal is the name of a theme available in the theme store.  We are uploading a slightly 
+              altered one for this workshop.
             </p>
 
         </section>
@@ -421,7 +417,7 @@
 
         <section class="slide">
             <h2>Make a new collection</h2>
-            <p>Collections > "Add a collection" button</p>
+            <p>Collections > "Add collection" button</p>
 
             <div class="delayed">
             <ul>
@@ -464,12 +460,16 @@
         <section class="slide">
             <h2>Muliple conditions collections</h2>
 
-            <p>Title: <b>Household</b></p>
-            <p>Conditions: Any conditions you feel make sense.</p>
-            <p>Products must match: "any condition".  Why would that be?</p>
-
-            <img src="framework/img/workshop/multiple-conditions.png" class="center">
-
+            <div class="col col--one-half"</div>
+              <p>Title: <b>Household</b></p>
+              <p>Conditions: Any conditions you feel make sense.</p>
+              <p>Products must match: "any condition".  Why would that be?</p>
+            </div>
+            
+            <div class="col col--one-half"</div>
+              <img src="framework/img/workshop/multiple-conditions.png" class="center">
+            </div>
+            
             <p class="presenter-notes">
                 Add as many conditions you'd like with the "Add condition" button.
 
@@ -519,25 +519,34 @@ By the end of the day, your will have the foundational skills to transform an "o
         </section>
 
         <section class="slide">
-            <h2>New link list</h2>
+            <h2>Add to a menu</h2>
             <p>Online Store > Navigation</p>
-            <p>On your Navigation page, and a new link list titled <b>Catalog</b> with a handle of <b>catalog</b>.</p>
+            <p>Edit the <b>Main menu</b> to add your "About us" page.</p>
+            <img src="framework/img/workshop/add-to-menu.png" class="center">
+        </section>
+
+        <section class="slide">
+            <h2>Make a new menu</h2>
+            <p>Click "Add menu" and create a new menu with a handle of <b>catalog</b>.</p>
             <img src="framework/img/workshop/catalog-linklist.png" class="center">
         </section>
 
         <section class="slide">
             <h2>Why does this work?</h2>
-            <p>Because the <b>Main Menu</b> link list has a link with <b>the same handle</b> as our new <b>Catalog</b> link list, a dropdown menu will appear.</p>
-
-            <img src="framework/img/workshop/linklist-relationship.png" class="center ">
+            <div class="col col--one-third">
+              <p>Because Main menu has a link with <b>the same handle</b> as our new Catalog menu, a dropdown menu will appear.</p>
+            </div>
+            <div class="col col--two-thirds">
+              <img src="framework/img/workshop/linklist-relationship.png" class="center ">
+            </div>
         </section>
 
          <section class="slide">
             <h2>Exercise #2: More theme customizations</h2>
 
             <ul>
-                <li>Feature the <b>Household collection</b> on the homepage.</li>
-                <li>Change the the footer newsletter sign-up heading to say "Subscribe for updates".</li>
+                <li>Feature the products of the <b>Household collection</b> on the homepage.</li>
+                <li>Change the the footer newsletter sign-up heading to say "Subscribe for updates" instead of "Newsletter".</li>
             </ul>
             <br>
             <div class="delayed">
@@ -554,11 +563,11 @@ By the end of the day, your will have the foundational skills to transform an "o
         </section>
 
         <section class="slide">
-            <br>
-            <img src="framework/img/workshop/edit-language-1.png" class="center">
-            <hr>
-            <hr>
-            <img src="framework/img/workshop/edit-language-2.png" class="center">
+            <h2>Language editor</h2>
+            <p>The language editor let's us avoid hard coding words into our theme's code.</p>
+            <p><b>Pro tip</b>: There's a lot of words here, so use the search function to find "Newsletter".</p>
+
+            <img src="framework/img/workshop/edit-language.png" class="center">
 
             <p class="presenter-notes">
                 Choose a new frontpage collection.
@@ -673,18 +682,17 @@ Great country / rustic decor for the rooster collector.&lt;/p&gt;
             <h2>Break it again!</h2>
 
             <ul>
-                <li>Go into the Minimal theme's Assets directory and open <b>styles.scss.liquid</b>.</li>
+                <li>Go into the Minimal theme's Assets directory and open <b>timber.scss.liquid</b>.</li>
                 <li>Type "What could go wrong?" anywhere.</li>
                 <li>Save and <b>preview</b> your work :D</li>
             </ul>
 
              <div class="">
-                <h3>styles.scss.liquid</h3>
+                <h3>timber.scss.liquid</h3>
                 <pre><code class="hljs css">
-What could go wrong?/*
-/*    SECTION 1
-/*    1.1 - Base Styles
-/*    1.2 - HTML5 Elements
+What could go wrong?/*======
+Shopify Timber v2.0.0 | github.com/shopify/timber
+Copyright 2014 Shopify Inc.
                 </code></pre>
             </div>
 
@@ -700,12 +708,12 @@ What could go wrong?/*
 
             <ul>
                 <li>Make a <b>Duplicate</b> of your theme from the Themes Dashboard</li>
-                <li>Check out the Theme Editor settings of this new theme - they're the same!</li>
+                <li>Check out the Online store editor settings of this new theme - they're the same!</li>
             </ul>
 
             <img src="framework/img/workshop/how-to-duplicate.png" class="center">
-
-            <p>Duplicates are an exact copy, so when in doubt about a code edit: try it on a copy first.</p>
+            <br>
+            <p><b>Pro tip</b>: Avoid editing the code of a store's live theme. Code on a duplicate theme, then publish that.</p>
 
             <p class="presenter-notes">
                 The ability to make duplicates and easily switch between them is a huge advantage with Shopify.  Mistakes are less costly than with some other content management systems.
