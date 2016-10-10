@@ -1672,17 +1672,25 @@ Sir Bob PJF
             <h2>Exercise #8: New product template</h2>
             <h3>product.info-only.liquid</h3>
 
-            <p>Delete the <code>&lt;h2&gt;</code> HTML element containing the product's price.</p>
-
-            <p>Delete the entire form element: <code>&lt;form id=&quot;add-item-form&quot; ... &lt;/form&gt;</code></p>
-
-            <p>Save the template.</p>
+            <ul>
+              <li>Delete the product's price information: <code>&lt;div class="product-single__prices"&gt;...&lt;/div&gt;</code></li>
+              <li>Delete the "Add to cart" button: <code>&lt;button type="submit" name="add" id="AddToCart" ... &lt;/button&gt;</code></li>
+              <li>Insert a new heading where the button was: <code>&lt;h3&gt;Coming soon!&lt;/h3&gt;</code>
+              <li>Save the template.</li>
+            </ul>
 
             <div class="delayed">
-                <br>
-                <h3>Products</h3>
-                <p>Edit the product titled <b>Black Bead Hoop Earrings - Swaziland</b>.</p>
-                <p>Set its product template to <b>product.info-only</b> and visibility to "Show online".</p>
+              <h3>Products</h3>
+              <p>Edit the product titled <b>Black Bead Hoop Earrings - Swaziland</b>.</p>
+              <p>Set its visibility to <code>Online store</code> and the template to <code>product.info-only</code>.</p>
+              <div class="row">
+                <div class="col col--one-half">
+                  <img src="framework/img/workshop/visible-online.png">
+                </div>
+                <div class="col col--one-half">
+                  <img src="framework/img/workshop/change-template.png">
+                </div>
+              </div>
             </div>
         </section>
 
@@ -1715,41 +1723,50 @@ Sir Bob PJF
             <p>What template file controls what's on the homepage?</p>
 
             <div class="delayed">
-                <p>Answer: <b>index.liquid</b></p>
-                <p>We need to:</p>
-                <ul>
-                    <li>Locate where the frontpage collection is written in the template file.</li>
-                    <li>Find out how to limit the number displayed.</li>
-                </ul>
+              <p>Answer: <b>index.liquid</b></p>
+              <hr>
+            </div>
+            <div class="delayed">    
+              <p>We need to:</p>
+              <ul>
+                <li>Open <code>index.liquid</code>.</li>
+                <li>Locate where the featured products code is written in the template file.</li>
+                <li>Find out how to limit the number displayed.</li>
+              </ul>
             </div>
         </section>
 
         <section class="slide">
-            <h2>Inspector Gadget</h2>
+            <h2>Theme tags</h2>
 
             <h3>index.liquid</h3>
-            <p>There's a lot in here, and it's not clear what it all does.</p>
+            <p>There doesn't appear to be much here...</p>
 
-            <div class="delayed">
-                <p>Forget the template file, use the <b>Inspector</b> to look for clues.</p>
-                <img src="framework/img/workshop/inspector-gadget.gif" class="center">
-            </div>
+            <img src="framework/img/workshop/fooled-me.gif" class="w50 center">
 
             <p class="presenter-notes">
-                Have everyone open up index.liquid.  It's not clear what we want...
-
-                Google Chrome's Inspector is probably the greatest tool I have for web development.
-                You could easily take a whole course on it.
+                Have everyone open up index.liquid.  It only has a couple snippets.  Explain what include does.
             </p>
         </section>
 
         <section class="slide">
-            <h2>Inspect Element</h2>
+            <h2>Theme tags</h2>
 
-            <p>Right-click on the Frontpage content text, and then select <b>Inspect Element</b></p>
-
-            <img src="framework/img/workshop/select-inspector.png" class="center">
-
+            <p>The <code>{% include %}</code> elements in the template are a type of <a href="https://help.shopify.com/themes/liquid/tags/theme-tags#include">Theme tag</a>.</p>
+            
+            <p>We use <code>include</code> to pull certain <b>Snippet</b> files into templates.</p>
+            
+            <div class="delayed">
+              <br>
+              <h3>product.liquid</h3>
+              <pre><code class="hljs">
+&lt;div class="section-header section-header--breadcrumb"&gt;
+  {% include 'breadcrumb' %}
+&lt;/div&gt;
+              </code></pre>
+              <img src="framework/img/workshop/breadcrumb-highlight.png" class="center">
+            </div>
+            
             <p class="presenter-notes">
                 We are clicking ABOVE the product rows because we want to know
                 what the HTML element is that BEGINS the products photo rows.
@@ -1757,39 +1774,29 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
-
-            <img src="framework/img/workshop/inspected-dom.png" class="center">
-
-            <p class="presenter-notes">
-                Boom. We are looking for `div class=row products` in index.liquid.
-            </p>
-        </section>
-
-        <section class="slide">
             <h2>Theme Tags</h2>
-<pre>
-    <code>
-&lt;div class=&quot;row products&quot;&gt;
-    {% for product in collections[settings.frontpage_collection].products %}
-    {% include 'product-loop' with settings.frontpage_collection %}
-    {% endfor %}
+            <p>Open up the Snippet titled <code>featured-products.liquid</code> and find where the code is displaying products.</p>
+            <hr>
+            <div class="delayed">
+              <pre>
+                  <code>
+&lt;div class="grid-uniform"&gt;
+
+  {% for product in collections[featured].products %}
+    {% include 'product-grid-item' %}
+  {% endfor %}
+
 &lt;/div&gt;
-    </code>
-</pre>
-<p><a href="https://docs.shopify.com/themes/liquid-documentation/tags/theme-tags">Theme tags</a> that use <code>include</code> are saying "go get this file from the Snippet folder".</p>
+                </code>
+            </pre>
 
-<p>The <b>product-loop.liquid</b> Snippet will include all the code to display a product's image, title, price, vendor, etc.</p>
-
-<p>What the <i>parameter</i> <code>with</code> does is more advance, so we'll leave it be.</p>
+            <p>The <code>product-grid-item.liquid</code> Snippet will include all the code to display a product's image, title, price, vendor, etc.</p>
 
             <p class="presenter-notes">
-                The entire frontpage collection is represented by these 5 lines.
-
-                It's not necessary to say include the .liquid extension when including Snippets.
-
-                You can get a lot out of Snippets without knowing the more advanced parameters you can use
-                with it, like "with".
+              Acknowledge that it's not apparent that featured-products was the Snippet to include.  This comes
+              from theme settings, which we can get into later.
             </p>
+          </div>
         </section>
 
         <section class="slide">
@@ -1800,30 +1807,40 @@ Sir Bob PJF
             <p>A for-loop is displaying the 'product-loop' Snippet over and over again.</p>
 
             <p>Is there a <a alt="Shopify For Loop" href="https://docs.shopify.com/themes/liquid-documentation/tags/iteration-tags#for">for-loop parameter</a> that can help?</p>
+            <div class="delayed">
+              <pre>
+                  <code>
+&lt;div class="grid-uniform"&gt;
 
-<pre class="delayed">
-    <code>
-&lt;div class=&quot;row products&quot;&gt;
-    {% for product in collections[settings.frontpage_collection].products limit: 12 %}
-    {% include 'product-loop' with settings.frontpage_collection %}
-    {% endfor %}
+  {% for product in collections[featured].products limit: 12 %}
+    {% include 'product-grid-item' %}
+  {% endfor %}
+
 &lt;/div&gt;
-    </code>
-</pre>
-
+                </code>
+            </pre>
+          </div>
         </section>
 
         <section class="slide">
             <h2>Exercise #10: Modify a Snippet</h2>
 
-            <h3>product-loop.liquid</h3>
+            <h3>product-grid-item.liquid</h3>
             <p>You've decided you want to make some changes to products shown on collection pages:</p>
 
             <ul>
-                <li>Stop displaying the product's vendor... <em>without removing</em> any code.</li>
-                <li>Show the product's <b>unique ID number</b> before the price in a <code>&lt;strong&gt;</code>.</li>
-                <li>If the product has the tag 'sustainable', display
-                  a short message after the price. <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators#contains">Hint</a></li>
+                <li>
+                  Stop displaying the product's vendor... <em>without removing</em> any code.
+                </li>
+                <li>
+                  If the product is using the <code>info-only</code> template, do not show the price. <a href="https://help.shopify.com/themes/liquid/tags/control-flow-tags#unless">Hint</a>
+                </li>
+                <li>
+                  If the product has the tag <code>sustainable</code>, display a short message after the price. <a href="https://help.shopify.com/themes/liquid/basics/operators#contains">Hint</a>
+                </li>
+                <li>
+                  Bonus: Include <code>icon-leaf.png</code> (see workshop files) infront the sustainability message. <a href="https://help.shopify.com/themes/liquid/filters/url-filters#asset_url">Hint</a>
+                </li>
             </ul>
 
             <img src="framework/img/workshop/modified-snippet.png" class="center">
@@ -1844,32 +1861,95 @@ Sir Bob PJF
 
         <section class="slide">
             <h2>Exercise #11: Modify a Snippet</h2>
+            <h3>Answers:</h3>
+            <div class="delayed">
+              <p>There is a theme setting that controls whether to output the vendor.</p>
+              <pre><code>
+{% if settings.collections_vendor_enable %}
+  &lt;p class="grid-link__title grid-link__vendor"&gt;{{ product.vendor }}&lt;/p&gt;
+{% endif %}
+              </code></pre>
+            </div>
+            <br>
+            <div class="delayed">
+              <p>Wrap all the pricing information in an if-statement that checks the product template.</p>
             <pre><code>
-&lt;div class=&quot;details&quot;&gt;
-  &lt;a href=&quot;{{ url }}&quot; class=&quot;clearfix&quot;&gt;
-    &lt;h4 class=&quot;title&quot;&gt;{{ product.title }}&lt;/h4&gt;
-      {% if settings.product_vendor %} &lt;span class=&quot;vendor&quot;&gt;{{ product.vendor }}&lt;/span&gt; {% endif %}
-
-    &lt;strong&gt;{{ product.id }}&lt;/strong&gt;
-
-    &lt;span class=&quot;price&quot;&gt;
-      ... bunch of code for displaying the price
-    &lt;/span&gt;
-  &lt;/a&gt;
-    {% if product.tags contains 'sustainable' %}
-      &lt;p&gt;This is a sustainable product.&lt;/p&gt;
-    {% endif %}
-
-&lt;/div&gt;
+{% unless product.template_suffix == 'info-only' %}
+  &lt;p class="grid-link__meta"&gt;
+    {% capture price %}{{ product.price | money }}{% endcapture %}
+    ...
+  &lt;/p&gt;
+{% endunless%}
             </code></pre>
 
-        <p class="presenter-notes">
-            We need to strip_html from the product blurb so we don't get any unwanted styling
-            along with the content.  Have you ever copy-pasted something from Word into a
-            blog post?  There's often a lot of extract mark-up with text that travels with it.
-        </p>
+          <p class="presenter-notes">
+            Show group where the theme setting is.  Show how they can read the docs to understand product.template_suffix
+          </p>
         </section>
-
+        
+        <section class="slide">
+            <h2>Exercise #11: Modify a Snippet</h2>
+            <h3>Answers:</h3>
+            <div class="delayed">
+              <p>Use <code>contains</code> to check whether the list of tags includes "sustainable".</p>
+            
+              <pre><code>
+{% if product.tags contains 'sustainable' %}
+  &lt;p&gt;This is a sustainable product.&lt;/p&gt;
+{% endif%}
+              </code></pre>
+            </div>
+            <br>
+            <div class="delayed">
+              <p>Upload <code>icon-leaf.png</code> to your theme's assets folder and use the <code>asset_url</code> filter to display it.</p>
+            
+              <pre><code>
+{% if product.tags contains 'sustainable' %}
+  &lt;p&gt;
+    &lt;img src="{{ 'icon-leaf.png' | asset_url }}" /&gt; This is a sustainable product.
+  &lt;/p&gt;
+{% endif%}
+              </code></pre>
+            </div>
+        </section>
+        <!-- <section class="slide title">
+            <h1>Theme settings</h1>
+            <h2>Playing with power</h2>
+        </section>
+        
+        <section class="slide">
+          <h2>Theme settings</h2>
+          <div class="row">
+            <div class="col col--two-thirds">
+              <p>You can make new theme settings by editing the <code>settings_schema.json</code> file 
+                in your theme's <code>config</code> folder.</p>
+                
+              <p>Examples of input settings include:</p>
+              <ul>
+                <li>Color picker</li>
+                <li>Simple text box</li>
+                <li>Page/product/blog dropdowns</li>
+                <li>Image upload</li>
+              </ul>
+              
+              <p>You can see all the options in <a href="https://help.shopify.com/themes/development/storefront-editor/settings-schema">the online documentation</a>.</p> 
+           </div>
+           <div class="col col--one-third">
+             <img src="framework/img/workshop/header-theme-settings.png">
+           </div>
+         </div>
+          
+        </section>
+        
+        <section class="slide">
+          <h2>Exercise #12: Make a theme setting</h2>
+        
+          <p>Our product pages already show the vendor in the description.</p>  
+          
+          <p>Instead of deleting the vendor information from exercise 4, let's make a setting that we can toggle on/off.</p>
+        
+          <img class="center" src="framework/img/workshop/setting-product-vendor.png">
+        </section> -->
         <section class="slide title">
             <h1>Bogus Gateway</h1>
             <h2>Trying out test orders</h2>
@@ -1891,7 +1971,7 @@ Sir Bob PJF
             <p>Your development shop will only allow you to make 10 "real" transactions, but you
             can make <i>unlimited</i> transactions through the Bogus Gateway.</p>
 
-            <p><b>Note:</b> Only available to Partners.</p>
+            <p><b>Note:</b> The Bogus Gateway is only available to development stores under a Partners account.</p>
 
             <p class="presenter-notes">
               Buying something from yourself, and then canceling it or refunding counts as a "real" transaction.
@@ -1935,7 +2015,7 @@ Sir Bob PJF
 
             * [Shopify forums](https://ecommerce.shopify.com/forums): Answers from Shopify employees, Experts, and other Partners
 
-            * [Mark Dunkley's Cheat Sheet](http://cheat.markdunkley.com/): Most common Liquid items at a glance
+            * [Liquid Cheat Sheet](https://www.shopify.ca/partners/shopify-cheat-sheet): Most common Liquid items at a glance
 
             * [Shopify Partners Blog](http://www.shopify.com/partners/blog): Designing, developing and selling with Shopify
 
