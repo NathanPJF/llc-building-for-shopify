@@ -974,7 +974,7 @@ Copyright 2014 Shopify Inc.
 
             <ul>
                 <li class="">You've decided you need to see the product's <b>type</b> listed <i>after</i> the product's description.</li>
-                <li class="">And you want to see the product type in ALL CAPS.</li>
+                <li class="">You want the text to also be a <b>link</b> to all products of that same type.</li>
             </ul>
 
             <div class="delayed">
@@ -984,7 +984,7 @@ Copyright 2014 Shopify Inc.
                 <p>Filters <b>modify</b> whatever they are attached to.</p>
                 <h3>Example</h3>
                 <pre><code class="hljs xml">
-{{ product.object | filter }}
+{{ product.property | filter }}
                 </code></pre>
 
                 <p><b>Pro tip</b>: That line is called a "pipe".</p>
@@ -1006,7 +1006,7 @@ Copyright 2014 Shopify Inc.
             <div class="delayed">
             <h3>Liquid</h3>
                 <pre><code class="hljs xml">
-{{ 'HOW ARE YOU?' | downcase }}
+{{ 'How are you?' | upcase }}
 {{ product.handle | append: '.png' }}
 {{ article.author | replace: 'Nathan', 'Bob' | prepend: 'Sir ' }}
                 </code></pre>
@@ -1015,7 +1015,7 @@ Copyright 2014 Shopify Inc.
             <div class="delayed">
             <h3>Result</h3>
                 <pre><code class="hljs xml">
-how are you?
+HOW ARE YOU?
 fuzzy-boots.png
 Sir Bob PJF
                 </code></pre>
@@ -1030,31 +1030,29 @@ Sir Bob PJF
         <section class="slide">
             <h2>Exercise #5: Intro to liquid filters</h2>
 
-            <p>You want the end result to look like this:</p>
-
+            <p>Step 1: Output the product type with a call to action.</p>
+            <p>We'll be hard coding the message at first, but we'll set it
+              up as a <b>translation</b> later.</p>
             <img src="framework/img/workshop/product-with-type.png" class="center">
-
+            <br>
             <div class="delayed">
                 <pre><code class="hljs xml">
 &lt;div class="product-description rte" itemprop="description"&gt;
   {{ product.description }}
 &lt;/div&gt;
-&lt;p&gt;{{ product.type | upcase }}&lt;/p&gt;                  
+&lt;p&gt;See more {{ product.type | downcase }} here&lt;/p&gt;                  
                 </code></pre>
             </div>
 
             <p class="presenter-notes">
                 Remind class what the goal of the exercise is.
-                The filter 'Capitalize' is a red herring. That will only capitalize the first letter.
+                Our product types are all starting with capital letters, so we need the downcase filter.
             </p>
         </section>
 
         <section class="slide">
             <h2>Exercise #5: Intro to liquid filters</h2>
-            <ol>
-              <li>You now want the product's type to also be <b>a link to a page</b> with all products of that type.</li>
-              <li>You also want to write a "call to action" for this link.</li>
-            </ol>
+            <p>Step 2: The product type needs to <b>link to a page</b> with all products of that type.</p>
             <p>To do this, we need <a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters" alt="Shopify URL filters">the right type of URL filter</a>.</p>
             <br>
             <img src="framework/img/workshop/product-type-link.png" class="center">
@@ -1065,7 +1063,7 @@ Sir Bob PJF
             <h2>Types of filters</h2>
             <p><b><a href="https://docs.shopify.com/themes/liquid-documentation/filters/url-filters">URL Filters</a></b>: for when you want to output the link to either a <b>file</b> on Shopify, or a link to a <b>filtered</b> page.</p>
 
-            <div class="delayed">
+            <div class="">
             <h3>Liquid</h3>
                 <pre><code class="hljs xml">
 {{ 'logo.png' | asset_url }}
@@ -1096,28 +1094,26 @@ Sir Bob PJF
 
 
         <section class="slide">
-            <h2>Exercise #5: Intro to liquid filters</h2>
-            <p><b>Step #1</b>  Turn the product type object into a link to a filtered page.</p>
-            <div class="delayed">
-            <h3>Liquid</h3>
-                <pre><code class="hljs xml">
-{{ product.type | upcase | link_to_type }}
-                </code></pre>
-            </div>
+          <h2>Exercise #5: Intro to liquid filters</h2>
+          <p>Step 2: The product type needs to <b>link to a page</b> with all products of that type.</p>
+          <div class="delayed">
+          <h3>Liquid</h3>
+              <pre><code class="hljs xml">
+{{ product.type | downcase | link_to_type }}
+              </code></pre>
 
-            <div class="delayed">
-            <h3>HTML</h3>
-                <pre><code class="hljs xml">
-&lt;a href=&quot;/collections/types?q=JEWELRY&quot; title=&quot;JEWELRY&quot;&gt;JEWELRY&lt;/a&gt;
-                </code></pre>
+          <h3>HTML</h3>
+              <pre><code class="hljs xml">
+&lt;a href=&quot;/collections/types?q=pillows&quot; title=&quot;pillows&quot;&gt;pillows&lt;/a&gt;
+              </code></pre>
 
-            <p>Go check it out on a couple products!</p>
-            </div>
+          <p>Go check it out on a couple products!</p>
+          </div>
 
-            <p class="presenter-notes">
-                Take a look at your store's other products; you'll see that they all have the same
-                links.
-            </p>
+          <p class="presenter-notes">
+              Take a look at your store's other products; you'll see that they all have the same
+              links.
+          </p>
 
         </section>
 
@@ -1127,21 +1123,25 @@ Sir Bob PJF
 
         <section class="slide">
             <h2>Exercise #5: Intro to liquid filters</h2>
-            <p><b>Step #2</b>  Write a call to action.</p>
-            <p>We'll be hard coding the message at first, but we'll set it
-              up as a <b>translation</b> later.</p>
+              <p><b>Bonus</b>: Link the entire call to action</p>
+              <p>Hint: It will be easier if you write the <code>&lt;a&gt;</code> tag yourself and use a new URL filter.</p>
+              <img src="framework/img/workshop/linked-call-to-action.png" class="center">
             <div>
-            <h3>Liquid</h3>
-                <pre><code class="hljs xml">
-&lt;p&gt;CHECKOUT OUT MORE {{ product.type | upcase | link_to_type }}!&lt;/p&gt;
-                </code></pre>
+            <div class="delayed">
+              <h3>Liquid</h3>
+              <pre><code class="hljs xml">
+&lt;a href="{{ product.type | url_for_type }}"&gt;
+  See more {{ product.type | downcase }} here
+&lt;/a&gt;
+              </code></pre>
             </div>
+          </div>
 
             </div>
 
             <p class="presenter-notes">
-                Take a look at your store's other products; you'll see that they all have the same
-                links.
+                There is a way where we can accomplish this still using link_to_tag, 
+                but it involves using Theme tags - a topic we haven't covered yet.
             </p>
 
         </section>
@@ -1187,8 +1187,8 @@ Sir Bob PJF
             <p>Navigate back the your "Collections" and upload the following files as feature images:</p>
 
             <ul>
-                <li>The Blue Diamond Collection: <b>blue-diamond-collection.jpg</b></li>
-                <li>Accessories: <b>accessories-collection.jpg</b></li>
+                <li>The Blue Diamond Collection: <code>collection-blue-diamond.jpg</code></li>
+                <li>Accessories: <code>collection-accessories.jpg</code></li>
             </ul>
 
             <img src="framework/img/workshop/featured-collection-image.png" class="center">
@@ -1200,15 +1200,15 @@ Sir Bob PJF
         </section>
 
         <section class="slide">
-            <p>After the HTML for breadcrumbs in the <b>collection.liquid</b>:</p>
-            <div class="delayed">
+            <p>Above the <code>&lt;header&gt;</code> tag in our collection template, insert the following HTML:</p>
+            <div class="">
                 <h3>collection.liquid</h3>
                 <pre><code class="hljs xml">
-&lt;div class=&quot;hero-banner&quot;&gt;
-  &lt;div class=&quot;grid__item one-whole collection-hero&quot; style=&quot;background-image: url({{ collection.image.src | img_url: '1024x1024' }});&quot;&gt;
-    &lt;h1 class=&quot;collection-title&quot;>{{ collection.title }}&lt;/h1&gt;
+&lt;div class="section-header__image-container"&gt;
+  &lt;div class="section-header__image" style="background-image: url({{ collection.image.src | img_url: '1024x1024' }});"&gt;
+    &lt;div class="section-header__title--overlay"&gt;{{ collection.title }}&lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;   
+&lt;/div&gt;
                 </code></pre>
             </div>
             <div class="delayed">
@@ -1285,34 +1285,33 @@ Sir Bob PJF
 
         <section class="slide">
             <p>At the bottom of <b>theme.scss.liquid</b> write:</p>
-            <div class="delayed">
-                <h3>styles.scss.liquid</h3>
+            <div class="">
+                <h3>theme.scss.liquid</h3>
                 <pre><code class="hljs css">
-/* === Hero banner === */
+/* === Collection page hero image === */
 
-.hero-banner{
+.section-header__image-container {
   display: table;
   width: 100%;
   min-height: 300px;
   margin-bottom: 1em;
+}
+ 
+.section-header__image {
+  float: none;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  background-repeat: no-repeat; background-size: cover; background-position: 50%;
+}
 
-  .collection-hero{
-    float: none;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    background-repeat: no-repeat; background-size: cover; background-position: 50%;
-
-    h1{
-      margin-bottom: 0;
-      float: none !important;
-      color: white;
-      text-shadow: 2px 2px 2px black;
-      font-size: 56px;
-      font-weight: 600;
-      line-height: 1.4em;
-    }
-  }
+.section-header__title--overlay {
+  color: white;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.80);
+  font-size: 55px;
+  font-weight: bold;
+  line-height: 1.4em;
+  padding: 0 1em;
 }
                 </code></pre>
             </div>
@@ -1321,6 +1320,11 @@ Sir Bob PJF
                 There is nesting going on, which is just the start of the cool things
                 SCSS can do.
             </p>
+        </section>
+
+        <section class="slide">
+          <h2>Exercise #6: Collection page hero images</h2>
+          <img class="center" src="framework/img/workshop/collection-image-result.png">
         </section>
 
         <section class="slide centered">
@@ -1345,17 +1349,15 @@ Sir Bob PJF
 
             <h3>styles.scss.liquid</h3>
             <pre><code class="hljs css">
-/* iPhone 6 landscape : 667px */
+/* iPhone 6 landscape : 667px */              
 @media screen and (max-width: 667px){
-  .hero-banner{
+  .section-header__image-container {
     min-height: 115px;
 
-    .collection-hero{
-      h1{
-        font-size: 24px;
-        text-shadow: 1px 1px 1px black;
-      }
-    }
+  }
+  .section-header__title--overlay{
+    font-size: 24px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.80);;
   }
 }
             </code></pre>
@@ -1371,7 +1373,7 @@ Sir Bob PJF
                 <img src="framework/img/workshop/accessories-fullscreen.png" alt="Accessories full screen">
             </div>
             <div class="col col--one-half delayed text-center">
-                <img src="framework/img/workshop/necklaces-fullscreen.png" alt="Necklaces full screen">
+                <img src="framework/img/workshop/no-image-fullscreen.png" alt="Necklaces full screen">
             </div>
         </section>
 
@@ -1384,16 +1386,12 @@ Sir Bob PJF
             <h2>Exercise #6: Show hero images only if they exist</h2>
 
             <p>We can use <a href="https://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags" alt="Control Flow Tags">Control Flow Tags</a> to check <b>if</b> a hero image exists.</p>
+            <p>Liquid <b>tags</b> are used for programming logic. Tags are wrapped with: <code>{%</code> ... <code>%}</code> </p>
 
             <div class="delayed">
-                <p>Liquid <b>tags</b> are used for programming logic.
-                    Tags are wrapped with: <code>{%</code> ... <code>%}</code> </p>
-            </div>
-
-            <div class="delayed">
-                <p>Write an <a href="https://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags#if">if-statement</a> with some "pseudo code":</p>
+                <h3>Pseudo code</h3>
                 <pre><code class="hljs xml">
-{% if collection image exists %}
+{% if collection_image_exists %}
 
     our code that shows the hero image
 
@@ -1438,27 +1436,23 @@ Sir Bob PJF
 
             <div class="delayed">
               <p>Answer: <code>collection.image</code> or <code>collection.image.src</code></p>
-            </div>
-
-            <div class="delayed">
+              <hr>
               <p>What will we write as the condition of our if-statement?</p>
             </div>
+
             <div class="delayed">
               <p>Answer: <code>{% if collection.image %}</code></p>
-            </div>
-
-            <p class="presenter-notes">
-                We don't need an operator for this to work, just checking
-                the presence of the object is enough.
-            </p>
-
-            <div class="delayed">
                 <pre><code class="hljs xml">
 {% if collection.image %}
     our code to show the hero image
 {% endif %}
                 </pre></code>
             </div>
+            
+          <p class="presenter-notes">
+              We don't need an operator for this to work, just checking
+              the presence of the object is enough.
+          </p>
 
         </section>
 
@@ -1466,17 +1460,19 @@ Sir Bob PJF
             <h2>Logic operators</h2>
 
             <p>We could have also have used <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators#basic-operators" alt="basic operators">a logic operator</a> in our condition.</p>
-                <pre><code class="hljs xml">
+                <pre><code class="hljs">
 {% if collection.image.src != blank %}
     Show hero image
 {% endif %}
                 </pre></code>
 
             <div class="delayed">
-              <h3>Advertising sales</h3>
-                <pre><code class="hljs xml">
-{% if product.price < product.compare_at_price_max %}
-  This item is on sale!
+              <h3>Showing a "low stock" message</h3>
+                <pre><code class="hljs">
+{% if variant.inventory_quantity < 10 %}
+  &lt;span class="low-stock"&gt;
+    Better hurry - we only have {{ variant.inventory_quantity }} items left!
+  &lt;/span&gt;
 {% endif %}
                 </code></pre>
             </div>
@@ -1497,22 +1493,7 @@ Sir Bob PJF
             <ul class="delayed">
                 <li>Make a <a href="https://docs.shopify.com/manual/your-store/discounts" alt="Discount codes">discount code</a> that will only work for products in the Household collection.</li>
                 <li>Modify <b>product.liquid</b> to display the code in an if-statement.</li>
-                <li>Style our new call to action with some sassy CSS.</li>
-            </ul>
-
-            <img src="framework/img/workshop/discount-example.png" class="center delayed">
-
-        </section>
-
-        <section class="slide">
-            <h2>Exercise #7: Show a discount code</h2>
-
-            <p>You decide you want to show a discount code on Product pages <b>if</b> the product is part of the <b>Household collection</b>.</p>
-
-            <ul class="delayed">
-                <li>Make a <a href="https://docs.shopify.com/manual/your-store/discounts" alt="Discount codes">discount code</a> that will only work for products in the Household collection.</li>
-                <li>Modify <b>product.liquid</b> to display the code in an if-statement.</li>
-                <li>Style our new call to action with some sassy CSS.</li>
+                <li>Style our new call to action with some CSS.</li>
             </ul>
 
             <img src="framework/img/workshop/discount-example.png" class="center delayed">
@@ -1533,12 +1514,14 @@ Sir Bob PJF
             <h2>Iteration Tags</h2>
             <p>A product can be part of multiple collections; we need a way to check each collection title individually.</p>
             <p>We can use an <a href="https://docs.shopify.com/themes/liquid-documentation/tags/iteration-tags#for" alt="Interation tags">Iteration Tag</a> to loop through the collections.</p>
-            <p><b>Pseudo code</b></p>
+            <h3>Pseudo code</h3>
             <pre><code class="hljs xml">
-{% for each of the product's collections %}
-    {% if the collection title is 'Household' %}
+{% for each collection in collections %}
+
+    {% if title is 'Household' %}
       Show the discount code.
     {% endif %}
+    
 {% endfor %}
             </code></pre>
 
@@ -1547,16 +1530,22 @@ Sir Bob PJF
             <h2>Introducing the For-loop</h2>
 
             <p>Let's build a <a href="https://docs.shopify.com/themes/liquid-documentation/tags/iteration-tags#for" alt="Liquid For Loops">for loop</a> based on our pseudo code.</p>
-            <p class="delayed">What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">product liquid object</a> can we use to get information on a product's collections?</p>
-            <p class="delayed">Answer: <code>{{ product.collections }}</code></p>
-
-            <p class="delayed">What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/collection">collection object</a> tells us the title?</p>
-            <p class="delayed">Answer: <code>{{ collection.title }}</code></p>
-
-            <p class="delayed">What <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators">operator</a> checks if two things are equal?</p>
-            <p class="delayed">Answer: <code>==</code></p>
-
-            <pre class="delayed"><code class="hljs xml">
+            <p>What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">product liquid object</a> can we use to get information on a product's collections?</p>
+            
+            <div class="delayed">
+              <p>Answer: <code>{{ product.collections }}</code></p>
+              <hr>
+              <p>What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/collection">collection object</a> tells us the title?</p>
+            </div>
+            <div class="delayed">
+              <p>Answer: <code>{{ collection.title }}</code></p>
+              <hr>
+              <p>What <a href="https://docs.shopify.com/themes/liquid-documentation/basics/operators">operator</a> checks if two things are equal?</p>
+            </div>
+            <div class="delayed">
+              <p>Answer: <code>==</code></p>
+            </div>
+            <pre class="delayed"><code class="hljs">
 {% for collection in product.collections %}
   {% if collection.title == 'Household' %}
     Show the discount code.
@@ -1574,16 +1563,15 @@ Sir Bob PJF
             <h2>Exercise #7: Show a discount code</h2>
             <h3>product.liquid</h3>
 
-            <p>Place the for-loop after the <code>&lt;h2 class=&quot;price&quot;...&gt;</code> element.</p>
-            <pre><code class="hljs xml">
-&lt;h2 class=&quot;price&quot; id=&quot;price-preview&quot;&gt;
-  &lt;span itemprop=&quot;price&quot;&gt; ... &lt;span&gt;
-&lt;/h2&gt;
+            <p>Place the for-loop below product vendor listing from earlier, <code>&lt;h4&gt;{{ product.vendor }}&lt;/h4&gt;</code></p>
+            <pre><code class="hljs">
 {% for collection in product.collections %}
   {% if collection.title == 'Household' %}
-    &lt;span class=&quot;special-discount&quot;&gt;
-      Enter &lt;span class=&quot;discount-code&quot;&gt;home4holidays&lt;/span&gt; for 20% off
-    &lt;/span&gt;
+    &lt;div class="special-discount"&gt;
+      &lt;span class="special-discount__message"&gt;
+        Enter &lt;span class="special-discount__code"&gt;home4holidays&lt;/span&gt; at checkout for 20% off this item
+      &lt;/span&gt;
+    &lt;/div&gt;
   {% endif %}
 {% endfor %}
             </code></pre>
@@ -1597,22 +1585,27 @@ Sir Bob PJF
 
         <section class="slide">
             <h2>Exercise #7: Show a discount code</h2>
-            <h3>styles.scss.liquid</h3>
+            <p>At the bottom of <code>theme.scss.liquid</code>, write: </p>
+            <h3>theme.scss.liquid</h3>
             <pre><code class="hljs css">
-.special-discount{
-  display: inline-block;
-  font-size: 16px;
-  margin-bottom: 20px;
-  border: 1px #DAA953 solid;
-  padding: 8px 15px;
-  border-radius: 5px;
-  background: rgb(252, 247, 232);
+/* === Special discount === */
 
-  .discount-code{
-    text-shadow: 1px 1px white;
-    letter-spacing: 2px;
-    color: {{ settings.price_color }};
-  }
+.special-discount {
+  text-align: center;
+  margin: 2em auto;
+}
+
+.special-discount__message {
+  border: 1px #1f512b solid;
+  padding: 8px 15px;
+  background: #26863d;
+  color: white;
+  font-weight: normal;
+}
+
+.special-discount__code {
+  font-weight: bold;
+  letter-spacing: 2px;
 }
             </code></pre>
 
