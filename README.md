@@ -6,8 +6,8 @@ An introductory workshop to Shopify and customizing themes with Liquid.  Made fo
   * [Building a web store with Shopify and Liquid](#building-a-web-store-with-Shopify-and-Liquid)
   * [What will you learn?](#what-will-you-learn)
   * [Is this workshop for you?](#is-this-workshop-for-you)
-* [Instructor information](#Instructor-information)  
-  * [Ladies Learning Code slide deck template](#Ladies-Learning-Code-slide-deck-template)
+* [Instructor information](#instructor-information)  
+  * [Ladies Learning Code slide deck template](#ladies-learning-code-slide-deck-template)
   
 ## Workshop information
 
