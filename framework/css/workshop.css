@@ -1,101 +1,100 @@
 /* Styles specific to this workshop
 ------------------------------------*/
 body {
-  background: #F3F4F4;
-}
+  background: #F3F4F4; }
 
 h2 {
-  margin-bottom: 0.5em;
-}
+  margin-bottom: 0.5em; }
 
 .intro li, .last li {
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 p {
   font-size: 27px;
   line-height: 1.6em;
-  margin-top: 0;
-}
-footer p {
-  font-size: 20px;
-}
+  margin-top: 0; }
+  footer p {
+    font-size: 20px; }
 
 li {
   font-size: 27px;
-  margin-bottom: 1em;
-}
-footer li {
-  font-size: 20px;
-}
+  margin-bottom: 1em; }
+  footer li {
+    font-size: 20px; }
 
 code {
-  font-size: 24px;
-}
+  font-size: 24px; }
+
+/* Code example */
+.hljs {
+  padding: 0px 25px; }
+  .hljs span.keyword {
+    color: #00f; }
 
 /* Grid system */
+.row {
+  display: block; }
+  .row:after {
+    clear: both;
+    content: '';
+    display: block; }
+
 .col {
   float: left;
   padding: 0 30px;
-  height: 100%;
-}
+  height: 100%; }
+
+.col--one-third {
+  width: 33%; }
+
+.col--two-thirds {
+  width: 66%; }
 
 .col--one-half {
-  width: 50%;
-}
+  width: 50%; }
 
 .col--one-quarter {
-  width: 25%;
-}
+  width: 25%; }
 
 .col--three-quarters {
-  width: 75%;
-}
+  width: 75%; }
 
 .contain--img {
   max-height: 100%;
-  width: auto !important;
-}
+  width: auto !important; }
 
 .center {
   margin: 0 auto;
-  display: block;
-}
+  display: block; }
 
 .text-center {
-  text-align: center;
-}
+  text-align: center; }
 
 .w100 {
-  width: 100% !important;
-}
+  width: 100% !important; }
 
 .w50 {
-  width: 50%;
-}
+  width: 50%; }
 
 .bg--white {
-  background: white;
-}
+  background: white; }
 
-.local-shops, .big-brands, .beaker-panic, .no-idea {
+.bg--image {
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 50%;
-}
+  background-position: 50%; }
 
+/* === Background images === */
 .local-shops {
-  background-image: url("../img/workshop/local-shops.png");
-}
+  background-image: url("../img/workshop/local-shops.png"); }
 
 .big-brands {
-  background-image: url("../img/workshop/big-brands-2.png");
-}
+  background-image: url("../img/workshop/big-brands-2.png"); }
 
 .beaker-panic {
-  background-image: url("../img/workshop/beaker-panic.jpg");
-}
+  background-image: url("../img/workshop/beaker-panic.jpg"); }
 
 .no-idea {
-  background-image: url("../img/workshop/no-idea.gif");
-}
+  background-image: url("../img/workshop/no-idea.gif"); }
+
+/*# sourceMappingURL=workshop.css.map */
