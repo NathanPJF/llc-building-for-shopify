@@ -39,6 +39,12 @@ code {
     content: '';
     display: block; }
 
+.row--one-half {
+  height: 40vh;
+  margin-top: 2vh;
+  overflow: hidden;
+}
+
 .col {
   float: left;
   padding: 0 30px;
