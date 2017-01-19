@@ -371,11 +371,10 @@
                 <li>For the Header, choose to use a custom logo.</li>
                 <li>Change the Newsletter subscribe button color to a color you like.</li>
                 <li>Change the headings typography to Lato.</li>
-                <li>Show the quantity selector on Product pages.</li>
-                <li>Set up a couple social media links in your Footer. (<b>Hint:</b> 'General Settings')</li>
+                <li>Show the quantity selector on Product pages. (<b>Hint:</b> 'Navigate to the Product page in the editor')</li>
+                <li>Set up a couple social media links in your Footer. (<b>Hint #2:</b> 'General Settings')</li>
                 <li>Add two new slideshow images. (Don't worry about the links yet.)</li>
                 <li><b>Once done:</b> Go back to Themes admin and <b>Publish</b> this Debut theme.</li>
-                <li><strong>Second hint:</strong> To view settings for a page in the left panel, you must navigate to that page.</li>
             </ul>
 
             <p class="presenter-notes">
@@ -1240,7 +1239,7 @@ Capt. Vinay
         <section class="slide">
             <p>Below the <code>&lt;header&gt;</code> tag in our collection template, insert the following HTML:</p>
             <div class="">
-                <h3>collection.liquid</h3>
+                <h3>collection-template.liquid</h3>
                 <pre><code class="hljs xml">
 &lt;div class="collection-hero">
   &lt;div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '1024x300', crop: 'top' }});">&lt;/div>
@@ -1559,7 +1558,7 @@ Capt. Vinay
 
             <ul class="delayed">
                 <li>Make a <a href="https://docs.shopify.com/manual/your-store/discounts" alt="Discount codes">discount code</a> that will only work for products in the Household collection.</li>
-                <li>Modify <b>product.liquid</b> to display the code in an if-statement.</li>
+                <li>Modify <b>product-template.liquid</b> to display the code in an if-statement.</li>
                 <li>Style our new call to action with some CSS.</li>
             </ul>
 
@@ -1628,7 +1627,7 @@ Capt. Vinay
 
         <section class="slide">
             <h2>Exercise #7: Show a discount code</h2>
-            <h3>product.liquid</h3>
+            <h3>product-template.liquid</h3>
 
             <p>Place the for-loop below the product SKU text from earlier.</p>
             <pre><code class="hljs">
@@ -1729,7 +1728,7 @@ Capt. Vinay
 
             <p>You need a way to <b>hide the price and Add to Cart button</b> for select products.</p>
             <p>In your theme's Templates folder, click "Add a new template".</p>
-            <p>Create a new product template called <b>info-only</b>.</p>
+            <p>Create a new <strong>product</strong> template called <b>info-only</b>.</p>
 
             <img src="framework/img/workshop/create-alt-template.png" class="center">
         </section>
@@ -1740,8 +1739,8 @@ Capt. Vinay
 
             <ul>
               <li>Modify the new template to include an alternate section. <code>{% section 'product-template-info-only' %}</code></li>
-              <li>Add a new section with that name (it will be blank) and copy in the old <code>'product-template'</code> section code
-              <li>Delete the product's price information from the alt-section code: <code>&lt;div class="product-single__prices"&gt;...&lt;/div&gt;</code></li>
+              <li>Add a new section with that name (it will be blank) and copy/paste in the old <code>'product-template'</code> section code
+              <li>Delete the product's price information from the new section code: <code>&lt;div class="product-single__prices"&gt;...&lt;/div&gt;</code></li>
               <li>Delete the "Add to cart" button: <code>&lt;button type="submit" name="add" id="AddToCart" ... &lt;/button&gt;</code></li>
               <li>Insert a new heading where the button was: <code>&lt;h3 class="btn"&gt;Coming soon!&lt;/h3&gt;</code>
               <li>Remember to save both templates: <code>Templates/product.info-only.liquid</code> and <code>Sections/product-template-info-only.liquid</code>.</li>
@@ -1828,6 +1827,7 @@ Capt. Vinay
 
             <div class="delayed">
               <br>
+              <h2>Using a <strong>Snippet</strong></h2>
               <h3>collection-template.liquid</h3>
               <pre><code class="hljs">
 {% if paginate.pages > 1 %}
@@ -1837,6 +1837,8 @@ Capt. Vinay
               <img src="framework/img/workshop/pagination-highlight.png" class="center">
             </div>
 
+            <p class="delayed">With this piece of code, we can add pagination to most pages.</p>
+
             <p class="presenter-notes">
                 We are clicking ABOVE the product rows because we want to know
                 what the HTML element is that BEGINS the products photo rows.
@@ -1845,9 +1847,10 @@ Capt. Vinay
 
         <section class="slide">
             <h2>Theme Tags</h2>
-            <p>Open up the Section titled <code>collection.liquid</code> and find where the code is displaying products.</p>
-            <hr>
+            <p>Let's see if we can determine where the home page collections are coded!</p>
+            <p class="delayed">Open up the <strong>Section</strong> titled <code>collection.liquid</code> and find where the code is displaying products.</p>
             <div class="delayed">
+            <hr>
               <pre>
                   <code>
 &lt;div class="grid grid--uniform grid--view-items">
@@ -1863,7 +1866,7 @@ Capt. Vinay
             <p>The <code>product-card-grid.liquid</code> Snippet will include all the code to display a product's image, title, price, vendor, etc.</p>
 
             <p class="presenter-notes">
-              Acknowledge that it's not apparent that featured-products was the Snippet to include.  This comes
+              Acknowledge that it's not apparent that collection.liquid was the Snippet to include.  This comes
               from theme settings, which we can get into later.
             </p>
           </div>
@@ -1895,12 +1898,12 @@ Capt. Vinay
         <section class="slide">
             <h2>Exercise #10: Modify a Snippet</h2>
 
-            <h3>product-grid-item.liquid</h3>
+            <h3>product-card-grid.liquid</h3>
             <p>You've decided you want to make some changes to products shown on collection pages:</p>
 
             <ul>
                 <li>
-                  Stop displaying the product's vendor... <em>without removing</em> any code.
+                  Display the product's vendor.
                 </li>
                 <li>
                   If the product is using the <code>info-only</code> template, do not show the price. <a href="https://help.shopify.com/themes/liquid/tags/control-flow-tags#unless">Hint</a>
@@ -1909,7 +1912,7 @@ Capt. Vinay
                   If the product has the tag <code>sustainable</code>, display a short message after the price. <a href="https://help.shopify.com/themes/liquid/basics/operators#contains">Hint</a>
                 </li>
                 <li>
-                  Bonus: Include <code>icon-leaf.png</code> (see workshop files) infront the sustainability message. <a href="https://help.shopify.com/themes/liquid/filters/url-filters#asset_url">Hint</a>
+                  Bonus: Include the <code>icon-leaf.png</code> image (see workshop files) in front of the sustainability message. <a href="https://help.shopify.com/themes/liquid/filters/url-filters#asset_url">Hint</a>
                 </li>
             </ul>
 
@@ -1930,25 +1933,24 @@ Capt. Vinay
         </section>
 
         <section class="slide">
-            <h2>Exercise #11: Modify a Snippet</h2>
+            <h2>Exercise #10: Modify a Snippet</h2>
             <h3>Answers:</h3>
             <div class="delayed">
               <p>There is a theme setting that controls whether to output the vendor.</p>
               <pre><code>
-{% if settings.collections_vendor_enable %}
-  &lt;p class="grid-link__title grid-link__vendor"&gt;{{ product.vendor }}&lt;/p&gt;
+{% if section.settings.show_vendor %}
+  &lt;div class="grid-view-item__vendor">{{ product.vendor }}&lt;/div>
 {% endif %}
               </code></pre>
             </div>
             <br>
             <div class="delayed">
-              <p>Wrap all the pricing information in an if-statement that checks the product template.</p>
+              <p>Wrap all the pricing information in an if/unless-statement that checks the product template.</p>
             <pre><code>
 {% unless product.template_suffix == 'info-only' %}
-  &lt;p class="grid-link__meta"&gt;
-    {% capture price %}{{ product.price | money }}{% endcapture %}
-    ...
-  &lt;/p&gt;
+  &lt;div class="grid-view-item__meta">
+    {% include 'product-price' %}
+  &lt;/div>
 {% endunless%}
             </code></pre>
 
@@ -1958,7 +1960,7 @@ Capt. Vinay
         </section>
 
         <section class="slide">
-            <h2>Exercise #11: Modify a Snippet</h2>
+            <h2>Exercise #10: Modify a Snippet</h2>
             <h3>Answers:</h3>
             <div class="delayed">
               <p>Use <code>contains</code> to check whether the list of tags includes "sustainable".</p>
@@ -1982,7 +1984,7 @@ Capt. Vinay
               </code></pre>
             </div>
         </section>
-        <!-- <section class="slide title">
+        <section class="slide title">
             <h1>Theme settings</h1>
             <h2>Playing with power</h2>
         </section>
@@ -1991,18 +1993,21 @@ Capt. Vinay
           <h2>Theme settings</h2>
           <div class="row">
             <div class="col col--two-thirds">
-              <p>You can make new theme settings by editing the <code>settings_schema.json</code> file
-                in your theme's <code>config</code> folder.</p>
-
-              <p>Examples of input settings include:</p>
-              <ul>
+              <p>You can make new theme settings by editing:</p>
+              <blockquote>
+                <p class="delayed">1. The <code>settings_schema.json</code> file in your theme's <code>Config</code> folder for general settings.</p>
+                <p class="delayed">2. The <code>section</code> files in your theme's <code>Sections</code> folder for section specific settings.</p>
+              </blockquote>
+              <p class="delayed">Examples of input settings include:</p>
+              <ul class="delayed">
                 <li>Color picker</li>
                 <li>Simple text box</li>
                 <li>Page/product/blog dropdowns</li>
                 <li>Image upload</li>
               </ul>
+              <p class="delayed">All of the above could be general or specific settings depending on the context!</p>
 
-              <p>You can see all the options in <a href="https://help.shopify.com/themes/development/storefront-editor/settings-schema">the online documentation</a>.</p>
+              <p class="delayed">You can see all the options in <a href="https://help.shopify.com/themes/development/storefront-editor/settings-schema">the online documentation</a>.</p>
            </div>
            <div class="col col--one-third">
              <img src="framework/img/workshop/header-theme-settings.png">
@@ -2012,14 +2017,80 @@ Capt. Vinay
         </section>
 
         <section class="slide">
-          <h2>Exercise #12: Make a theme setting</h2>
+          <h2>Exercise #11: Make a theme setting</h2>
 
-          <p>Our product pages already show the vendor in the description.</p>
+          <p>Our product pages all have SKU's because of the code changes from exercise 4.</p>
+          <p class="delayed">But what if we change our mind about displaying the SKU?</p>
 
-          <p>Instead of deleting the vendor information from exercise 4, let's make a setting that we can toggle on/off.</p>
+          <p class="delayed">Instead of deleting the SKU information from exercise 4, let's make a setting that we can toggle on/off.</p>
 
-          <img class="center" src="framework/img/workshop/setting-product-vendor.png">
-        </section> -->
+          <img class="delayed center" src="framework/img/workshop/setting-product-sku.png">
+        </section>
+
+        <section class="slide">
+          <h2>Exercise #11: Make a theme setting</h2>
+
+          <p>Step 1: <a href="https://help.shopify.com/themes/development/storefront-editor/settings-schema">Online documentation</a> for theme settings.</p>
+          <p class="delayed">Step 2: A <code>checkbox</code> will serve our purposes well since we want to toggle the setting on/off; so let's copy that format!</p>
+          <div class="delayed">
+            <pre>
+              <code>
+{
+  "type": "checkbox",
+  "id": "collection_sort",
+  "default": true,
+  "label": "Display sort by?"
+}
+              </code>
+            </pre>
+          </div>
+          <p class="delayed">Step 3: Find a logical location for your new setting. Is this a general or specific setting?</p>
+        </section>
+
+        <section class="slide">
+          <h2>Exercise #11: Make a theme setting</h2>
+
+          <h3>This is a product-specific setting.</h3>
+
+          <div class="row delayed">
+          <p>Step 4: Navigate to the <code>product-template.liquid</code> section file.</p>
+            <img src="framework/img/workshop/product-template-highlight.png">
+          </div>
+
+          <div class="row delayed">
+            <p>Step 5: Paste your code after the last checkbox setting. Be careful! Then change the <code>id</code>, <code>default</code>,
+              and <code>label</code> values and <strong>SAVE</strong>.</p>
+            <img src="framework/img/workshop/product-settings-paste.png">
+          </div>
+        </section>
+
+        <section class="slide">
+          <h2>Exercise #11: Make a theme setting</h2>
+
+          <h3>We have added our setting. Now we need to use it.</h3>
+          <p>Step 6: Scroll up to the product SKU code you added in exercise 4 and wrap the code in an <code>if</code> statement
+          that checks the value of the new <code>checkbox</code> setting.</p>
+          <div class="delayed">
+            <pre>
+              <code>
+{% if section.settings.show_sku %}
+  &lt;h4>SKU: {{ product.selected_or_first_available_variant.sku }}&lt;/h4>
+{% endif %}
+              </code>
+            </pre>
+          </div>
+
+          <div class="row delayed">
+            <p>Step 7: Save your edits and test your new setting in the theme editor!</p>
+            <img src="framework/img/workshop/new-sku-settings.png">
+          </div>
+        </section>
+
+        <section class="slide centered">
+          <h1>Nicely done!</h1>
+          <img src="framework/img/workshop/labeouf-clapping.gif">
+        </section>
+
         <section class="slide title">
             <h1>Bogus Gateway</h1>
             <h2>Trying out test orders</h2>
@@ -2119,12 +2190,12 @@ Capt. Vinay
             <h2 class="heading-bg">
                 <span>Building a store with Shopify</span><br>
             </h2>
-            <h3><span>with</span> Nathan Ferguson</h3>
+            <h3><span>with</span> Vinay Punwani</h3>
 
-             <img class="instructor-img" src="framework/img/workshop/nathan.png" alt="Nathan Ferguson">
+             <img class="instructor-img" src="framework/img/workshop/vinay.png" alt="Vinay Punwani">
             <ul>
-                <li><i class="fa fa-desktop"></i><a href="#">nathanpjf.com</a></li>
-                <li><i class="fa fa-twitter"></i><a href="http://twitter.com/">@NathanPJF</a></li>
+                <li><i class="fa fa-desktop"></i><a href="#">shopify.ca</a></li>
+                <li><i class="fa fa-twitter"></i><a href="http://twitter.com/">@Vinay24</a></li>
             </ul>
 
             <p class="attribution">Slide presentation created with <a href="https://github.com/LeaVerou/csss">Lea Verou's CSS-based SlideShow System</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>.</p>
