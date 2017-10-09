@@ -9,7 +9,7 @@
 *, *:before, *:after {
   box-sizing: border-box; }
 
-/* updated clearfix hack: 
+/* updated clearfix hack:
 http://css-tricks.com/snippets/css/clear-fix/ */
 .group:after {
   content: "";
@@ -170,9 +170,9 @@ table img {
 .delayed-children > .displayed {
   opacity: 1; }
 
-/* 
+/*
 Background color style for headings
-Use spans wrap inside of a heading for div. 
+Use spans wrap inside of a heading for div.
 e.g.
 <h1 class="title-bg">
   <span>Welcome to </span><br>
@@ -218,9 +218,13 @@ e.g.
     color: #ffffff; }
   .intro .instructor-img {
     border-radius: 50%;
-    width: 100px;
+    width: 114px;
+    height: 105px;
     float: left;
     margin-right: 20px; }
+  .intro .instructor-info {
+    display: flex;
+    align-items: center; }
   .intro h2 {
     margin-bottom: 20px;
     color: #ffffff; }
