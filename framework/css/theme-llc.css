@@ -218,8 +218,9 @@ e.g.
     color: #ffffff; }
   .intro .instructor-img {
     border-radius: 50%;
-    width: 114px;
-    height: 105px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     float: left;
     margin-right: 20px; }
   .intro .instructor-info {
