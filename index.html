@@ -1287,37 +1287,12 @@ Capt. Vinay
   }
 }
 
-.collection-description {
-  margin-bottom: $gutter-site-mobile;
-  margin-top: $gutter-site-mobile;
-
-  @include media-query($medium-up) {
-    margin-bottom: $section-spacing-small;
-    margin-top: $section-spacing-small;
-  }
-}
-
 .collection-hero__image {
+  height: 300px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 300px;
   opacity: 1;
-
-  @include media-query($small) {
-    height: 180px;
-  }
-}
-
-.collection-hero__title-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: $color-image-overlay;
-  opacity: $opacity-image-overlay;
 }
 
 .collection-hero__title {
@@ -1325,13 +1300,29 @@ Capt. Vinay
   color: $color-overlay-title-text;
   width: 100%;
   text-align: center;
-  left: 0;
-  right: 0;
-  top: 50%;
-  @include transform(translateY(-50%));
+  left: 0; right: 0; top: 50%;
+  @include transform(translateY(-50%));  
 
   @include media-query($medium-up) {
     font-size: em($font-size-header + 6);
+  }
+}
+
+.collection-hero__title-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: $color-image-overlay;
+  opacity: $opacity-image-overlay;
+}
+
+.collection-description {
+  margin-bottom: $gutter-site-mobile;
+  margin-top: $gutter-site-mobile;  
+
+  @include media-query($medium-up) {
+    margin-bottom: $section-spacing-small;
+    margin-top: $section-spacing-small;
   }
 }
                 </code></pre>
@@ -1345,7 +1336,7 @@ Capt. Vinay
 
         <section class="slide">
           <h2>Exercise #6: Collection page hero images</h2>
-          <img class="center" src="framework/img/workshop/collection-image-result.png">
+          <img class="center w75" src="framework/img/workshop/collection-image-result.png">
         </section>
 
         <section class="slide centered">
@@ -1361,7 +1352,7 @@ Capt. Vinay
             <h2>Responsive Web Design</h2>
             <p>What does our new collection template look like on smaller devices?</p>
 
-            <img src="framework/img/workshop/theme-editor-mobile.png" class="center">
+            <img src="framework/img/workshop/theme-editor-mobile.png" class="center w75">
         </section>
 
         <section class="slide">
@@ -1370,9 +1361,16 @@ Capt. Vinay
 
             <h3>theme.scss.liquid</h3>
             <pre><code class="hljs css">
-/* Example for small devices: */
-@include media-query($small) {
-  height: 180px;
+.collection-hero__image {
+  height: 180px; /* For small screens */
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+
+  @media only screen and (min-width: 750px) {
+    height: 300px; /* For larger screens */
+  }
 }
             </code></pre>
         </section>
@@ -1510,17 +1508,19 @@ Capt. Vinay
                 <li>Style our new call to action with some CSS.</li>
             </ul>
 
-            <img src="framework/img/workshop/discount-example.png" class="center delayed">
+            <img src="framework/img/workshop/discount-example.png" class="center delayed w75">
 
         </section>
 
         <section class="slide">
             <h2>Make a discount code</h2>
 
-            <p>Code: <code>home4holidays</code></p>
-            <p>Type: <code>% Discount</code> for products in the the <code>Household</code> collection.</p>
-
-            <img src="framework/img/workshop/new-discount-code.png" class="center">
+            <ul>
+                <li>Code: <code>home4holidays</code></li>
+                <li>Options: <code>20%</code> off</li>
+                <li>Applies to: Products in the the <code>Household</code> collection.</li>
+            </ul>
+            <img src="framework/img/workshop/new-discount-code.png" class="center w75">
 
         </section>
 
@@ -1577,14 +1577,14 @@ Capt. Vinay
             <h2>Exercise #7: Show a discount code</h2>
             <h3>product-template.liquid</h3>
 
-            <p>Place the for-loop below the product SKU text from earlier.</p>
+            <p>Place the for-loop below the product title.</p>
             <pre><code class="hljs">
 {% for collection in product.collections %}
   {% if collection.title == 'Household' %}
     &lt;div class="special-discount"&gt;
-      &lt;span class="special-discount__message"&gt;
+      &lt;p class="special-discount__message"&gt;
         Enter &lt;span class="special-discount__code"&gt;home4holidays&lt;/span&gt; at checkout for 20% off this item
-      &lt;/span&gt;
+      &lt;/p&gt;
     &lt;/div&gt;
   {% endif %}
 {% endfor %}
@@ -1605,7 +1605,6 @@ Capt. Vinay
 /* === Special discount === */
 
 .special-discount {
-  text-align: center;
   margin: 2em auto;
 }
 
@@ -1615,6 +1614,7 @@ Capt. Vinay
   background: #26863d;
   color: white;
   font-weight: normal;
+  display: inline-block;
 }
 
 .special-discount__code {
