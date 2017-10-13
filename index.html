@@ -1288,7 +1288,7 @@ Capt. Vinay
 }
 
 .collection-hero__image {
-  height: 300px;
+  min-height: 300px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1362,14 +1362,14 @@ Capt. Vinay
             <h3>theme.scss.liquid</h3>
             <pre><code class="hljs css">
 .collection-hero__image {
-  height: 180px; /* For small screens */
+  min-height: 180px; /* For small screens */
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 1;
 
   @media only screen and (min-width: 750px) {
-    height: 300px; /* For larger screens */
+    min-height: 300px; /* For larger screens */
   }
 }
             </code></pre>
@@ -1544,12 +1544,12 @@ Capt. Vinay
             <h2>Introducing the For-loop</h2>
 
             <p>Let's build a <a href="https://docs.shopify.com/themes/liquid-documentation/tags/iteration-tags#for" alt="Liquid For Loops">for loop</a> based on our pseudo code.</p>
-            <p>What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">product liquid object</a> can we use to get information on a product's collections?</p>
+            <p>What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/product">product property</a> can we use to get information on a product's collections?</p>
 
             <div class="delayed">
               <p>Answer: <code>{{ product.collections }}</code></p>
               <hr>
-              <p>What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/collection">collection object</a> tells us the title?</p>
+              <p>What <a href="https://docs.shopify.com/themes/liquid-documentation/objects/collection">collection property</a> tells us the title?</p>
             </div>
             <div class="delayed">
               <p>Answer: <code>{{ collection.title }}</code></p>
@@ -1683,47 +1683,36 @@ Capt. Vinay
 
         <section class="slide">
             <h2>Exercise #8: New product template</h2>
-            <h3>product.info-only.liquid</h3>
-
-            <ul>
-              <li>Modify the new template to include an alternate section. <code>{% section 'product-template-info-only' %}</code></li>
-              <li>Add a new section with that name (it will be blank) and copy/paste in the old <code>'product-template'</code> section code
-              <li>Delete the product's price information from the new section code: <code>&lt;div class="product-single__prices"&gt;...&lt;/div&gt;</code></li>
-              <li>Delete the "Add to cart" button: <code>&lt;button type="submit" name="add" id="AddToCart" ... &lt;/button&gt;</code></li>
-              <li>Insert a new heading where the button was: <code>&lt;h3 class="btn"&gt;Coming soon!&lt;/h3&gt;</code>
-              <li>Remember to save both templates: <code>Templates/product.info-only.liquid</code> and <code>Sections/product-template-info-only.liquid</code>.</li>
-            </ul>
-
-            <div class="delayed">
-              <h3>Products</h3>
-              <p>Edit the product titled <b>Black Bead Hoop Earrings - Swaziland</b>.</p>
-              <p>Set its visibility to <code>Online store</code> and the template to <code>product.info-only</code>.</p>
-              <div class="row">
-                <div class="col col--one-half">
-                  <img src="framework/img/workshop/visible-online.png">
-                </div>
-                <div class="col col--one-half">
-                  <img src="framework/img/workshop/change-template.png">
-                </div>
+            <p>Edit the product titled <b>Black Bead Hoop Earrings - Swaziland</b>.</p>
+            <p>Set its visibility to <code>Online store</code> and the template to <code>product.info-only</code>.</p>
+            <br>
+            <div class="row">
+              <div class="col col--one-half">
+                <img src="framework/img/workshop/visible-online.png" class="w75">
+              </div>
+              <div class="col col--one-half">
+                <img src="framework/img/workshop/change-template.png" class="w75">
               </div>
             </div>
         </section>
 
         <section class="slide">
             <h2>Exercise #8: New product template</h2>
+            <h3>product.info-only.liquid</h3>
+
+            <ul>
+              <li>Modify the new template to include a new section: <code>{% section 'product-info-only' %}</code></li>
+              <li>Add a new section with that name, then paste in the contents of the <code>product-template</code> section file.</li>
+              <li>Delete the product's price information from the new section: <code>&lt;div itemprop="offers" itemscope itemtype="http://schema.org/Offer"&gt;...&lt;/div&gt;</code></li>
+              <li>Insert a new heading where the button was: <code>&lt;p class="announcement"&gt;Coming soon!&lt;/p&gt;</code>
+              <li>Add some of your own styles in the CSS.</li>
+            </ul>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #8: New product template</h2>
             <br>
-            <img src="framework/img/workshop/emerald-studs.png" class="center">
-
-            <p class="presenter-notes">
-                You now seem to have the choice between customizing one template if a bunch
-                of conditional statements, or to make a bunch of unique templates.
-
-                You wouldn't want to make a bunch of unique ones, because maybe you want some
-                of those conditional rules to apply to ALL product web pages.
-
-                Alternate templates are best served when there are drastic differences in
-                the page layout.
-            </p>
+            <img src="framework/img/workshop/product-coming-soon.png" class="center w75">
         </section>
 
         <section class="slide title">
@@ -1774,8 +1763,6 @@ Capt. Vinay
             <p>We use <code>include</code> to pull certain <b>Snippet</b> files into templates.</p>
 
             <div class="delayed">
-              <br>
-              <h2>Using a <strong>Snippet</strong></h2>
               <h3>collection-template.liquid</h3>
               <pre><code class="hljs">
 {% if paginate.pages > 1 %}
@@ -1784,8 +1771,6 @@ Capt. Vinay
               </code></pre>
               <img src="framework/img/workshop/pagination-highlight.png" class="center">
             </div>
-
-            <p class="delayed">With this piece of code, we can add pagination to most pages.</p>
 
             <p class="presenter-notes">
                 We are clicking ABOVE the product rows because we want to know
@@ -1796,7 +1781,7 @@ Capt. Vinay
         <section class="slide">
             <h2>Theme Tags</h2>
             <p>Let's see if we can determine where the home page collections are coded!</p>
-            <p class="delayed">Open up the <strong>Section</strong> titled <code>collection.liquid</code> and find where the code is displaying products.</p>
+            <p>Open up the <strong>Section</strong> titled <code>collection.liquid</code> and find where the code is displaying products.</p>
             <div class="delayed">
             <hr>
               <pre>
@@ -1810,7 +1795,6 @@ Capt. Vinay
 &lt;/div>
                 </code>
             </pre>
-
             <p>The <code>product-card-grid.liquid</code> Snippet will include all the code to display a product's image, title, price, vendor, etc.</p>
 
             <p class="presenter-notes">
@@ -1831,7 +1815,7 @@ Capt. Vinay
             <div class="delayed">
               <pre>
                   <code>
-&&lt;div class="grid grid--uniform grid--view-items">
+&lt;div class="grid grid--uniform grid--view-items">
   {% for product in collection.products limit: 12 %}
     &lt;div class="grid__item {{ grid_item_width }}">
       {% include 'product-card-grid', grid_image_width: image_size %}
@@ -1882,7 +1866,7 @@ Capt. Vinay
 
         <section class="slide">
             <h2>Exercise #10: Modify a Snippet</h2>
-            <h3>Answers:</h3>
+            <h3>Answer: Product vendor</h3>
             <div class="delayed">
               <p>There is a theme setting that controls whether to output the vendor.</p>
               <pre><code>
@@ -1891,16 +1875,6 @@ Capt. Vinay
 {% endif %}
               </code></pre>
             </div>
-            <br>
-            <div class="delayed">
-              <p>Wrap all the pricing information in an if/unless-statement that checks the product template.</p>
-            <pre><code>
-{% unless product.template_suffix == 'info-only' %}
-  &lt;div class="grid-view-item__meta">
-    {% include 'product-price' %}
-  &lt;/div>
-{% endunless%}
-            </code></pre>
 
           <p class="presenter-notes">
             Show group where the theme setting is.  Show how they can read the docs to understand product.template_suffix
@@ -1908,14 +1882,28 @@ Capt. Vinay
         </section>
 
         <section class="slide">
+                <h2>Exercise #10: Modify a Snippet</h2>
+                <h3>Answer: Hide price</h3>
+                <div class="delayed">
+                  <p>Wrap all the pricing information in an if/unless-statement that checks the product template.</p>
+                <pre><code>
+    {% unless product.template_suffix == 'info-only' %}
+      &lt;div class="grid-view-item__meta">
+        {% include 'product-price' %}
+      &lt;/div>
+    {% endunless%}
+                </code></pre>
+            </section>
+
+        <section class="slide">
             <h2>Exercise #10: Modify a Snippet</h2>
-            <h3>Answers:</h3>
+            <h3>Answer: Sustainable message</h3>
             <div class="delayed">
               <p>Use <code>contains</code> to check whether the list of tags includes "sustainable".</p>
 
               <pre><code>
 {% if product.tags contains 'sustainable' %}
-  &lt;p&gt;This is a sustainable product.&lt;/p&gt;
+  &lt;p&gt;Sustainable product&lt;/p&gt;
 {% endif%}
               </code></pre>
             </div>
@@ -1926,7 +1914,7 @@ Capt. Vinay
               <pre><code>
 {% if product.tags contains 'sustainable' %}
   &lt;p&gt;
-    &lt;img src="{{ 'icon-leaf.png' | asset_url }}" /&gt; This is a sustainable product.
+    &lt;img src="{{ 'icon-leaf.png' | asset_url }}" /&gt; Sustainable product
   &lt;/p&gt;
 {% endif%}
               </code></pre>
