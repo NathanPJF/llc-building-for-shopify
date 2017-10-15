@@ -1929,33 +1929,43 @@ Capt. Vinay
           <h2>Theme settings</h2>
           <div class="row">
             <div class="col col--two-thirds">
-              <p>You can make new theme settings by editing:</p>
-              <blockquote>
-                <p class="delayed">1. The <code>settings_schema.json</code> file in your theme's <code>Config</code> folder for general settings.</p>
-                <p class="delayed">2. The <code>section</code> files in your theme's <code>Sections</code> folder for section specific settings.</p>
-              </blockquote>
-              <p class="delayed">Examples of input settings include:</p>
-              <ul class="delayed">
-                <li>Color picker</li>
-                <li>Simple text box</li>
-                <li>Page/product/blog dropdowns</li>
+              <p>Examples of theme settings include:</p>
+              <ul>
                 <li>Image upload</li>
+                <li>Color picker</li>
+                <li>Text box</li>
+                <li>Page/product/blog dropdowns</li>
               </ul>
-              <p class="delayed">All of the above could be general or specific settings depending on the context!</p>
-
-              <p class="delayed">You can see all the options in <a href="https://help.shopify.com/themes/development/storefront-editor/settings-schema">the online documentation</a>.</p>
+              <p>You can see all the options in <a href="https://help.shopify.com/themes/development/storefront-editor/settings-schema">the online documentation</a>.</p>
            </div>
            <div class="col col--one-third">
-             <img src="framework/img/workshop/header-theme-settings.png">
+             <img class="w75" src="framework/img/workshop/header-theme-settings.png">
            </div>
          </div>
 
         </section>
 
         <section class="slide">
+            <h2>Theme settings</h2>
+            <div class="row">
+                <div class="col col--two-thirds">
+                <p>You can make <b>new</b> theme settings in two locations:</p>
+                <blockquote>
+                    <p class="delayed">1. For general sections, edit the <code>settings_schema.json</code> file in the <code>config</code> folder.</p>
+                    <p class="delayed">2. For section settings, edit the <code>{% schema %}</code> of sections in the <code>Sections</code> folder.</p>
+                </blockquote>
+                </div>
+                <div class="col col--one-third">
+                    <img class="" src="framework/img/workshop/general-theme-settings.png">
+                </div>
+            </div>
+
+        </section>
+
+        <section class="slide">
           <h2>Exercise #11: Make a theme setting</h2>
 
-          <p>Our product pages all have SKU's because of the code changes from exercise 4.</p>
+          <p>In exercise 5, we added a link on all product pages to a collection of the product's type.</p>
           <p class="delayed">But what if we change our mind about displaying the SKU?</p>
 
           <p class="delayed">Instead of deleting the SKU information from exercise 4, let's make a setting that we can toggle on/off.</p>
