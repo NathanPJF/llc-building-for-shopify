@@ -1885,7 +1885,7 @@ Capt. Vinay
                 <h2>Exercise #10: Modify a Snippet</h2>
                 <h3>Answer: Hide price</h3>
                 <div class="delayed">
-                  <p>Wrap all the pricing information in an if/unless-statement that checks the product template.</p>
+                  <p>Wrap all the pricing information in an <code>unless</code> statement that checks the product template.</p>
                 <pre><code>
     {% unless product.template_suffix == 'info-only' %}
       &lt;div class="grid-view-item__meta">
@@ -1951,7 +1951,7 @@ Capt. Vinay
                 <div class="col col--two-thirds">
                 <p>You can make <b>new</b> theme settings in two locations:</p>
                 <blockquote>
-                    <p class="delayed">1. For general sections, edit the <code>settings_schema.json</code> file in the <code>config</code> folder.</p>
+                    <p class="delayed">1. For general settings, edit the <code>settings_schema.json</code> file in the <code>config</code> folder.</p>
                     <p class="delayed">2. For section settings, edit the <code>{% schema %}</code> of sections in the <code>Sections</code> folder.</p>
                 </blockquote>
                 </div>
@@ -1965,70 +1965,78 @@ Capt. Vinay
         <section class="slide">
           <h2>Exercise #11: Make a theme setting</h2>
 
-          <p>In exercise 5, we added a link on all product pages to a collection of the product's type.</p>
-          <p class="delayed">But what if we change our mind about displaying the SKU?</p>
-
-          <p class="delayed">Instead of deleting the SKU information from exercise 4, let's make a setting that we can toggle on/off.</p>
-
-          <img class="delayed center" src="framework/img/workshop/setting-product-sku.png">
+          <p>In exercise 5, we added a link on all product pages based the product's type.</p>
+          <p>We now want to be able to control whether to display this from our theme editor.</p>
+          <br>
+          <img class="center" src="framework/img/workshop/highlight-type-link.png">
         </section>
 
         <section class="slide">
           <h2>Exercise #11: Make a theme setting</h2>
 
-          <p>Step 1: <a href="https://help.shopify.com/themes/development/storefront-editor/settings-schema">Online documentation</a> for theme settings.</p>
-          <p class="delayed">Step 2: A <code>checkbox</code> will serve our purposes well since we want to toggle the setting on/off; so let's copy that format!</p>
-          <div class="delayed">
-            <pre>
-              <code>
+          <p>From the <a href="https://help.shopify.com/themes/development/theme-editor/settings-schema">online documentation</a>, which input type setting would be best?</p>
+        
+            <div class="delayed">
+                <p><b>Answer</b>: A <code>checkbox</code>.  See the <code>schema</code> in <a href="https://help.shopify.com/themes/development/theme-editor/settings-schema#checkbox">the documentation</a>.</p>
+                <hr>
+            </div>
+
+            <p class="delayed">To which section file do we need to add this new <code>checkbox</code> input?</p>
+            <div class="delayed">
+                <p><b>Answer</b>: <code>product-template.liquid</code> and <code>product-info-only.liquid</code>. </p>
+                <p>We now have two product templates; but for the exercise, we'll modify only one.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+          <h2>Exercise #11: Make a theme setting</h2>
+
+          <h3>product-template.liquid</h3>
+
+          <div class="row delayed">
+          <p>Add a new setting to the <code>{% schema %}</code> in the section file to display the following.</p>
+            <img src="framework/img/workshop/show-type-link.png">
+          </div>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #11: Make a theme setting</h2>
+            <h3>Schema changes</h3>
+            <div class="delayed">
+<pre>
+    <code>
 {
   "type": "checkbox",
-  "id": "collection_sort",
-  "default": true,
-  "label": "Display sort by?"
+  "id": "show_type_link",
+  "label": "Show type link",
+  "default": false
 }
-              </code>
-            </pre>
-          </div>
-          <p class="delayed">Step 3: Find a logical location for your new setting. Is this a general or specific setting?</p>
+    </code>
+</pre>
+                <p>The <code>id</code> value is up to the developer (you) to set. It can be named anything.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <h2>Exercise #11: Make a theme setting</h2>
+            <br>
+            <img class="center w50" src="framework/img/workshop/not-done-yet.gif" />
         </section>
 
         <section class="slide">
           <h2>Exercise #11: Make a theme setting</h2>
 
-          <h3>This is a product-specific setting.</h3>
-
-          <div class="row delayed">
-          <p>Step 4: Navigate to the <code>product-template.liquid</code> section file.</p>
-            <img src="framework/img/workshop/product-template-highlight.png">
-          </div>
-
-          <div class="row delayed">
-            <p>Step 5: Paste your code after the last checkbox setting. Be careful! Then change the <code>id</code>, <code>default</code>,
-              and <code>label</code> values and <strong>SAVE</strong>.</p>
-            <img src="framework/img/workshop/product-settings-paste.png">
-          </div>
-        </section>
-
-        <section class="slide">
-          <h2>Exercise #11: Make a theme setting</h2>
-
-          <h3>We have added our setting. Now we need to use it.</h3>
-          <p>Step 6: Scroll up to the product SKU code you added in exercise 4 and wrap the code in an <code>if</code> statement
-          that checks the value of the new <code>checkbox</code> setting.</p>
+          <p>Use the new theme setting in the markup of <code>product-template.liquid</code>. Check the documentation on <a href="https://help.shopify.com/themes/development/theme-editor/sections#using-section-schema-tags">using section schema</a> for guidance.</p>
+          <p class="delayed">Hint: You will need to use a <a href="https://help.shopify.com/themes/liquid/tags/control-flow-tags">control flow tag</a> in your solution.</p>
           <div class="delayed">
             <pre>
-              <code>
-{% if section.settings.show_sku %}
-  &lt;h4>SKU: {{ product.selected_or_first_available_variant.sku }}&lt;/h4>
+              <code class="hljs xml">
+{% if section.settings.show_type_link == true %}
+  &lt;p>See more {{ product.type | downcase | link_to_type }} here&lt;/p>
 {% endif %}
               </code>
             </pre>
-          </div>
-
-          <div class="row delayed">
-            <p>Step 7: Save your edits and test your new setting in the theme editor!</p>
-            <img src="framework/img/workshop/new-sku-settings.png">
+            <p>Test it out! Did it work?</p>
           </div>
         </section>
 
@@ -2048,12 +2056,12 @@ Capt. Vinay
             <p>You may want to try test orders in your store for a number of reasons:</p>
 
             <ul>
-                <li>See order <a href="https://docs.shopify.com/manual/settings/notifications">confirmation emails</a>.</li>
-                <li>Trying out <a href="https://docs.shopify.com/manual/configuration/store-customization/page-specific/cart-page/add-a-gift-wrap-option">cart modifications</a>.</li>
-                <li>Customizing a <a href="https://docs.shopify.com/manual/configuration/store-customization/page-specific/checkout-page/thankyou-page">Thank You page</a>.</li>
+                <li>Customizing order <a href="https://help.shopify.com/manual/sell-online/notifications">confirmation emails</a>.</li>
+                <li>Trying out <a href="https://help.shopify.com/themes/customization/cart/add-gift-wrap-option">cart modifications</a>.</li>
+                <li>Seeing the <a href="https://help.shopify.com/manual/orders/status-tracking">Order Status page</a>.</li>
             </ul>
 
-            <p>The <b>best way</b> to do that in a development shop is by activating the <a href="https://docs.shopify.com/manual/your-store/orders/test-orders#bogus-gateway">Bogus Gateway</a>.</p>
+            <p>The <b>best way</b> to do that in a development shop is by activating the <a href="https://help.shopify.com/manual/sell-online/checkout-settings/test-orders#bogus-gateway">Bogus Gateway</a>.</p>
 
             <p>Your development shop will only allow you to make 10 "real" transactions, but you
             can make <i>unlimited</i> transactions through the Bogus Gateway.</p>
@@ -2067,22 +2075,8 @@ Capt. Vinay
         </section>
 
         <section class="slide ">
-            <h2>Bogus Gateway Setup</h2>
-
-            <p>From your dashboard, fo to <b>Settings</b> > <b>Payments</b></p>
-            <ul>
-                <li>Edit and deactivate your current payment gateway (if applicable).</li>
-                <li>Set "(for testing) Bogus Gateway" as your payment gateway.</li>
-                <li>Press <b>Activate</b>.</li>
-            </ul>
-            <img alt="Bogus Gateway Setup" src="framework/img/workshop/bogus-gateway-setup.png" class="center" >
-
-        </section>
-
-        <section class="slide ">
             <h2>Final exercise: Do some shopping</h2>
-
-            <p>Add some items to your cart and purchase them using the Bogus Gateway</p>
+            <p>Set up your <a href="https://help.shopify.com/manual/sell-online/checkout-settings/test-orders#bogus-gateway">bogus payment gateway</a>, then purchase some items from your storefront.</p>
             <p><b>At checkout:</b></p>
 
             <ul>
@@ -2098,33 +2092,28 @@ Capt. Vinay
         <section class="slide" data-markdown>
             ##Shopify Resources
 
-            * [Shopify Liquid documentation](https://docs.shopify.com/themes/liquid-documentation/basics): Examples and use-cases
-
-            * [Shopify forums](https://ecommerce.shopify.com/forums): Answers from Shopify employees, Experts, and other Partners
+            * [Shopify Liquid documentation](https://help.shopify.com/themes/liquid/basics): Examples and use-cases
 
             * [Liquid Cheat Sheet](https://www.shopify.ca/partners/shopify-cheat-sheet): Most common Liquid items at a glance
 
             * [Shopify Partners Blog](http://www.shopify.com/partners/blog): Designing, developing and selling with Shopify
 
-            ##Other helpful resources
-
-            * [Sassmeister](http://sassmeister.com/): Test your Sassy CSS before hitting Save
+            * [Shopify forums](https://ecommerce.shopify.com/forums): Answers from Shopify employees, Experts, and other Partners
 
         </section>
 
         <section class="slide">
             <h2>Cool! Now what do I do?</h2>
             <ul>
-              <li><b>Practice</b>: Try more customizations from Shopify's <a href="https://docs.shopify.com/support/your-store/products/how-do-i-add-tabs-to-product-descriptions" alt="How to add tabbed description">online tutorials</a></li>
+              <li><b>Practice</b>: Try more customizations from Shopify's <a href="https://help.shopify.com/themes/customization">list of common modifications</a>.</li>
               <li>Experiment with some other <a href="https://themes.shopify.com/designers/shopify">free Shopify themes</a></li>
-              <li>Take a look at adding <a href="https://docs.shopify.com/themes/theme-development/storefront-editor/settings-schema">settings to the Theme editor</a> (Advanced, but useful!)</li>
               <li>Learn how to <a href="https://docs.shopify.com/themes/theme-development/translations/locale-files">write new translation tags</a> for the Language editor</li>
             </ul>
             <br>
             <h3>If you're looking to dive further into the Partner program</h3>
             <ul>
-              <li><a href="https://docs.shopify.com/partners/partner-resources/for-partners/let-people-know">Branding yourself</a> as a Partner</li>
-              <li>Become a <a href="https://experts.shopify.com/setup-experts">Setup Expert</a> after 5 shops</li>
+              <li>Learn <a href="https://help.shopify.com/partners/getting-started">how to get started</a> as a Partner</li>
+              <li>Become a <a href="https://experts.shopify.com/setup-experts">Shopify Setup Expert</a> after 5 active shops</li>
             </ul>
 
         </section>
